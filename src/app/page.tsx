@@ -36,7 +36,15 @@ export default function Landing() {
           </Text>
           <Box alignSelf="flex-end">
             <Link href="/profiling">
-              <Button mt={2} size="lg" variant="solid" colorScheme="green">
+              <Button
+                mt={2}
+                size="lg"
+                variant="solid"
+                backgroundColor="#253610"
+                color="#F0F1E7"
+                colorScheme="blackAlpha"
+                borderRadius={20}
+              >
                 Start
               </Button>
             </Link>
