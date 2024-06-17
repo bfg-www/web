@@ -1,6 +1,6 @@
 import { Button, Grid, GridItem, HStack, Text, VStack } from '@chakra-ui/react'
 import Image from 'next/image'
-import ecocentsLogo from '/public/ecocents-icon-landing.png'
+import EcoCentsLogo from './ui/eco-cents-logo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
 
 export default function Landing() {
@@ -17,17 +17,7 @@ export default function Landing() {
         alignContent="center"
       >
         <VStack alignItems="flex-start" p={20}>
-          <HStack>
-            <Image
-              src={ecocentsLogo}
-              alt="Logo of web platform"
-              width={40}
-              height={50}
-            />
-            <Text fontSize="2xl" color="#253610">
-              EcoCents
-            </Text>
-          </HStack>
+          <EcoCentsLogo />
           <Text fontSize="4xl" color="#253610">
             Get better energy info.
           </Text>
@@ -46,12 +36,7 @@ export default function Landing() {
           </Button>
         </VStack>
       </GridItem>
-      <GridItem
-        backgroundColor="white"
-        area={'hero'}
-        display="block"
-        position="relative"
-      >
+      <GridItem backgroundColor="white" area={'hero'} position="relative">
         <Image src={ecocentsHeroImage} alt="Web platform's hero image" fill />
       </GridItem>
     </Grid>
