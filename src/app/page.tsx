@@ -33,7 +33,7 @@ export default function Landing() {
           </Text>
           <Text fontSize="2xl" color="#4F772D">
             Cost-effective, energy-efficient, and personalised for you. Choosing
-            green appliances won't be frustrating again.
+            the right green appliance has never been faster.
           </Text>
           <Button
             mt={2}
