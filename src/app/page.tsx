@@ -2,6 +2,7 @@ import { Button, Grid, GridItem, HStack, Text, VStack } from '@chakra-ui/react'
 import Image from 'next/image'
 import EcoCentsLogo from './ui/eco-cents-logo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
+import Link from 'next/link'
 
 export default function Landing() {
   return (
@@ -25,15 +26,17 @@ export default function Landing() {
             Cost-effective, energy-efficient, and personalised for you. Choosing
             the right green appliance has never been faster.
           </Text>
-          <Button
-            mt={2}
-            size="lg"
-            variant="solid"
-            alignSelf="self-end"
-            colorScheme="green"
-          >
-            Start
-          </Button>
+          <Link href="/profiling">
+            <Button
+              mt={2}
+              size="lg"
+              variant="solid"
+              alignSelf="self-end"
+              colorScheme="green"
+            >
+              Start
+            </Button>
+          </Link>
         </VStack>
       </GridItem>
       <GridItem backgroundColor="white" area={'hero'} position="relative">
