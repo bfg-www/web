@@ -33,7 +33,7 @@ export const INSTALLATION_LOCATION_OPTIONS = [
 ]
 
 {
-  /* Page to handle 
+  /* Page manages the state for form submission, mock loading, and education tidbit visibility. 
     - formSubmitted is false -> whether form component renders or is hidden depend when 'Next' is clicked
     - formSubmitted is true, isMockLoading set to true, set timeout for 3 seconds -> loading component (controlled by FE since loading is independent of BE's computation of the inputs)
     - education tidbit state (component controlled by FE, "Show me my results!" btn to trigger next route/page)
@@ -43,33 +43,38 @@ export default function Page() {
   const [isFormSubmitted, setIsFormSubmitted] = useState<Boolean>(false)
   const [isMockLoading, setIsMockLoading] = useState<Boolean>(false)
 
+  const handleFormSubmit = (data: FormValues) => {
+    // handle form submission to BE
+    // setIsFormSubmitted(true)
+    console.log('handleSubmit called')
+    console.log('data:', data)
+  }
+
   return (
     <>
-      {!isFormSubmitted && <EnergyProfileForm />}
-      {isFormSubmitted && <FullscreenSpinner />}
+      {!isFormSubmitted && <EnergyProfileForm onSubmit={handleFormSubmit} />}
+      {/* {isFormSubmitted && <FullscreenSpinner />} */}
     </>
   )
 }
 
-function FullscreenSpinner() {}
+interface FormValues {
+  householdType: string
+  airconCount: string
+  installationLocation: string
+  usageHours: string
+}
 
-function EnergyProfileForm() {
+function EnergyProfileForm({
+  onSubmit,
+}: {
+  onSubmit: (data: FormValues) => void
+}) {
   const [householdType, setHouseholdType] = useState<string>('four_room')
   const [airconCount, setAirconCount] = useState<string>('1')
   const [installationLocation, setInstallationLocation] =
     useState<string>('living_room')
   const [usageHours, setUsageHours] = useState<string>('8')
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault()
-    // handle form submission to BE
-    console.log('handleSubmit called', {
-      householdType,
-      airconCount,
-      installationLocation,
-      usageHours,
-    })
-  }
 
   return (
     <VStack
@@ -80,7 +85,18 @@ function EnergyProfileForm() {
       spacing="100px"
     >
       <Flex borderWidth="2px">
-        <form onSubmit={() => {}} id="energy-profile-form">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            onSubmit({
+              householdType,
+              airconCount,
+              installationLocation,
+              usageHours,
+            })
+          }}
+          id="energy-profile-form"
+        >
           <VStack alignItems="flex-start">
             <Text
               fontSize="1xl"
@@ -196,8 +212,7 @@ function EnergyProfileForm() {
       <Box mt={10} mr="0" ml="auto" pr={10}>
         <Button
           type="submit"
-          onClick={handleSubmit}
-          form="edit-task-form"
+          form="energy-profile-form"
           rightIcon={<BiSolidRightArrow />}
           size="lg"
           variant="solid"
