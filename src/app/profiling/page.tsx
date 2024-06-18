@@ -44,6 +44,7 @@ export default function Page() {
   const [mockProgressStat, setMockProgressStat] = useState<number>(0)
 
   const handleFormSubmit = (data: FormValues) => {
+    // ************* JX TODO: call getDummyAircon(data) ************* //
     console.log('handleSubmit called')
     console.log('data:', data)
     console.log('set state transitions')
