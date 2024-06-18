@@ -15,6 +15,9 @@ const AIRCON_FILES = [
 const prisma = new PrismaClient()
 
 async function main() {
+  await prisma.aircon.deleteMany()
+  console.log('Deleted all aircon records')
+
   for (const file of AIRCON_FILES) {
     Papa.parse(fs.createReadStream(file), {
       delimiter: ',',
