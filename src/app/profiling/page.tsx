@@ -217,14 +217,8 @@ function EnergyProfileForm({
   const [usageHours, setUsageHours] = useState<string>('8')
 
   return (
-    <VStack
-      width="100%"
-      height="100%"
-      borderWidth="1px"
-      justifyContent="center"
-      spacing="100px"
-    >
-      <Flex borderWidth="2px">
+    <VStack width="100%" height="100%" justifyContent="center" spacing="100px">
+      <Flex>
         <form
           onSubmit={(e) => {
             e.preventDefault()
