@@ -1,7 +1,16 @@
-import { Button, Grid, GridItem, HStack, Text, VStack } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  HStack,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import Image from 'next/image'
-import ecocentsLogo from '/public/ecocents-icon-landing.png'
+import EcoCentsLogo from './ui/eco-cents-logo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
+import Link from 'next/link'
 
 export default function Landing() {
   return (
@@ -17,17 +26,7 @@ export default function Landing() {
         alignContent="center"
       >
         <VStack alignItems="flex-start" p={20}>
-          <HStack>
-            <Image
-              src={ecocentsLogo}
-              alt="Logo of web platform"
-              width={40}
-              height={50}
-            />
-            <Text fontSize="2xl" color="#253610">
-              EcoCents
-            </Text>
-          </HStack>
+          <EcoCentsLogo />
           <Text fontSize="4xl" color="#253610">
             Get better energy info.
           </Text>
@@ -35,23 +34,24 @@ export default function Landing() {
             Cost-effective, energy-efficient, and personalised for you. Choosing
             the right green appliance has never been faster.
           </Text>
-          <Button
-            mt={2}
-            size="lg"
-            variant="solid"
-            alignSelf="self-end"
-            colorScheme="green"
-          >
-            Start
-          </Button>
+          <Box alignSelf="flex-end">
+            <Link href="/profiling">
+              <Button
+                mt={2}
+                size="lg"
+                variant="solid"
+                backgroundColor="#253610"
+                color="#F0F1E7"
+                colorScheme="blackAlpha"
+                borderRadius={20}
+              >
+                Start
+              </Button>
+            </Link>
+          </Box>
         </VStack>
       </GridItem>
-      <GridItem
-        backgroundColor="white"
-        area={'hero'}
-        display="block"
-        position="relative"
-      >
+      <GridItem backgroundColor="white" area={'hero'} position="relative">
         <Image src={ecocentsHeroImage} alt="Web platform's hero image" fill />
       </GridItem>
     </Grid>
