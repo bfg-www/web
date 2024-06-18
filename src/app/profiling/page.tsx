@@ -145,7 +145,7 @@ function FullscreenSpinner({
           textAlign="center"
         >
           {
-            "Sit tight, we're crunching the numbers! \n\n Matching your energy profile against air-conditioners out there \n to find the right ones for you..."
+            "Then just sit tight, we're crunching the numbers! \n\n Matching your energy profile against air-conditioners out there \n to find the right ones for you..."
           }
         </Text>
       )}
