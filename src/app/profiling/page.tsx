@@ -239,7 +239,7 @@ function EnergyProfileForm({
               color="#F0F1E7"
               as="kbd"
             >
-              First, let's size your needs.
+              First, let's get your energy profile.
             </Text>
             <HStack mb={1}>
               <Text fontSize="4xl" mb={4} alignItems="center" color="#F0F1E7">
