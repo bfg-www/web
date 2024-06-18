@@ -3,17 +3,18 @@
 import {
   Box,
   Button,
+  CircularProgress,
+  CircularProgressLabel,
   Flex,
   FormControl,
   HStack,
-  Input,
   NumberInput,
   NumberInputField,
   Select,
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 import { BiSolidRightArrow } from 'react-icons/bi'
 
 export const HOUSEHOLD_TYPE_OPTIONS = [
@@ -49,22 +50,82 @@ interface FormValues {
 export default function Page() {
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false)
   const [isMockLoading, setIsMockLoading] = useState<boolean>(false)
+  //   const [showEducationTidbit, setShowEducationTidbit] = useState<boolean>(false)
+  const [mockProgressStat, setMockProgressStat] = useState<number>(0)
 
   const handleFormSubmit = (data: FormValues) => {
-    // setIsFormSubmitted(true)
     console.log('handleSubmit called')
     console.log('data:', data)
+    console.log('set state transitions')
+    setIsFormSubmitted(true)
+    setIsMockLoading(true)
+    setMockProgressStat(0)
+
+    const interval = setInterval(() => {
+      setMockProgressStat((prev) => {
+        if (prev >= 99) {
+          clearInterval(interval)
+          setIsMockLoading(false)
+          //   setShowEducationTidbit(false)
+        }
+        return prev + 1
+      })
+    }, 50) // 30ms * 100 = 3000ms (3 sec)
   }
 
   return (
     <>
       {!isFormSubmitted && <EnergyProfileForm onSubmit={handleFormSubmit} />}
-      {/* {isFormSubmitted && <FullscreenSpinner />} */}
+      <FullscreenSpinner
+        progress={mockProgressStat}
+        showLoadingText={isMockLoading}
+      />
     </>
   )
 }
 
-function FullscreenSpinner() {}
+function FullscreenSpinner({
+  progress,
+  showLoadingText,
+}: {
+  progress: number
+  showLoadingText: boolean
+}) {
+  return (
+    <VStack
+      width="100%"
+      height="100%"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <CircularProgress
+        value={progress}
+        trackColor="#4F772D"
+        color="#F0F1E7"
+        size="180px"
+        thickness="8px"
+      >
+        <CircularProgressLabel color="#F0F1E7">{`${progress}%`}</CircularProgressLabel>
+      </CircularProgress>
+      {showLoadingText && (
+        <Text
+          id="loading-text"
+          size="1xl"
+          as="kbd"
+          color="#F0F1E7"
+          whiteSpace="pre-line"
+          className="text-animate-blink"
+          textAlign="center"
+        >
+          {
+            "Sit tight, we're crunching the numbers! \n\n Matching your profile against air-conditioners out \n to find the right ones for you..."
+          }
+        </Text>
+      )}
+      {/* TODO: {progress === 100 && <EducationTidbit/>} */}
+    </VStack>
+  )
+}
 
 function EnergyProfileForm({
   onSubmit,
