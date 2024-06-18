@@ -14,6 +14,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { BiSolidRightArrow } from 'react-icons/bi'
 import { HiLightBulb } from 'react-icons/hi'
@@ -152,20 +153,22 @@ function FullscreenSpinner({
       {!showLoadingText && <EducationTidbit />}
       {!showLoadingText && (
         <Box mt={10} mr="0" ml="auto" pr={10}>
-          <Button
-            type="button"
-            rightIcon={<BiSolidRightArrow />}
-            size="lg"
-            variant="solid"
-            backgroundColor="#F0F1E7"
-            color="#253610"
-            colorScheme="whiteAlpha"
-            borderRadius={20}
-            paddingRight={4}
-            sx={{ fontSize: '20px' }}
-          >
-            See my personalised results
-          </Button>
+          <Link href="/profile">
+            <Button
+              type="button"
+              rightIcon={<BiSolidRightArrow />}
+              size="lg"
+              variant="solid"
+              backgroundColor="#F0F1E7"
+              color="#253610"
+              colorScheme="whiteAlpha"
+              borderRadius={20}
+              paddingRight={4}
+              sx={{ fontSize: '20px' }}
+            >
+              See my personalised results
+            </Button>
+          </Link>
         </Box>
       )}
     </VStack>
