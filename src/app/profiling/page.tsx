@@ -32,6 +32,13 @@ export const INSTALLATION_LOCATION_OPTIONS = [
   { label: 'kitchen', value: 'kitchen' },
 ]
 
+interface FormValues {
+  householdType: string
+  airconCount: string
+  installationLocation: string
+  usageHours: string
+}
+
 {
   /* Page manages the state for form submission, mock loading, and education tidbit visibility. 
     - formSubmitted is false -> whether form component renders or is hidden depend when 'Next' is clicked
@@ -40,11 +47,10 @@ export const INSTALLATION_LOCATION_OPTIONS = [
     */
 }
 export default function Page() {
-  const [isFormSubmitted, setIsFormSubmitted] = useState<Boolean>(false)
-  const [isMockLoading, setIsMockLoading] = useState<Boolean>(false)
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false)
+  const [isMockLoading, setIsMockLoading] = useState<boolean>(false)
 
   const handleFormSubmit = (data: FormValues) => {
-    // handle form submission to BE
     // setIsFormSubmitted(true)
     console.log('handleSubmit called')
     console.log('data:', data)
@@ -58,12 +64,7 @@ export default function Page() {
   )
 }
 
-interface FormValues {
-  householdType: string
-  airconCount: string
-  installationLocation: string
-  usageHours: string
-}
+function FullscreenSpinner() {}
 
 function EnergyProfileForm({
   onSubmit,
