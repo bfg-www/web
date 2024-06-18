@@ -11,9 +11,9 @@ datasource db {
 }
 
 model Aircon {
-  id          String   @id @default(cuid())
-  brand       String
-  model       String   @unique
-  greenTicks  Int
+  id                String @id @default(cuid())
+  brand             String
+  model             String @unique
+  greenTicks        Int
   annualConsumption Int
 }

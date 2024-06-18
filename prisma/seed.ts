@@ -22,23 +22,24 @@ async function main() {
       dynamicTyping: true,
       comments: '#',
       skipEmptyLines: true,
-      chunk: async (results: { data: any[], errors: any[], meta: {} }) => {
+      chunk: async (results: { data: any[]; errors: any[]; meta: {} }) => {
         const errorRows = results.errors.map((error) => error.row)
-        const records = results.data.map((row, index) => {
-          if (errorRows.includes(index)) {
-            return null
-          }
-          const aircon = {
-            'brand': row['Brand']?.trim(),
-            'model': row['Model']?.trim(),
-            'greenTicks': Number(row['Green Ticks']),
-            'annualConsumption': Number(row['Annual Energy Consumption (kWh)']),
-          }
-          return aircon
-        })
-        .filter((aircon) => aircon != null)
+        const records = results.data
+          .map((row, index) => {
+            if (errorRows.includes(index)) {
+              return null
+            }
+            const aircon = {
+              brand: row['Brand']?.trim(),
+              model: row['Model']?.trim(),
+              greenTicks: Number(row['Green Ticks']),
+              annualConsumption: Number(row['Annual Energy Consumption (kWh)']),
+            }
+            return aircon
+          })
+          .filter((aircon) => aircon != null)
         console.log(`Inserting ${records.length} records`)
-        await prisma.aircon.createMany({data: records, skipDuplicates: true})
+        await prisma.aircon.createMany({ data: records, skipDuplicates: true })
       },
       chunkSize: 100,
     })
