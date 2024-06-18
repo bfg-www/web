@@ -22,7 +22,7 @@ export default function EcoCentsLogo({
         height={height}
       />
       <Text fontSize="2xl" color={textColor} as="b">
-        Ecocents
+        EcoCents
       </Text>
     </HStack>
   )
