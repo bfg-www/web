@@ -65,18 +65,25 @@ const INITIAL_FILTERS = {
   brand: '',
 }
 
-// Page component should handle filters or no?
+// Page component should handle filter state + data fetching state
 export default function Page() {
+  const [isDataFetching, setIsDataFetching] = useState<boolean>(false)
+
   const handleFormWidgetSubmit = (data: FormValues) => {
-    // ************* JX TODO: call getDummyAircon(data) ************* //
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
-    /* TODO: need to handle data fetching state
-        -> skeleton loading
+    /* JX TODO: call getDummyAircon(data)
+       - Await then get form data -> UI transition to data fetching state
+       - Possible for BE to return data fetching state?
+       - If not possible, FE to manually handle it: e..g  setIsDataFetching(false -> true)
+       */
+    /* BY TODO: handle data fetching state
+        -> skeleton loading, for profile widget & product listings, pass in isLoading prop
         -> data returned 
         -> listings renders
         ->  update local storage, get from local storage to populate profile widget */
   }
+
   return (
     <Grid
       templateAreas={`"personal personal" "filter results"`}
