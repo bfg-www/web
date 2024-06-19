@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Grid,
-  GridItem,
-  HStack,
-  Text,
-  VStack,
-} from '@chakra-ui/react'
+import { Box, Button, Grid, GridItem, Text, VStack } from '@chakra-ui/react'
 import Image from 'next/image'
 import EcoCentsLogo from './ui/EcoCentsLogo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
