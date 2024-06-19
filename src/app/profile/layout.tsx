@@ -1,6 +1,6 @@
-import { Grid, GridItem } from '@chakra-ui/react'
-import EcoCentsLogo from '../ui/eco-cents-logo'
+import { Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
+import EcoCentsLogo from '../ui/EcoCentsLogo'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,15 +9,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       gridTemplateRows={'80px 1fr'}
       minHeight="100vh"
       minWidth="100vh"
-      backgroundColor="#253610"
-      p="30px"
+      backgroundColor="#F0F1E7"
+      p="50px"
     >
       <GridItem area={'topnav'}>
-        <Link href="/">
-          <EcoCentsLogo textColor="#F0F1E7" />
-        </Link>
+        <HStack spacing={50}>
+          <Link href="/">
+            <EcoCentsLogo />
+          </Link>
+          <Link href="/faq">
+            <Text fontSize="md" as="b" color="#253610">
+              FAQ
+            </Text>
+          </Link>
+        </HStack>
       </GridItem>
-      <GridItem area={'content'}>{children}</GridItem>
+      <GridItem borderWidth="1px" borderColor="#253610" area={'content'}>
+        {children}
+      </GridItem>
     </Grid>
   )
 }

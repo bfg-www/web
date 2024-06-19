@@ -8,7 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import EcoCentsLogo from './ui/eco-cents-logo'
+import EcoCentsLogo from './ui/EcoCentsLogo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
 import Link from 'next/link'
 
