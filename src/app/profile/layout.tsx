@@ -1,4 +1,4 @@
-import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
+import { Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import EcoCentsLogo from '../ui/EcoCentsLogo'
 
