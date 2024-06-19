@@ -1,7 +1,8 @@
 'use client'
 import {
-  Box,
+  Input,
   Button,
+  Checkbox,
   FormControl,
   Grid,
   GridItem,
@@ -21,8 +22,9 @@ import {
 } from '../ui/models/profile-options'
 import { IoIosRefresh } from 'react-icons/io'
 import { FaRegHeart } from 'react-icons/fa'
-import { GiCheckMark } from 'react-icons/gi'
-import { TbChecks } from 'react-icons/tb'
+import { TbAirConditioning, TbChecks } from 'react-icons/tb'
+import { PiMoneyWavyFill } from 'react-icons/pi'
+import { LuDollarSign } from 'react-icons/lu'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -92,20 +94,25 @@ export const ENERGY_RATING_OPTIONS = [
 ]
 
 // HELPER FUNCTIONS
-export function getAirconBrands(USER_ENERGY_PROFILE: FormValues) {
+export function getAirconBrands(results: Aircon[]): string[] {
   // Create a Set to store unique brands
-  const brands = new Set()
+  const brands = new Set<string>()
 
   // Iterate over each record in the records array
-  RESULTS.forEach((RESULTS) => {
-    if (RESULTS.brand) {
+  results.forEach((results) => {
+    if (results.brand) {
       // Add the brand to the Set
-      brands.add(RESULTS.brand)
+      brands.add(results.brand)
     }
   })
 
   // Convert the Set to an array and return it
   return Array.from(brands)
+}
+
+// Helper function to capitalize the first letter of a string
+function capitalizeFirstLetter(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
 // Page component should handle filter state + data fetching state
@@ -162,7 +169,7 @@ export default function Page() {
         </HStack>
       </GridItem>
       <GridItem bg="white" borderRadius="15px" area={'filter'}>
-        <FilterPanel />
+        <FilterPanel results={results} />
       </GridItem>
       <GridItem bg="pink.300" area={'results'}>
         results
@@ -172,7 +179,8 @@ export default function Page() {
 }
 
 // TODOL: Will handle filter state separately from parent since it doesn't have to fetch new data, BE alr passes the whole thing lol!
-function FilterPanel() {
+function FilterPanel({ results }: { results: Aircon[] }) {
+  console.log('FilterPanel renders')
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS)
 
   const handleParamChange = (
@@ -182,39 +190,132 @@ function FilterPanel() {
     setFilters({ ...filters, [param]: value })
   }
 
+  console.log('filters state:', filters)
+
   const handleReset = () => {
     setFilters(INITIAL_FILTERS)
   }
 
   return (
     <VStack>
-      <VStack backgroundColor="white" p={5}>
+      <VStack backgroundColor="white" p={5} alignItems="center">
         <HStack>
           <TbChecks color="#4F772D" size="25px" />
           <Text fontSize="md" color="#4F772D" as="b">
             Energy Tick Ratings
           </Text>
         </HStack>
-        <FormControl display="inline-block">
-          <Select
-            w="250px"
-            placeholder="Select ticks"
-            value={filters.greenTicks}
-            bg="#F0F1E7"
+        <Select
+          w="250px"
+          placeholder="Select ticks"
+          value={filters.greenTicks}
+          bg="#F0F1E7"
+          color="#4F772D"
+          borderRadius="20px"
+          variant="flushed"
+          sx={{ textAlign: 'center' }}
+          onChange={(e) =>
+            handleParamChange('greenTicks', Number(e.target.value))
+          }
+        >
+          {ENERGY_RATING_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </Select>
+      </VStack>
+      <VStack backgroundColor="white" p={5}>
+        <HStack>
+          <PiMoneyWavyFill color="#4F772D" size="25px" />
+          <Text fontSize="md" color="#4F772D" as="b">
+            Climate Voucher Eligibility
+          </Text>
+        </HStack>
+        <HStack p="0px 40px">
+          <Checkbox
+            colorScheme="green"
+            size="md"
+            isChecked={filters.isClimateVoucherEligibleOnly}
+            onChange={(e) =>
+              handleParamChange(
+                'isClimateVoucherEligibleOnly',
+                e.target.checked,
+              )
+            }
+          ></Checkbox>
+          <Text fontSize="sm" color="#4F772D">
+            Only show air-cons eligible for climate vouchers
+          </Text>
+        </HStack>
+      </VStack>
+      <VStack backgroundColor="white" p={5}>
+        <HStack spacing={1}>
+          <LuDollarSign color="#4F772D" size="20px" />
+          <Text fontSize="md" color="#4F772D" as="b">
+            Price
+          </Text>
+        </HStack>
+        <HStack p="0px 40px">
+          <Input
+            type="number"
+            placeholder="Max. price"
+            size="md"
+            width="150px"
             color="#4F772D"
             borderRadius="20px"
-            variant="flushed"
-            sx={{ textAlign: 'center' }}
-            onChange={(e) => handleParamChange('greenTicks', e.target.value)}
-          >
-            {ENERGY_RATING_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
+            onChange={(e) =>
+              handleParamChange('maxPrice', Number(e.target.value))
+            }
+          />
+        </HStack>
       </VStack>
+      <VStack backgroundColor="white" p={5} alignItems="center">
+        <HStack>
+          <TbAirConditioning color="#4F772D" size="22px" />
+          <Text fontSize="md" color="#4F772D" as="b">
+            Brands
+          </Text>
+        </HStack>
+        <Select
+          w="250px"
+          placeholder="Select a brand"
+          value={filters.greenTicks}
+          bg="#F0F1E7"
+          color="#4F772D"
+          borderRadius="20px"
+          variant="flushed"
+          sx={{ textAlign: 'center' }}
+          onChange={(e) =>
+            handleParamChange('greenTicks', Number(e.target.value))
+          }
+        >
+          {getAirconBrands(results).map((option, index) => (
+            <option key={index} value={option}>
+              {capitalizeFirstLetter(option)}
+            </option>
+          ))}
+        </Select>
+      </VStack>
+      <HStack mt={5} spacing={20}>
+        <Button
+          variant="solid"
+          backgroundColor="white"
+          border="1px"
+          borderColor="#253610"
+          borderRadius="20px"
+        >
+          Clear
+        </Button>
+        <Button
+          variant="solid"
+          backgroundColor="#4F772D"
+          color="#F0F1E7"
+          borderRadius="20px"
+        >
+          Apply
+        </Button>
+      </HStack>
     </VStack>
   )
 }
