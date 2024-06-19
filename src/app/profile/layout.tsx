@@ -1,6 +1,6 @@
 import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
-import EcoCentsLogo from '../ui/eco-cents-logo'
+import EcoCentsLogo from '../ui/EcoCentsLogo'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
