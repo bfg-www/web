@@ -31,6 +31,9 @@ import { PiMoneyWavyFill } from 'react-icons/pi'
 import { LuDollarSign } from 'react-icons/lu'
 import { FaEarthAsia } from 'react-icons/fa6'
 import { LiaQuestionCircle } from 'react-icons/lia'
+import { GiCheckMark } from 'react-icons/gi'
+import climateVoucherLogo from '/public/climate-voucher-logo.png'
+import Image from 'next/image'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -148,6 +151,16 @@ function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
+function generateTickIcons(count: number) {
+  return (
+    <>
+      {Array.from({ length: count }, (_, index) => (
+        <GiCheckMark size="25px" key={index} color="#4F772D" />
+      ))}
+    </>
+  )
+}
+
 // Page component should handle filter state + data fetching state
 /* JX TODO: fetch data icon + picture for listings, render it together with results component render */
 export default function Page() {
@@ -225,6 +238,7 @@ export default function Page() {
               colorScheme="blackAlpha"
               borderRadius="15px"
               rightIcon={<FaRegHeart />}
+              boxShadow="base"
             >
               Favourites
             </Button>
@@ -253,10 +267,16 @@ function ProductCard({
   showTopChoiceTag: boolean
 }) {
   return (
-    <VStack backgroundColor="white" height="250px" borderRadius="15px" p={3}>
+    <VStack
+      backgroundColor="white"
+      height="250px"
+      borderRadius="15px"
+      p={3}
+      boxShadow="base"
+    >
       <Flex width="100%" justifyContent="space-between">
         <HStack
-          backgroundColor="#4F772D"
+          backgroundColor="green.500"
           spacing={0}
           borderRadius="15px"
           px={2}
@@ -283,13 +303,55 @@ function ProductCard({
           </Text>
         )}
       </Flex>
-      <HStack>
-        <Box>INSERT AIRCON IMAGE</Box>
-        <VStack>
-          <Box>INSERT BRAND LOGO</Box>
+      <HStack borderWidth="1px" justifyContent="flex-start" width="100%">
+        <Box borderWidth="1px" width="40%">
+          INSERT AIRCON IMAGE
+        </Box>
+        <VStack borderWidth="1px" width="100%">
+          <HStack borderWidth="1px" alignSelf="flex-start">
+            <Box>INSERT BRAND LOGO</Box>
+            <Text>{capitalizeFirstLetter(product.brand)}</Text>
+          </HStack>
+          <Text alignSelf="flex-start">{product.model.toUpperCase()}</Text>
+          <HStack
+            alignSelf="flex-start"
+            justifyContent="space-between"
+            width="80%"
+            borderWidth="1px"
+          >
+            <VStack>
+              <Text>Price</Text>
+              <Text>${product.price}</Text>
+            </VStack>
+            <VStack>
+              <Flex>
+                <Text>Lifecycle cost</Text>
+                <CustomTooltip content="To be added" color="#253610" />
+              </Flex>
+              <Text>${product.lifecycleCost}</Text>
+            </VStack>
+            <VStack>
+              <Flex>
+                <Text>Annual energy cost</Text>
+                <CustomTooltip content="To be added" color="#253610" />
+              </Flex>
+              <Text>${product.annualEnergyCost}</Text>
+            </VStack>
+          </HStack>
+          <HStack alignSelf="flex-start" borderWidth="1px" spacing={5}>
+            <HStack spacing={0}>
+              {generateTickIcons(Number(product.greenTicks))}
+            </HStack>
+            <Box width="100px" borderRadius="15px" boxShadow="base">
+              <Image
+                src={climateVoucherLogo}
+                alt="Logo of government-issued climate vouchers"
+                width={100}
+              />
+            </Box>
+          </HStack>
         </VStack>
       </HStack>
-      <HStack></HStack>
       <Button
         alignSelf="flex-end"
         ml="auto"
@@ -303,11 +365,17 @@ function ProductCard({
   )
 }
 
-function CustomTooltip({ content }: { content: string }) {
+function CustomTooltip({
+  content,
+  color = '#F0F1E7',
+}: {
+  content: string
+  color?: string
+}) {
   return (
-    <Tooltip hasArrow label={content} placement="bottom" color="#F0F1E7">
+    <Tooltip hasArrow label={content} placement="bottom" color={color}>
       <span>
-        <LiaQuestionCircle color="#F0F1E7" />
+        <LiaQuestionCircle color={color} />
       </span>
     </Tooltip>
   )
@@ -538,7 +606,12 @@ function EnergyProfileFormWidget({
   )
 
   return (
-    <VStack backgroundColor="rgba(37, 54, 16)" borderRadius="20px" p={3}>
+    <VStack
+      backgroundColor="rgba(37, 54, 16)"
+      borderRadius="20px"
+      p={3}
+      boxShadow="lg"
+    >
       <Text fontSize="xs" alignSelf="flex-start" color="#F0F1E7" as="kbd">
         Based on your energy profile:
       </Text>
