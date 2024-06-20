@@ -1,5 +1,6 @@
 'use client'
 import {
+  Box,
   Button,
   Checkbox,
   Flex,
@@ -13,6 +14,7 @@ import {
   Skeleton,
   Stack,
   Text,
+  Tooltip,
   VStack,
 } from '@chakra-ui/react'
 import Link from 'next/link'
@@ -27,8 +29,8 @@ import { FaRegHeart } from 'react-icons/fa'
 import { TbAirConditioning, TbChecks, TbFaceIdError } from 'react-icons/tb'
 import { PiMoneyWavyFill } from 'react-icons/pi'
 import { LuDollarSign } from 'react-icons/lu'
-import { HiLightBulb } from 'react-icons/hi'
 import { FaEarthAsia } from 'react-icons/fa6'
+import { LiaQuestionCircle } from 'react-icons/lia'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -243,6 +245,74 @@ export default function Page() {
   )
 }
 
+function ProductCard({
+  product,
+  showTopChoiceTag,
+}: {
+  product: Aircon
+  showTopChoiceTag: boolean
+}) {
+  return (
+    <VStack backgroundColor="white" height="250px" borderRadius="15px" p={3}>
+      <Flex width="100%" justifyContent="space-between">
+        <HStack
+          backgroundColor="#4F772D"
+          spacing={0}
+          borderRadius="15px"
+          px={2}
+          py={1}
+        >
+          <FaEarthAsia color="#F0F1E7" size="20px" />
+          <Text fontSize="xs" color="#F0F1E7" as="kbd" ml={2} mr={1}>
+            Reduce your carbon emissions by up to{' '}
+            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
+            option compared to less efficient models
+          </Text>
+          <CustomTooltip content="To be added"></CustomTooltip>
+        </HStack>
+        {showTopChoiceTag && (
+          <Text
+            background="green.300"
+            fontSize="xs"
+            color="#F0F1E7"
+            borderRadius="15px"
+            as="b"
+            p={1}
+          >
+            Top choice!
+          </Text>
+        )}
+      </Flex>
+      <HStack>
+        <Box>INSERT AIRCON IMAGE</Box>
+        <VStack>
+          <Box>INSERT BRAND LOGO</Box>
+        </VStack>
+      </HStack>
+      <HStack></HStack>
+      <Button
+        alignSelf="flex-end"
+        ml="auto"
+        backgroundColor="#F0F1E7"
+        color="#253610"
+        borderRadius="16px"
+      >
+        Find out more
+      </Button>
+    </VStack>
+  )
+}
+
+function CustomTooltip({ content }: { content: string }) {
+  return (
+    <Tooltip hasArrow label={content} placement="bottom" color="#F0F1E7">
+      <span>
+        <LiaQuestionCircle color="#F0F1E7" />
+      </span>
+    </Tooltip>
+  )
+}
+
 function SkeletonPlaceholder() {
   console.log('SkeletonPlaceholder called')
   return (
@@ -285,52 +355,6 @@ function NotFound() {
           "We couldn't find any air-cons matching your search criteria.\nPlease adjust your filters and try again."
         }
       </Text>
-    </VStack>
-  )
-}
-
-function ProductCard({
-  product,
-  showTopChoiceTag,
-}: {
-  product: Aircon
-  showTopChoiceTag: boolean
-}) {
-  return (
-    <VStack backgroundColor="white" height="250px" borderRadius="15px" p={3}>
-      <Flex width="100%" justifyContent="space-between">
-        <HStack backgroundColor="#4F772D" borderRadius="15px" px={2} py={1}>
-          <FaEarthAsia color="#F0F1E7" size="20px" />
-          <Text fontSize="xs" color="#F0F1E7" as="kbd">
-            Reduce your carbon emissions by up to{' '}
-            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
-            option compared to less efficient models
-          </Text>
-        </HStack>
-        {showTopChoiceTag && (
-          <Text
-            background="#4F772D"
-            fontSize="xs"
-            color="#F0F1E7"
-            borderRadius="15px"
-            p={1}
-            as="b"
-          >
-            Top choice!
-          </Text>
-        )}
-      </Flex>
-      <HStack></HStack>
-      <HStack></HStack>
-      <Button
-        alignSelf="flex-end"
-        ml="auto"
-        backgroundColor="#F0F1E7"
-        color="#253610"
-        borderRadius="16px"
-      >
-        Find out more
-      </Button>
     </VStack>
   )
 }
