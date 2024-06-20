@@ -9,6 +9,8 @@ import {
   NumberInput,
   NumberInputField,
   Select,
+  Skeleton,
+  Stack,
   Text,
   VStack,
 } from '@chakra-ui/react'
@@ -193,7 +195,7 @@ export default function Page() {
       console.log('filteredResults:', filteredResults)
       setResults(filteredResults)
       setIsResultsFetching(false)
-    }, 1000)
+    }, 3000)
   }
 
   return (
@@ -229,9 +231,28 @@ export default function Page() {
       </GridItem>
       <GridItem bg="white" borderRadius="10px" area={'results'}>
         {/* {[].length !== 0 && } */}
-        {[].length === 0 && <NotFound />}
+        {!isResultsFetching && results.length === 0 && <NotFound />}
+        {isResultsFetching && <SkeletonPlaceholder />}
       </GridItem>
     </Grid>
+  )
+}
+
+function SkeletonPlaceholder() {
+  console.log('SkeletonPlaceholder called')
+  return (
+    <Stack height="100%" width="100%" spacing={5}>
+      <Skeleton
+        startColor="#F0F1E7"
+        endColor="white"
+        height="250px"
+        borderRadius="15px"
+      />
+      <Skeleton startColor="#F0F1E7" endColor="white" height="250px" />
+      <Skeleton startColor="#F0F1E7" endColor="white" height="250px" />
+      <Skeleton startColor="#F0F1E7" endColor="white" height="250px" />
+      <Skeleton startColor="#F0F1E7" endColor="white" height="250px" />
+    </Stack>
   )
 }
 
