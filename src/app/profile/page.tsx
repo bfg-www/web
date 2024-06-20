@@ -15,16 +15,19 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { FormValues } from '../ui/profiling/EnergyProfileForm'
+import { FaRegHeart } from 'react-icons/fa'
+import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import Image from 'next/image'
 import { useState } from 'react'
+import { Aircon, RoomType } from '../models/clientModels'
+import { IoIosRefresh } from 'react-icons/io'
+import { LuDollarSign } from 'react-icons/lu'
+import { PiMoneyWavyFill } from 'react-icons/pi'
+import { TbChecks, TbAirConditioning } from 'react-icons/tb'
 import {
   HOUSEHOLD_TYPE_OPTIONS,
   INSTALLATION_LOCATION_OPTIONS,
 } from '../ui/models/profile-options'
-import { IoIosRefresh } from 'react-icons/io'
-import { FaRegHeart } from 'react-icons/fa'
-import { TbAirConditioning, TbChecks } from 'react-icons/tb'
-import { PiMoneyWavyFill } from 'react-icons/pi'
-import { LuDollarSign } from 'react-icons/lu'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -34,33 +37,6 @@ const USER_ENERGY_PROFILE = {
   installationLocation: 'bedroom',
   usageHours: '8',
 }
-
-const RESULTS: Aircon[] = [
-  {
-    id: '1',
-    brand: 'Mitsubishi',
-    model: 'MSY-GE10VA',
-    greenTicks: 5,
-    annualConsumption: 1000,
-    price: 3000,
-  },
-  {
-    id: '2',
-    brand: 'Daikin',
-    model: 'FTXJ25P',
-    greenTicks: 4,
-    annualConsumption: 1200,
-    price: 2000,
-  },
-  {
-    id: '3',
-    brand: 'Panasonic',
-    model: 'CS/CU-Z25VKR',
-    greenTicks: 3,
-    annualConsumption: 1500,
-    price: 1000,
-  },
-]
 
 const INITIAL_FILTERS = {
   greenTicks: 0,
@@ -74,15 +50,6 @@ interface Filter {
   isClimateVoucherEligibleOnly: boolean
   maxPrice: number
   brand: string
-}
-
-interface Aircon {
-  id: string
-  brand: string
-  model: string
-  greenTicks: number
-  annualConsumption: number
-  price: number
 }
 
 export const ENERGY_RATING_OPTIONS = [
@@ -119,16 +86,27 @@ function capitalizeFirstLetter(str: string): string {
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
-  const [results, setResults] = useState<Aircon[]>(RESULTS)
+  const [results, setResults] = useState<Aircon[]>([])
 
-  const handleFormWidgetSubmit = (data: FormValues) => {
+  const handleFormWidgetSubmit = async (data: FormValues) => {
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
-    /* JX TODO: call getDummyAircon(data)
-       - Await then get form data -> UI transition to data fetching state
-       - Possible for BE to return data fetching state?
-       - If not possible, FE to manually handle it: e..g  setIsResultsFetching(false -> true)
-       */
+    setIsFiltersApplying(true)
+    try {
+      const roomTypeInput = data['installationLocation'] as string
+      const newResults = await getAirconsForProfile({
+        numberRooms: Number(data['householdType']),
+        numberAircons: Number(data['airconCount']),
+        roomType: RoomType[roomTypeInput as keyof typeof RoomType],
+        usageHours: Number(data['usageHours']),
+      })
+      // const newResults = await getDummyAircons()
+      setResults(newResults)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsFiltersApplying(false)
+    }
     /* BY TODO: handle data fetching state
         -> skeleton loading, for profile widget & product listings, pass in isLoading prop
         -> data returned 
@@ -172,7 +150,21 @@ export default function Page() {
         <FilterPanel results={results} />
       </GridItem>
       <GridItem bg="pink.300" area={'results'}>
-        results
+        {results.map((aircon) => (
+          <VStack key={aircon.id}>
+            <Text>{aircon.brand}</Text>
+            <Text>{aircon.model}</Text>
+            <Text>{aircon.greenTicks}</Text>
+            <Text>{aircon.annualConsumption}</Text>
+            <Text>{aircon.price}</Text>
+            <Image
+              src={aircon.image}
+              alt={aircon.model}
+              width={300}
+              height={300}
+            />
+          </VStack>
+        ))}
       </GridItem>
     </Grid>
   )

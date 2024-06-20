@@ -27,12 +27,20 @@ model Sale {
 
 model Aircon {
   id                Int @id @default(autoincrement())
+  name              String
   brand             String
   model             String @unique
   greenTicks        Int
   annualConsumption Int
   price             Int
   image             String
+  airconDetail      AirconDetail?
+}
+
+model AirconDetail {
+  id                Int @id @default(autoincrement())
+  aircon            Aircon? @relation(fields: [airconId], references: [id])
+  airconId          Int? @unique
   url               String
-  description       String
+  btus              Int[]
 }

@@ -17,6 +17,8 @@ const SALES_FILES = ['prisma/data/gaincitys.csv']
 const prisma = new PrismaClient()
 
 async function main() {
+  await prisma.airconDetail.deleteMany()
+  console.log('Deleted all airconDetail records')
   await prisma.aircon.deleteMany()
   console.log('Deleted all aircon records')
   await prisma.sale.deleteMany()
@@ -27,6 +29,7 @@ async function main() {
   const neas: Nea[] = []
   const sales: Sale[] = []
 
+  // parse nea files into nea table
   for (const file of NEA_FILES) {
     const results: { data: any[]; errors: any[]; meta: {} } = Papa.parse(
       fs.readFileSync(file, 'utf-8'),
@@ -58,6 +61,7 @@ async function main() {
     neas.push(...records)
   }
 
+  // parse sales files into sale table
   for (const file of SALES_FILES) {
     const results: { data: any[]; errors: any[]; meta: {} } = Papa.parse(
       fs.readFileSync(file, 'utf-8'),
@@ -91,106 +95,67 @@ async function main() {
     sales.push(...records)
   }
 
-  const aircons = (await Promise.all(neas
-    .map(async (nea) => {
-      const sale = await prisma.sale.findFirst({
-        where: {
-          model: {
-            contains: nea.model,
+  // join nea with sale into aircon table
+  const aircons = (
+    await Promise.all(
+      neas.map(async (nea) => {
+        const sale = await prisma.sale.findFirst({
+          where: {
+            model: {
+              contains: nea.model,
+            },
           },
-        },
-      })
-      if (sale == null) {
-        return null
-      }
-      return {
-        brand: nea.brand,
-        model: nea.model,
-        greenTicks: nea.greenTicks,
-        annualConsumption: nea.annualConsumption,
-        price: sale.price,
-        image: sale.image,
-        url: sale.url,
-        description: sale.description,
-      }
-    })))
-    .filter((item) => item != null)
-
+        })
+        if (sale == null) {
+          return null
+        }
+        const name = sale.model.split(' ').slice(0, -1).join(' ')
+        const btus = parseBtu(sale.description)
+        return {
+          name,
+          brand: nea.brand,
+          model: nea.model,
+          greenTicks: nea.greenTicks,
+          annualConsumption: nea.annualConsumption,
+          price: sale.price,
+          image: sale.image,
+          airconDetail: {
+            create: {
+              url: sale.url,
+              btus,
+            },
+          },
+        }
+      }),
+    )
+  ).filter((item) => item != null)
   console.log(`Inserting ${aircons.length} aircons`)
-  await prisma.aircon.createMany({ data: aircons })
 
-  // // Fetch data from Nea and Sale tables
-  // const dataToInsert = await prisma.nea.findMany({
-  //   relationLoadStrategy: 'join',
-  //   include: { Sale: true },
-  //   where: {
-  //     sale: {
-  //       some: {
-  //         model: {
-  //           contains: prisma.nea.model
-  //         },
-  //       },
-  //     },
-  //   }
-  // })
+  aircons.forEach(async (item) => await prisma.aircon.create({ data: item }))
+}
 
-  // // Prepare the data for insertion
-  // const preparedData = dataToInsert.flatMap((nea) => {
-  //   return nea.Sale.map((sale) => ({
-  //     brand: nea.brand,
-  //     model: nea.model,
-  //     greenTicks: nea.greenTicks,
-  //     annualConsumption: nea.annualConsumption,
-  //     price: sale.price,
-  //     image: sale.image,
-  //     url: sale.url,
-  //     description: sale.description,
-  //   }))
-  // })
-
-  // // Insert data into Aircon table
-  // await prisma.aircon.createMany({
-  //   data: preparedData,
-  // })
-
-  // await prisma.$executeRaw`
-  //   INSERT INTO "Aircon" (
-  //     "brand",
-  //     "model",
-  //     "greenTicks",
-  //     "annualConsumption",
-  //     "price",
-  //     "image",
-  //     "url",
-  //     "description"
-  //   )
-  //   SELECT
-  //     *
-  //   FROM
-  //     "Nea"
-  //   INNER JOIN "Sale" ON Sale.model = Nea.model;
-  // `
-  // INNER JOIN "Sale" sale ON Sale.model LIKE CONCAT('%', Nea.model, '%')
-
-  // const deletes = []
-  // for (const sale of sales) {
-  //   let matched = false
-  //   for (const nea of neas) {
-  //     if (sale.model.includes(nea.model)) {
-  //       prisma.sale.update({
-  //         where: { model: sale.model },
-  //         data: { model: nea.model },
-  //       })
-  //       console.log(`Updated ${sale.model} to ${nea.model}`)
-  //       matched = true
-  //     }
-  //   }
-  //   if (!matched) {
-  //     deletes.push(sale.model)
-  //   }
-  // }
-  // console.log(`Deleted ${deletes.length} sales`)
-  // prisma.sale.deleteMany({ where: { model: { in: deletes } } })
+function parseBtu(s: string) {
+  s = s.toUpperCase().split('BTU')[0]
+  const numbers = s.match(/\d+/g)
+  const res: number[] = []
+  if (numbers) {
+    for (let i = 0; i < numbers.length; i += 2) {
+      let v1 = parseInt(numbers[i])
+      let v2 = parseInt(numbers[i + 1])
+      if (v1 > v2) {
+        const temp = v1
+        v1 = v2
+        v2 = temp
+      }
+      if (v1 && v2) {
+        res.push(v1)
+        res.push(v2)
+      } else {
+        res.push(v1 || v2)
+      }
+    }
+  }
+  return res
 }
 
 main()

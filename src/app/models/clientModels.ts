@@ -1,8 +1,10 @@
 // Remaps Prisma models to models for use in client-side code for abstraction of ORM
 
-import { Aircon as PrismaAircon } from '@prisma/client'
+import { Aircon as PrismaAircon, AirconDetail as PrismaAirconDetail } from '@prisma/client'
 
 export type Aircon = PrismaAircon
+export type AirconDetail = PrismaAirconDetail
+export type AirconWithDetail = Aircon & { airconDetail?: AirconDetail | null }
 
 export enum RoomType {
   HOUSE = 'House',
