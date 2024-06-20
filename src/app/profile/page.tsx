@@ -2,6 +2,7 @@
 import {
   Button,
   Checkbox,
+  Flex,
   FormControl,
   Grid,
   GridItem,
@@ -26,6 +27,8 @@ import { FaRegHeart } from 'react-icons/fa'
 import { TbAirConditioning, TbChecks, TbFaceIdError } from 'react-icons/tb'
 import { PiMoneyWavyFill } from 'react-icons/pi'
 import { LuDollarSign } from 'react-icons/lu'
+import { HiLightBulb } from 'react-icons/hi'
+import { FaEarthAsia } from 'react-icons/fa6'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -229,10 +232,12 @@ export default function Page() {
       <GridItem bg="white" borderRadius="10px" area={'filter'}>
         <FilterPanel results={results} onSubmit={handleApplyFilters} />
       </GridItem>
-      <GridItem bg="white" borderRadius="10px" area={'results'}>
+      <GridItem borderRadius="10px" area={'results'}>
         {/* {[].length !== 0 && } */}
-        {!isResultsFetching && results.length === 0 && <NotFound />}
-        {isResultsFetching && <SkeletonPlaceholder />}
+        {/* {!isResultsFetching && results.length === 0 && <NotFound />}
+        {isResultsFetching && <SkeletonPlaceholder />} */}
+        {/* when rendering the list, use the index to determine if I shld show top choice, index === 0 show top choice*/}
+        <ProductCard product={results[0]} showTopChoiceTag={true} />
       </GridItem>
     </Grid>
   )
@@ -284,8 +289,50 @@ function NotFound() {
   )
 }
 
-function ProductItem() {
-  return <></>
+function ProductCard({
+  product,
+  showTopChoiceTag,
+}: {
+  product: Aircon
+  showTopChoiceTag: boolean
+}) {
+  return (
+    <VStack backgroundColor="white" height="250px" borderRadius="15px" p={3}>
+      <Flex width="100%" justifyContent="space-between">
+        <HStack backgroundColor="#4F772D" borderRadius="15px" px={2} py={1}>
+          <FaEarthAsia color="#F0F1E7" size="20px" />
+          <Text fontSize="xs" color="#F0F1E7" as="kbd">
+            Reduce your carbon emissions by up to{' '}
+            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
+            option compared to less efficient models
+          </Text>
+        </HStack>
+        {showTopChoiceTag && (
+          <Text
+            background="#4F772D"
+            fontSize="xs"
+            color="#F0F1E7"
+            borderRadius="15px"
+            p={1}
+            as="b"
+          >
+            Top choice!
+          </Text>
+        )}
+      </Flex>
+      <HStack></HStack>
+      <HStack></HStack>
+      <Button
+        alignSelf="flex-end"
+        ml="auto"
+        backgroundColor="#F0F1E7"
+        color="#253610"
+        borderRadius="16px"
+      >
+        Find out more
+      </Button>
+    </VStack>
+  )
 }
 
 function FilterPanel({
@@ -313,8 +360,8 @@ function FilterPanel({
   }
 
   return (
-    <VStack pt={5} alignItems="center">
-      <VStack p={5} alignItems="center">
+    <VStack spacing={10} pt={5} alignItems="center">
+      <VStack alignItems="center">
         <HStack>
           <TbChecks color="#4F772D" size="25px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -342,7 +389,7 @@ function FilterPanel({
           ))}
         </Select>
       </VStack>
-      <VStack p={5}>
+      <VStack>
         <HStack>
           <PiMoneyWavyFill color="#4F772D" size="25px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -362,11 +409,11 @@ function FilterPanel({
             }
           />
           <Text fontSize="sm" color="#4F772D">
-            Only show appliances eligible for climate vouchers
+            Only show appliances that are eligible for climate vouchers
           </Text>
         </HStack>
       </VStack>
-      <VStack p={5}>
+      <VStack>
         <HStack spacing={1}>
           <LuDollarSign color="#4F772D" size="20px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -385,11 +432,15 @@ function FilterPanel({
               handleParamChange('maxPrice', stringValue)
             }
           >
-            <NumberInputField placeholder="Max. price" borderRadius="20px" />
+            <NumberInputField
+              bg="#F0F1E7"
+              placeholder="Max. price"
+              borderRadius="20px"
+            />
           </NumberInput>
         </HStack>
       </VStack>
-      <VStack p={5} alignItems="center">
+      <VStack alignItems="center">
         <HStack>
           <TbAirConditioning color="#4F772D" size="22px" />
           <Text fontSize="md" color="#4F772D" as="b">
