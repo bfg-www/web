@@ -307,7 +307,6 @@ function FilterPanel({ results }: { results: Aircon[] }) {
   )
 }
 
-// ************* JX TODO: add getDummyAircon(data) to update button ************* //
 function EnergyProfileFormWidget({
   onSubmit,
 }: {
