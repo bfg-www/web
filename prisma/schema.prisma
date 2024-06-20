@@ -10,10 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Nea {
+  brand             String
+  model             String @id
+  greenTicks        Int
+  annualConsumption Int
+}
+
+model Sale {
+  model             String @id
+  price             Int
+  image             String
+  url               String
+  description       String
+}
+
 model Aircon {
-  id                String @id @default(cuid())
+  id                Int @id @default(autoincrement())
   brand             String
   model             String @unique
   greenTicks        Int
   annualConsumption Int
+  price             Int
+  image             String
+  url               String
+  description       String
 }
