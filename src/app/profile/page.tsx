@@ -273,6 +273,8 @@ function ProductCard({
   product: Aircon
   showTopChoiceTag: boolean
 }) {
+  const isClimateVoucherEligible = product.greenTicks === 5
+
   return (
     <VStack
       backgroundColor="white"
@@ -356,13 +358,15 @@ function ProductCard({
             <HStack spacing={0}>
               {generateTickIcons(Number(product.greenTicks))}
             </HStack>
-            <Box width="100px" borderRadius="15px" boxShadow="base">
-              <Image
-                src={climateVoucherLogo}
-                alt="Logo of government-issued climate vouchers"
-                width={100}
-              />
-            </Box>
+            {isClimateVoucherEligible && (
+              <Box width="100px" borderRadius="15px" boxShadow="base">
+                <Image
+                  src={climateVoucherLogo}
+                  alt="Logo of government-issued climate vouchers"
+                  width={100}
+                />
+              </Box>
+            )}
           </HStack>
         </VStack>
       </HStack>
@@ -373,6 +377,7 @@ function ProductCard({
         color="#253610"
         borderRadius="16px"
         p={3}
+        boxShadow="base"
       >
         Find out more
       </Button>
@@ -484,6 +489,7 @@ function FilterPanel({
           borderRadius="20px"
           focusBorderColor="#4F772D"
           variant="flushed"
+          boxShadow="sm"
           sx={{ textAlign: 'center' }}
           onChange={(e) =>
             handleParamChange('greenTicks', Number(e.target.value))
@@ -505,6 +511,7 @@ function FilterPanel({
         </HStack>
         <HStack width="70%">
           <Checkbox
+            boxShadow="sm"
             colorScheme="green"
             size="md"
             isChecked={filters.isClimateVoucherEligibleOnly}
@@ -543,6 +550,7 @@ function FilterPanel({
               bg="#F0F1E7"
               placeholder="Max. price"
               borderRadius="20px"
+              boxShadow="sm"
             />
           </NumberInput>
         </HStack>
@@ -563,6 +571,7 @@ function FilterPanel({
           borderRadius="20px"
           focusBorderColor="#4F772D"
           variant="flushed"
+          boxShadow="sm"
           sx={{ textAlign: 'center' }}
           onChange={(e) => handleParamChange('brand', e.target.value)}
         >
@@ -581,6 +590,7 @@ function FilterPanel({
           borderColor="#253610"
           borderRadius="20px"
           onClick={handleReset}
+          boxShadow="base"
         >
           Clear
         </Button>
@@ -592,6 +602,7 @@ function FilterPanel({
           borderRadius="20px"
           width="150px"
           onClick={() => onSubmit(filters)}
+          boxShadow="base"
         >
           Apply
         </Button>
@@ -731,6 +742,7 @@ function EnergyProfileFormWidget({
             alignSelf="flex-end"
             iconSpacing={1}
             rightIcon={<IoIosRefresh />}
+            boxShadow="base"
           >
             Update
           </Button>
