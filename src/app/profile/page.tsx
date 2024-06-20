@@ -94,8 +94,8 @@ export default function Page() {
     setIsFiltersApplying(true)
     try {
       const roomTypeInput = data['installationLocation'] as string
-      const newResults = await getAirconsForProfile(data)
-      // const newResults = await getDummyAircons()
+      // const newResults = await getAirconsForProfile(data)
+      const newResults = await getDummyAircons()
       setResults(newResults)
     } catch (error) {
       console.error(error)
