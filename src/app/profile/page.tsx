@@ -1,6 +1,5 @@
 'use client'
 import {
-  Input,
   Button,
   Checkbox,
   FormControl,
@@ -22,7 +21,7 @@ import {
 } from '../ui/models/profile-options'
 import { IoIosRefresh } from 'react-icons/io'
 import { FaRegHeart } from 'react-icons/fa'
-import { TbAirConditioning, TbChecks } from 'react-icons/tb'
+import { TbAirConditioning, TbChecks, TbFaceIdError } from 'react-icons/tb'
 import { PiMoneyWavyFill } from 'react-icons/pi'
 import { LuDollarSign } from 'react-icons/lu'
 
@@ -138,7 +137,6 @@ export function getAirconBrands(results: Aircon[]): string[] {
   return Array.from(brands)
 }
 
-// Helper function to capitalize the first letter of a string
 function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
@@ -202,9 +200,10 @@ export default function Page() {
     <Grid
       templateAreas={`"personal personal" "filter results"`}
       gridTemplateRows={'100px 1fr'}
-      gridTemplateColumns={'1fr 3fr'}
+      gridTemplateColumns={'1fr 4fr'}
       minHeight="100vh"
       minWidth="100vh"
+      columnGap={5}
     >
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between">
@@ -215,7 +214,7 @@ export default function Page() {
               size="md"
               variant="solid"
               backgroundColor="#253610"
-              color=" #F0F1E7"
+              color="#F0F1E7"
               colorScheme="blackAlpha"
               borderRadius="15px"
               rightIcon={<FaRegHeart />}
@@ -225,14 +224,47 @@ export default function Page() {
           </Link>
         </HStack>
       </GridItem>
-      <GridItem bg="white" borderRadius="15px" area={'filter'}>
+      <GridItem bg="white" borderRadius="10px" area={'filter'}>
         <FilterPanel results={results} onSubmit={handleApplyFilters} />
       </GridItem>
-      <GridItem bg="pink.300" area={'results'}>
-        results
+      <GridItem bg="white" borderRadius="10px" area={'results'}>
+        {/* {[].length !== 0 && } */}
+        {[].length === 0 && <NotFound />}
       </GridItem>
     </Grid>
   )
+}
+
+function NotFound() {
+  return (
+    <VStack
+      height="100%"
+      width="100%"
+      alignItems="center"
+      justifyContent="center"
+      spacing={1}
+    >
+      <TbFaceIdError color="#4F772D" size="70px" />
+      <Text fontSize="md" color="#4F772D" as="kbd">
+        No results found
+      </Text>
+      <Text
+        fontSize="md"
+        color="#253610"
+        textAlign="center"
+        as="kbd"
+        whiteSpace="pre-line"
+      >
+        {
+          "We couldn't find any air-cons matching your search criteria.\nPlease adjust your filters and try again."
+        }
+      </Text>
+    </VStack>
+  )
+}
+
+function ProductItem() {
+  return <></>
 }
 
 function FilterPanel({
@@ -260,13 +292,8 @@ function FilterPanel({
   }
 
   return (
-    <VStack
-      borderRadius="15px"
-      backgroundColor="white"
-      pt={5}
-      alignItems="center"
-    >
-      <VStack backgroundColor="white" p={5} alignItems="center">
+    <VStack pt={5} alignItems="center">
+      <VStack p={5} alignItems="center">
         <HStack>
           <TbChecks color="#4F772D" size="25px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -280,6 +307,7 @@ function FilterPanel({
           bg="#F0F1E7"
           color="#4F772D"
           borderRadius="20px"
+          focusBorderColor="#4F772D"
           variant="flushed"
           sx={{ textAlign: 'center' }}
           onChange={(e) =>
@@ -293,7 +321,7 @@ function FilterPanel({
           ))}
         </Select>
       </VStack>
-      <VStack backgroundColor="white" p={5}>
+      <VStack p={5}>
         <HStack>
           <PiMoneyWavyFill color="#4F772D" size="25px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -317,7 +345,7 @@ function FilterPanel({
           </Text>
         </HStack>
       </VStack>
-      <VStack backgroundColor="white" p={5}>
+      <VStack p={5}>
         <HStack spacing={1}>
           <LuDollarSign color="#4F772D" size="20px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -325,19 +353,22 @@ function FilterPanel({
           </Text>
         </HStack>
         <HStack p="0px 40px">
-          <Input
-            type="number"
-            placeholder="Max. price"
+          <NumberInput
             value={filters.maxPrice}
+            min={0}
             size="md"
             width="150px"
             color="#4F772D"
-            borderRadius="20px"
-            onChange={(e) => handleParamChange('maxPrice', e.target.value)}
-          />
+            focusBorderColor="#4F772D"
+            onChange={(stringValue) =>
+              handleParamChange('maxPrice', stringValue)
+            }
+          >
+            <NumberInputField placeholder="Max. price" borderRadius="20px" />
+          </NumberInput>
         </HStack>
       </VStack>
-      <VStack backgroundColor="white" p={5} alignItems="center">
+      <VStack p={5} alignItems="center">
         <HStack>
           <TbAirConditioning color="#4F772D" size="22px" />
           <Text fontSize="md" color="#4F772D" as="b">
@@ -351,6 +382,7 @@ function FilterPanel({
           bg="#F0F1E7"
           color="#4F772D"
           borderRadius="20px"
+          focusBorderColor="#4F772D"
           variant="flushed"
           sx={{ textAlign: 'center' }}
           onChange={(e) => handleParamChange('brand', e.target.value)}
@@ -377,6 +409,7 @@ function FilterPanel({
           variant="solid"
           backgroundColor="#4F772D"
           color="#F0F1E7"
+          colorScheme="green"
           borderRadius="20px"
           width="150px"
           onClick={() => onSubmit(filters)}
