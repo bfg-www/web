@@ -38,7 +38,7 @@ const USER_ENERGY_PROFILE = {
 const RESULTS: Aircon[] = [
   {
     id: '1',
-    brand: 'mitsubishi',
+    brand: 'Mitsubishi',
     model: 'MSY-GE10VA',
     name: 'starmex system 4 aircon',
     greenTicks: 5,
@@ -86,14 +86,14 @@ const RESULTS: Aircon[] = [
 const INITIAL_FILTERS = {
   greenTicks: 0,
   isClimateVoucherEligibleOnly: false,
-  maxPrice: 0,
+  maxPrice: '',
   brand: '',
 }
 
 interface Filter {
   greenTicks: number
   isClimateVoucherEligibleOnly: boolean
-  maxPrice: number
+  maxPrice: string
   brand: string
 }
 
@@ -144,7 +144,7 @@ function capitalizeFirstLetter(str: string): string {
 }
 
 // Page component should handle filter state + data fetching state
-/* JX TODO: fetch get */
+/* JX TODO: fetch data icon + picture for listings, render it together with results component render */
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
@@ -165,10 +165,38 @@ export default function Page() {
         ->  update local storage, get from local storage to populate profile widget */
   }
 
-  // Both search and apply filter will update the listings, albeit due to different reasons
+  // Both search (profile update) and apply filter (filter apply) will update the listings, albeit due to different reasons
   const handleSearch = () => {}
 
-  const handleApplyFilters = () => {}
+  const handleApplyFilters = (filters: Filter) => {
+    console.log('handleApplyFilters called')
+    console.log('filters:', filters)
+    setIsResultsFetching(true)
+    // simulate filtering UX
+    setTimeout(() => {
+      const filteredResults = RESULTS.filter((result) => {
+        const matchesGreenTicks =
+          filters.greenTicks === 0 || result.greenTicks === filters.greenTicks
+        const matchesMaxPrice =
+          Number(filters.maxPrice) === 0 ||
+          result.price <= Number(filters.maxPrice)
+        const matchesBrand =
+          filters.brand === '' ||
+          result.brand.toLowerCase() === filters.brand.toLowerCase()
+        const matchesClimateVoucherEligibility =
+          !filters.isClimateVoucherEligibleOnly || result.greenTicks === 5
+        return (
+          matchesGreenTicks &&
+          matchesMaxPrice &&
+          matchesBrand &&
+          matchesClimateVoucherEligibility
+        )
+      })
+      console.log('filteredResults:', filteredResults)
+      setResults(filteredResults)
+      setIsResultsFetching(false)
+    }, 1000)
+  }
 
   return (
     <Grid
@@ -198,7 +226,7 @@ export default function Page() {
         </HStack>
       </GridItem>
       <GridItem bg="white" borderRadius="15px" area={'filter'}>
-        <FilterPanel results={results} />
+        <FilterPanel results={results} onSubmit={handleApplyFilters} />
       </GridItem>
       <GridItem bg="pink.300" area={'results'}>
         results
@@ -207,8 +235,13 @@ export default function Page() {
   )
 }
 
-// TODOL: Will handle filter state separately from parent since it doesn't have to fetch new data, BE alr passes the whole thing lol!
-function FilterPanel({ results }: { results: Aircon[] }) {
+function FilterPanel({
+  results,
+  onSubmit,
+}: {
+  results: Aircon[]
+  onSubmit: (data: Filter) => void
+}) {
   console.log('FilterPanel renders')
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS)
 
@@ -216,6 +249,7 @@ function FilterPanel({ results }: { results: Aircon[] }) {
     param: keyof Filter,
     value: string | number | boolean,
   ) => {
+    console.log('value:', value)
     setFilters({ ...filters, [param]: value })
   }
 
@@ -226,7 +260,12 @@ function FilterPanel({ results }: { results: Aircon[] }) {
   }
 
   return (
-    <VStack>
+    <VStack
+      borderRadius="15px"
+      backgroundColor="white"
+      pt={5}
+      alignItems="center"
+    >
       <VStack backgroundColor="white" p={5} alignItems="center">
         <HStack>
           <TbChecks color="#4F772D" size="25px" />
@@ -261,7 +300,7 @@ function FilterPanel({ results }: { results: Aircon[] }) {
             Climate Voucher Eligibility
           </Text>
         </HStack>
-        <HStack p="0px 40px">
+        <HStack width="70%">
           <Checkbox
             colorScheme="green"
             size="md"
@@ -272,9 +311,9 @@ function FilterPanel({ results }: { results: Aircon[] }) {
                 e.target.checked,
               )
             }
-          ></Checkbox>
+          />
           <Text fontSize="sm" color="#4F772D">
-            Only show air-cons eligible for climate vouchers
+            Only show appliances eligible for climate vouchers
           </Text>
         </HStack>
       </VStack>
@@ -289,13 +328,12 @@ function FilterPanel({ results }: { results: Aircon[] }) {
           <Input
             type="number"
             placeholder="Max. price"
+            value={filters.maxPrice}
             size="md"
             width="150px"
             color="#4F772D"
             borderRadius="20px"
-            onChange={(e) =>
-              handleParamChange('maxPrice', Number(e.target.value))
-            }
+            onChange={(e) => handleParamChange('maxPrice', e.target.value)}
           />
         </HStack>
       </VStack>
@@ -309,15 +347,13 @@ function FilterPanel({ results }: { results: Aircon[] }) {
         <Select
           w="250px"
           placeholder="Select a brand"
-          value={filters.greenTicks}
+          value={filters.brand}
           bg="#F0F1E7"
           color="#4F772D"
           borderRadius="20px"
           variant="flushed"
           sx={{ textAlign: 'center' }}
-          onChange={(e) =>
-            handleParamChange('greenTicks', Number(e.target.value))
-          }
+          onChange={(e) => handleParamChange('brand', e.target.value)}
         >
           {getAirconBrands(results).map((option, index) => (
             <option key={index} value={option}>
@@ -326,13 +362,14 @@ function FilterPanel({ results }: { results: Aircon[] }) {
           ))}
         </Select>
       </VStack>
-      <HStack mt={5} spacing={20}>
+      <HStack mt="50px" spacing={15}>
         <Button
           variant="solid"
           backgroundColor="white"
           border="1px"
           borderColor="#253610"
           borderRadius="20px"
+          onClick={handleReset}
         >
           Clear
         </Button>
@@ -341,6 +378,8 @@ function FilterPanel({ results }: { results: Aircon[] }) {
           backgroundColor="#4F772D"
           color="#F0F1E7"
           borderRadius="20px"
+          width="150px"
+          onClick={() => onSubmit(filters)}
         >
           Apply
         </Button>
