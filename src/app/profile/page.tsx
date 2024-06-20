@@ -38,27 +38,48 @@ const USER_ENERGY_PROFILE = {
 const RESULTS: Aircon[] = [
   {
     id: '1',
-    brand: 'Mitsubishi',
+    brand: 'mitsubishi',
     model: 'MSY-GE10VA',
+    name: 'starmex system 4 aircon',
     greenTicks: 5,
     annualConsumption: 1000,
     price: 3000,
+    btu: 9000,
+    lifecycleCost: 5000,
+    lifespanEnergyCost: 2000,
+    annualEnergyCost: 324.1,
+    annualEnergySavingsAmt: 0,
+    carbonEmissionsReduced: 0.5,
   },
   {
     id: '2',
     brand: 'Daikin',
     model: 'FTXJ25P',
+    name: 'inverter system 4 aircon ismile',
     greenTicks: 4,
     annualConsumption: 1200,
     price: 2000,
+    btu: 9500,
+    lifecycleCost: 6000,
+    lifespanEnergyCost: 2200,
+    annualEnergyCost: 350.2,
+    annualEnergySavingsAmt: 0,
+    carbonEmissionsReduced: 0.2,
   },
   {
     id: '3',
     brand: 'Panasonic',
     model: 'CS/CU-Z25VKR',
+    name: 'inverter system 4 aircon coolbreeze',
     greenTicks: 3,
     annualConsumption: 1500,
     price: 1000,
+    btu: 8000,
+    lifecycleCost: 7000,
+    lifespanEnergyCost: 2600,
+    annualEnergyCost: 400.1,
+    annualEnergySavingsAmt: 0,
+    carbonEmissionsReduced: 0.1,
   },
 ]
 
@@ -80,9 +101,16 @@ interface Aircon {
   id: string
   brand: string
   model: string
+  name: string
+  price: number
   greenTicks: number
   annualConsumption: number
-  price: number
+  btu: number
+  lifecycleCost: number
+  lifespanEnergyCost: number
+  annualEnergyCost: number
+  annualEnergySavingsAmt: number
+  carbonEmissionsReduced: number
 }
 
 export const ENERGY_RATING_OPTIONS = [
@@ -116,6 +144,7 @@ function capitalizeFirstLetter(str: string): string {
 }
 
 // Page component should handle filter state + data fetching state
+/* JX TODO: fetch get */
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
