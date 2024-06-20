@@ -1,6 +1,9 @@
 export interface Aircon {
   id: string
   brand: string
+  brandLogo: string
+  airconRetailerURL: string
+  image: string
   model: string
   name: string
   price: number
