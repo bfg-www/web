@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import EnergyProfileForm, {
-  FormValues,
-} from '../ui/profiling/EnergyProfileForm'
+import EnergyProfileForm from '../ui/profiling/EnergyProfileForm'
+import { ProfileFormValues } from '../models/clientModels'
 import FullscreenSpinner from '../ui/profiling/FullscreenSpinner'
 
 {
@@ -18,7 +17,7 @@ export default function Page() {
   const [isMockLoading, setIsMockLoading] = useState<boolean>(false)
   const [mockProgressStat, setMockProgressStat] = useState<number>(0)
 
-  const handleFormSubmit = (data: FormValues) => {
+  const handleFormSubmit = (data: ProfileFormValues) => {
     // ************* JX TODO: call getDummyAircon(data) ************* //
     console.log('handleSubmit called')
     console.log('data:', data)

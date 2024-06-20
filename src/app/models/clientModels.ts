@@ -2,20 +2,36 @@
 
 import { Aircon as PrismaAircon, AirconDetail as PrismaAirconDetail } from '@prisma/client'
 
-export type Aircon = PrismaAircon
+export type Aircon = PrismaAircon & {
+  lifecycleCost: number,
+  lifespanEnergyCost: number,
+  annualEnergyCost: number,
+  annualEnergySavings: number,
+  carbonEmmissionsReduced: number,
+}
+
 export type AirconDetail = PrismaAirconDetail
 export type AirconWithDetail = Aircon & { airconDetail?: AirconDetail | null }
 
-export enum RoomType {
-  HOUSE = 'House',
-  LIVING_ROOM = 'Living Room',
-  BEDROOM = 'Bedroom',
-  KITCHEN = 'Kitchen',
+export enum HouseType {
+  one_room = '1-Room',
+  two_room = '2-Room',
+  three_room = '3-Room',
+  four_room = '4-Room',
+  five_room = '5-Room',
+  jumbo = 'Jumbo/Executive'
 }
 
-export type Profile = {
-  numberRooms: number
-  numberAircons: number
-  roomType: RoomType
-  usageHours: number
+export enum RoomType {
+  entire_house = 'entire house',
+  living_room = 'Living Room',
+  bedroom = 'bedroom(s)',
+  kitchen = 'kitchen',
+}
+
+export interface ProfileFormValues {
+  householdType: string
+  airconCount: string
+  installationLocation: string
+  usageHours: string
 }

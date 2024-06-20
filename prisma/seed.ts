@@ -148,8 +148,9 @@ function parseBtu(s: string) {
         v2 = temp
       }
       if (v1 && v2) {
-        res.push(v1)
-        res.push(v2)
+        for (let j = 0; j < v1; j++) {
+          res.push(v2)
+        }
       } else {
         res.push(v1 || v2)
       }

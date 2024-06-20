@@ -14,7 +14,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import Link from 'next/link'
-import { FormValues } from '../ui/profiling/EnergyProfileForm'
+import { ProfileFormValues } from '../models/clientModels'
 import { FaRegHeart } from 'react-icons/fa'
 import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
 import Image from 'next/image'
@@ -88,18 +88,13 @@ export default function Page() {
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
   const [results, setResults] = useState<Aircon[]>([])
 
-  const handleFormWidgetSubmit = async (data: FormValues) => {
+  const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
     setIsFiltersApplying(true)
     try {
       const roomTypeInput = data['installationLocation'] as string
-      const newResults = await getAirconsForProfile({
-        numberRooms: Number(data['householdType']),
-        numberAircons: Number(data['airconCount']),
-        roomType: RoomType[roomTypeInput as keyof typeof RoomType],
-        usageHours: Number(data['usageHours']),
-      })
+      const newResults = await getAirconsForProfile(data)
       // const newResults = await getDummyAircons()
       setResults(newResults)
     } catch (error) {
@@ -316,7 +311,7 @@ function FilterPanel({ results }: { results: Aircon[] }) {
 function EnergyProfileFormWidget({
   onSubmit,
 }: {
-  onSubmit: (data: FormValues) => void
+  onSubmit: (data: ProfileFormValues) => void
 }) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
