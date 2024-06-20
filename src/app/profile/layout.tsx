@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
         </HStack>
       </GridItem>
-      <GridItem borderWidth="1px" borderColor="#253610" area={'content'}>
+      <GridItem borderColor="#253610" area={'content'}>
         {children}
       </GridItem>
     </Grid>

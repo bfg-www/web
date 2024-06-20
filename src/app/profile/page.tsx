@@ -249,11 +249,18 @@ export default function Page() {
         <FilterPanel results={results} onSubmit={handleApplyFilters} />
       </GridItem>
       <GridItem borderRadius="10px" area={'results'}>
-        {/* {[].length !== 0 && } */}
-        {/* {!isResultsFetching && results.length === 0 && <NotFound />}
-        {isResultsFetching && <SkeletonPlaceholder />} */}
-        {/* when rendering the list, use the index to determine if I shld show top choice, index === 0 show top choice*/}
-        <ProductCard product={results[0]} showTopChoiceTag={true} />
+        {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}
+        {isResultsFetching && <SkeletonPlaceholder />}
+        {!isResultsFetching && results.length === 0 && <NotFound />}
+        {!isResultsFetching &&
+          results.length !== 0 &&
+          results.map((result, index) => (
+            <ProductCard
+              key={index}
+              product={result}
+              showTopChoiceTag={index === 0}
+            />
+          ))}
       </GridItem>
     </Grid>
   )
@@ -273,6 +280,7 @@ function ProductCard({
       borderRadius="15px"
       p={3}
       boxShadow="base"
+      mb={5}
     >
       <Flex width="100%" justifyContent="space-between">
         <HStack
