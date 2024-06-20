@@ -269,7 +269,7 @@ function ProductCard({
   return (
     <VStack
       backgroundColor="white"
-      height="250px"
+      height="320px"
       borderRadius="15px"
       p={3}
       boxShadow="base"
@@ -310,32 +310,38 @@ function ProductCard({
         <VStack borderWidth="1px" width="100%">
           <HStack borderWidth="1px" alignSelf="flex-start">
             <Box>INSERT BRAND LOGO</Box>
-            <Text>{capitalizeFirstLetter(product.brand)}</Text>
+            <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
           </HStack>
-          <Text alignSelf="flex-start">{product.model.toUpperCase()}</Text>
-          <HStack
-            alignSelf="flex-start"
-            justifyContent="space-between"
-            width="80%"
-            borderWidth="1px"
-          >
+          <Text as="b" fontSize="lg" alignSelf="flex-start">
+            {product.name.toUpperCase()}
+          </Text>
+          <Text fontSize="sm" alignSelf="flex-start" color="grey">
+            {product.model.toUpperCase()}
+          </Text>
+          <HStack alignSelf="flex-start" spacing="150px" borderWidth="1px">
             <VStack>
-              <Text>Price</Text>
-              <Text>${product.price}</Text>
+              <Text as="b" fontSize="lg">
+                Price
+              </Text>
+              <Text fontSize="lg">${product.price}</Text>
             </VStack>
             <VStack>
               <Flex>
-                <Text>Lifecycle cost</Text>
+                <Text as="b" fontSize="lg">
+                  Lifecycle cost
+                </Text>
                 <CustomTooltip content="To be added" color="#253610" />
               </Flex>
-              <Text>${product.lifecycleCost}</Text>
+              <Text fontSize="lg">${product.lifecycleCost}</Text>
             </VStack>
             <VStack>
               <Flex>
-                <Text>Annual energy cost</Text>
+                <Text as="b" fontSize="lg">
+                  Annual energy cost
+                </Text>
                 <CustomTooltip content="To be added" color="#253610" />
               </Flex>
-              <Text>${product.annualEnergyCost}</Text>
+              <Text fontSize="lg">${product.annualEnergyCost}</Text>
             </VStack>
           </HStack>
           <HStack alignSelf="flex-start" borderWidth="1px" spacing={5}>
@@ -358,6 +364,7 @@ function ProductCard({
         backgroundColor="#F0F1E7"
         color="#253610"
         borderRadius="16px"
+        p={3}
       >
         Find out more
       </Button>
@@ -373,7 +380,7 @@ function CustomTooltip({
   color?: string
 }) {
   return (
-    <Tooltip hasArrow label={content} placement="bottom" color={color}>
+    <Tooltip hasArrow label={content} placement="bottom" color="#F0F1E7">
       <span>
         <LiaQuestionCircle color={color} />
       </span>
