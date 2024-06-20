@@ -1,7 +1,10 @@
 'use client'
 import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
-import { FormValues } from '../ui/profiling/EnergyProfileForm'
+import { ProfileFormValues } from '../models/clientModels'
+import { FaRegHeart } from 'react-icons/fa'
+import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import Image from 'next/image'
 import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
@@ -73,16 +76,22 @@ const RESULTS: Aircon[] = [
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
-  const [results, setResults] = useState<Aircon[]>(RESULTS)
+  const [results, setResults] = useState<Aircon[]>([])
 
-  const handleFormWidgetSubmit = (data: FormValues) => {
+  const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
-    /* JX TODO: call getDummyAircon(data)
-       - Await then get form data -> UI transition to data fetching state
-       - Possible for BE to return data fetching state?
-       - If not possible, FE to manually handle it: e..g  setIsResultsFetching(false -> true)
-       */
+    setIsFiltersApplying(true)
+    try {
+      const roomTypeInput = data['installationLocation'] as string
+      // const newResults = await getAirconsForProfile(data)
+      const newResults = await getDummyAircons()
+      setResults(newResults)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsFiltersApplying(false)
+    }
     /* BY TODO: handle data fetching state
         -> skeleton loading, for profile widget & product listings, pass in isLoading prop
         -> data returned 

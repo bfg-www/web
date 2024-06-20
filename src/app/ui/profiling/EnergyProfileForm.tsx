@@ -16,18 +16,12 @@ import {
   INSTALLATION_LOCATION_OPTIONS,
 } from '../models/profile-options'
 import { BiSolidRightArrow } from 'react-icons/bi'
-
-export interface FormValues {
-  householdType: string
-  airconCount: string
-  installationLocation: string
-  usageHours: string
-}
+import { ProfileFormValues } from '@/app/models/clientModels'
 
 export default function EnergyProfileForm({
   onSubmit,
 }: {
-  onSubmit: (data: FormValues) => void
+  onSubmit: (data: ProfileFormValues) => void
 }) {
   const [householdType, setHouseholdType] = useState<string>('four_room')
   const [airconCount, setAirconCount] = useState<string>('1')
