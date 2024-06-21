@@ -209,7 +209,7 @@ function FavouritesCard({ product }: { product: Aircon }) {
         <VStack spacing={3} mt={3}>
           <VStack justifyContent="center" spacing={0}>
             <Text fontSize="sm" color="#253610">
-              Annual Energy Costs
+              Annual energy cost
             </Text>
             <Text width="auto" as="b" fontSize="sm" color="#253610">
               ${product.annualEnergyCost}
@@ -217,7 +217,7 @@ function FavouritesCard({ product }: { product: Aircon }) {
           </VStack>
           <VStack justifyContent="center" spacing={0}>
             <Text fontSize="sm" color="#253610" p={0}>
-              Lifetime Energy Cost
+              Lifetime energy cost
             </Text>
             <Text width="auto" as="b" fontSize="sm" color="#253610">
               ${product.lifespanEnergyCost}

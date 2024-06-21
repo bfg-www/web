@@ -241,7 +241,7 @@ export default function Page({
             <VStack justifyContent="center">
               <Flex>
                 <Text as="b" fontSize="lg" color="#F0F1E7">
-                  Annual Energy Costs
+                  Annual energy cost
                 </Text>
                 <CustomTooltip content="To be added" color="#F0F1E7" />
               </Flex>
@@ -276,7 +276,7 @@ export default function Page({
               <VStack borderRightWidth={1}>
                 <Flex mr={5}>
                   <Text as="b" fontSize="xl" color="#F0F1E7">
-                    Lifecycle Cost
+                    Lifecycle cost
                   </Text>
                   <CustomTooltip content="To be added" color="#F0F1E7" />
                 </Flex>
@@ -311,7 +311,7 @@ export default function Page({
               <VStack>
                 <Flex>
                   <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
-                    Lifetime Energy Cost
+                    Lifetime energy cost
                   </Text>
                   <CustomTooltip content="To be added" color="#F0F1E7" />
                 </Flex>
