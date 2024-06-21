@@ -10,7 +10,7 @@ import { GiCheckMark } from 'react-icons/gi'
 
 /* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
 Not sure if it's product.id or product.airconDetail.id */
-function generateTickIcons(count: number) {
+export function generateTickIcons(count: number) {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
