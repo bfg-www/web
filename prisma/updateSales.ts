@@ -8,7 +8,7 @@ const BRAND_LOGO = {
   haier: '/brands/haier.svg',
   hitachi: '/brands/hitachi.svg',
   lg: '/brands/lg.svg',
-  midea: '/brands/midea.svg',
+  midea: '/brands/midea.png',
   'mitsubishi heavy industries': '/brands/mitsubishi-heavy.svg',
   'mitsubishi electric': '/brands/mitsubishi.svg',
 }

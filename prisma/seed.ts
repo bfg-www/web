@@ -157,7 +157,7 @@ function parseBtu(s: string) {
       }
     }
   }
-  res.sort()
+  res.sort((a, b) => a - b)
   return res
 }
 
