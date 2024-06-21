@@ -133,7 +133,7 @@ export default function Page() {
               pt={20}
               textAlign="center"
             >
-              You have no favourites saved.
+              You have no favourites saved
             </Text>
           </Box>
         )}
