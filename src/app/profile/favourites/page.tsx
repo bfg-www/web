@@ -4,6 +4,10 @@ import { RiArrowGoBackLine } from 'react-icons/ri'
 import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 
 import FavouritesCard from '@/app/ui/favourites/FavouritesCard'
+import { AIRCON_WITH_DETAIL } from '../product-details/[id]/page'
+import { AirconWithDetail } from '@/app/models/clientModels'
+import { useState } from 'react'
+import { updateFavouritesInLocalStorage } from '@/app/ui/helpers'
 
 // TODO: replace with real data from local storage
 
@@ -80,6 +84,15 @@ const dummyFavourite = {
 }
 
 export default function Page() {
+  const [favourites, setFavourites] = useState<AirconWithDetail[]>(
+    JSON.parse(localStorage.getItem('favourites') || '[]'),
+  )
+
+  const handleUnfavourite = (product: AirconWithDetail) => {
+    updateFavouritesInLocalStorage(product)
+    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+  }
+
   return (
     <Grid
       templateAreas={`"heading" "personal" "favourites-list"`}
@@ -112,8 +125,12 @@ export default function Page() {
       </GridItem>
       <GridItem area={'favourites-list'} mt={10}>
         <HStack width="100%" alignContent="flex-start" columnGap={50}>
-          {dummyFavourites.map((dummyFavourite, index) => (
-            <FavouritesCard key={index} product={dummyFavourite} />
+          {favourites.map((item, index) => (
+            <FavouritesCard
+              key={index}
+              product={item}
+              onChange={handleUnfavourite}
+            />
           ))}
         </HStack>
       </GridItem>

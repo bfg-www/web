@@ -9,8 +9,10 @@ import { AirconWithDetail } from '@/app/models/clientModels'
 
 export default function FavouritesCard({
   product,
+  onChange,
 }: {
   product: AirconWithDetail
+  onChange: (product: AirconWithDetail) => void
 }) {
   const isClimateVoucherEligible = product.greenTicks === 5
   return (
@@ -22,7 +24,7 @@ export default function FavouritesCard({
       boxShadow="base"
     >
       <HStack justifyContent="space-between" width="100%" px={5} py={2}>
-        <HeartIconRemove product={product} />
+        <HeartIconRemove product={product} onClick={onChange} />
         <Button
           variant="link"
           rightIcon={<IoOpenOutline size="12px" />}
