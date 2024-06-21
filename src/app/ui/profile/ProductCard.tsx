@@ -2,18 +2,17 @@ import { Aircon } from '@/app/models/clientModels'
 import { Box, Button, Flex, HStack, Link, Text, VStack } from '@chakra-ui/react'
 import { FaEarthAsia } from 'react-icons/fa6'
 import CustomTooltip from './CustomTooltip'
-import { capitalizeFirstLetter } from '../helpers'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Image from 'next/image'
 import { GiCheckMark } from 'react-icons/gi'
 
 /* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
 Not sure if it's product.id or product.airconDetail.id */
-export function generateTickIcons(count: number) {
+export function generateTickIcons(count: number, tickSize = '25px') {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
-        <GiCheckMark size="25px" key={index} color="#4F772D" />
+        <GiCheckMark size={tickSize} key={index} color="#4F772D" />
       ))}
     </>
   )
@@ -49,8 +48,8 @@ export default function ProductCard({
           <FaEarthAsia color="#F0F1E7" size="20px" />
           <Text fontSize="xs" color="#F0F1E7" as="kbd" ml={2} mr={1}>
             Reduce your carbon emissions by up to{' '}
-            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
-            option compared to less efficient models
+            <strong>{product.carbonEmissionsReduced}%</strong> with this option
+            compared to less efficient models
           </Text>
           <CustomTooltip content="To be added"></CustomTooltip>
         </HStack>
@@ -78,11 +77,11 @@ export default function ProductCard({
           <HStack alignSelf="flex-start">
             <Image
               src={product.brandLogo}
-              alt="Logo of an air-conditioner brand"
+              alt="Picture of an air-conditioner"
               width="50"
               height="50"
             ></Image>
-            <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
+            <Text fontSize="lg">{product.brand}</Text>
           </HStack>
           <Text as="b" fontSize="lg" alignSelf="flex-start">
             {product.name.toUpperCase()}
@@ -125,13 +124,12 @@ export default function ProductCard({
                 <Image
                   src={climateVoucherLogo}
                   alt="Logo of government-issued climate vouchers"
-                  width={100}
                 />
               </Box>
             )}
           </HStack>
           <Box width="100%" display="flex" justifyContent="flex-end">
-            <Link href={`/product-details/${product.id}`}>
+            <Link href={`profile/product-details/${product.id}`}>
               <Button
                 backgroundColor="#F0F1E7"
                 color="#253610"

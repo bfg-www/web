@@ -4,31 +4,27 @@ import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 import {
   Box,
   Button,
-  Card,
-  CardBody,
-  Divider,
   Flex,
   Grid,
   GridItem,
   HStack,
-  Link,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
-import { TbWorldWww } from 'react-icons/tb'
-import HeartIcon from '@/app/ui/product-details/FavouriteIcon'
-import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
+import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
+import { AirconWithDetail } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
+import Link from 'next/link'
 
 // JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
-const AIRCON_WITH_DETAIL: AirconWithDetail = {
+export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
   name: 'starmex system 4 aircon',
   brand: 'mitsubishi',
@@ -83,15 +79,26 @@ export default function Page({
   const isClimateVoucherEligible = product.greenTicks === 5
   return (
     <Grid
-      templateAreas={`"personal" "redirections" "non-energy-info" "energy-info"`}
-      gridTemplateRows={'100px 50px 1fr 2fr'}
+      templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
+      gridTemplateRows={'10px 100px 50px 1fr 2fr'}
       minHeight="100vh"
       minWidth="100vh"
     >
+      <GridItem area="redirect-back">
+        <Link href="/profile">
+          <Button
+            variant="link"
+            color="#253610"
+            leftIcon={<RiArrowGoBackLine />}
+          >
+            Back to results
+          </Button>
+        </Link>
+      </GridItem>
       <GridItem area={'personal'}>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" mt={10}>
           <EnergyProfileFormWidget isEditable={false} />
-          <Link href="/favourites">
+          <Link href="profile/favourites">
             <Button
               type="submit"
               size="md"
@@ -108,19 +115,10 @@ export default function Page({
           </Link>
         </HStack>
       </GridItem>
-      <GridItem area={'redirections'} pt={4}>
-        <HStack justifyContent="space-between">
-          <Button
-            variant="link"
-            color="#253610"
-            leftIcon={<RiArrowGoBackLine />}
-          >
-            Back to results
-          </Button>
+      <GridItem area={'redirect-out'}>
+        <HStack justifyContent="flex-end" pt={6}>
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline />}>
-            <a href="https://www.harveynorman.com.sg/">
-              See retailer site for full specs
-            </a>
+            <a href={product.brandUrl}>See retailer site for full specs</a>
           </Button>
         </HStack>
       </GridItem>
@@ -133,7 +131,7 @@ export default function Page({
         py={2}
       >
         <Flex justifyContent="flex-end" mt={5} pr={2}>
-          <HeartIcon />
+          <HeartIconAdd />
         </Flex>
         <HStack>
           <Box borderWidth="1px" width="40%">
@@ -261,7 +259,7 @@ export default function Page({
             <VStack justifyContent="center">
               <Flex>
                 <Text as="b" fontSize="lg" color="#F0F1E7">
-                  Annual Energy Costs
+                  Annual energy cost
                 </Text>
                 <CustomTooltip content="To be added" color="#F0F1E7" />
               </Flex>
@@ -296,7 +294,7 @@ export default function Page({
               <VStack borderRightWidth={1}>
                 <Flex mr={5}>
                   <Text as="b" fontSize="xl" color="#F0F1E7">
-                    Lifecycle Cost
+                    Lifecycle cost
                   </Text>
                   <CustomTooltip content="To be added" color="#F0F1E7" />
                 </Flex>
@@ -331,7 +329,7 @@ export default function Page({
               <VStack>
                 <Flex>
                   <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
-                    Lifetime Energy Cost
+                    Lifetime energy cost
                   </Text>
                   <CustomTooltip content="To be added" color="#F0F1E7" />
                 </Flex>

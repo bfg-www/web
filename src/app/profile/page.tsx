@@ -99,7 +99,7 @@ export default function Page() {
             isFetching={isResultsFetching}
             isEditable={true}
           />
-          <Link href="/favourites">
+          <Link href="profile/favourites">
             <Button
               type="submit"
               size="md"
