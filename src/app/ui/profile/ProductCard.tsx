@@ -129,7 +129,7 @@ export default function ProductCard({
             )}
           </HStack>
           <Box width="100%" display="flex" justifyContent="flex-end">
-            <Link href={`/product-details/${product.id}`}>
+            <Link href={`profile/product-details/${product.id}`}>
               <Button
                 backgroundColor="#F0F1E7"
                 color="#253610"

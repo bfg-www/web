@@ -98,9 +98,7 @@ export default function Page({
       <GridItem area={'redirect-out'}>
         <HStack justifyContent="flex-end" pt={6}>
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline />}>
-            <a href="https://www.harveynorman.com.sg/">
-              See retailer site for full specs
-            </a>
+            <a href={product.brandUrl}>See retailer site for full specs</a>
           </Button>
         </HStack>
       </GridItem>

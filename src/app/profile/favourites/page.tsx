@@ -148,7 +148,7 @@ function FavouritesCard({ product }: { product: Aircon }) {
           rightIcon={<IoOpenOutline size="12px" />}
           iconSpacing={1}
         >
-          <Link href="https://www.harveynorman.com.sg/" fontSize="10px">
+          <Link href={product.brandUrl} fontSize="10px">
             See retailer site for full specs
           </Link>
         </Button>
