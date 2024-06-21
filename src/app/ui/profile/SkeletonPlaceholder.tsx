@@ -1,7 +1,6 @@
 import { Skeleton, Stack } from '@chakra-ui/react'
 
 export default function SkeletonPlaceholder() {
-  console.log('SkeletonPlaceholder called')
   return (
     <Stack height="100%" width="100%" spacing={5}>
       <Skeleton

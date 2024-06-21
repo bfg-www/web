@@ -1,13 +1,22 @@
+import { AirconWithDetail } from '@/app/models/clientModels'
 import { useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { FaHeartCircleMinus } from 'react-icons/fa6'
+import { updateFavouritesInLocalStorage } from '../helpers'
 
-export const HeartIconRemove = () => {
+export const HeartIconRemove = ({
+  onClick,
+  product,
+}: {
+  product: AirconWithDetail
+  onClick: (product: AirconWithDetail) => void
+}) => {
   const toast = useToast()
   const [removed, setLiked] = useState(false)
 
   const handleClick = () => {
     setLiked(!removed)
+    onClick(product)
     toast({
       title: 'Removed from favourites',
       status: 'success',

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Button,
@@ -17,6 +19,7 @@ import {
 } from '../models/profile-options'
 import { BiSolidRightArrow } from 'react-icons/bi'
 import { ProfileFormValues } from '@/app/models/clientModels'
+import { updateProfileFormValuesInLocalStorage } from '../helpers'
 
 export default function EnergyProfileForm({
   onSubmit,
@@ -28,6 +31,13 @@ export default function EnergyProfileForm({
   const [installationLocation, setInstallationLocation] =
     useState<string>('living_room')
   const [usageHours, setUsageHours] = useState<string>('8')
+
+  updateProfileFormValuesInLocalStorage({
+    householdType,
+    airconCount,
+    installationLocation,
+    usageHours,
+  })
 
   return (
     <VStack width="100%" height="100%" justifyContent="center" spacing="100px">
