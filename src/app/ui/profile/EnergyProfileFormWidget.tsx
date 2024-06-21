@@ -18,7 +18,7 @@ import {
 import { IoIosRefresh } from 'react-icons/io'
 
 export default function EnergyProfileFormWidget({
-  onSubmit, isEditable = false
+  onSubmit = () => {}, isEditable = false
 }: {
   onSubmit?: (data: ProfileFormValues) => void
 , isEditable: boolean}, ) {
