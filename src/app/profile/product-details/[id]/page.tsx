@@ -78,34 +78,34 @@ export default function Page() {
   const params = useParams()
   const id = Number(params.id)
   const router = useRouter()
-  const [product, setProduct] = useState<AirconWithDetail>()
+  const [product, setProduct] = useState<AirconWithDetail>(AIRCON_WITH_DETAIL)
   const [isClimateVoucherEligible, setIsClimateVoucherEligible] =
     useState(false)
   const [btuFrequencies, setBtuFrequencies] = useState<Record<number, number>>(
     {},
   )
 
-  useEffect(() => {
-    async function fetchProduct() {
-      if (id == null) {
-        router.push('/profile')
-      }
-      try {
-        // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
-        const res = await getAirconDetail(id, 1, RoomType.bedroom)
-        setProduct(res)
-        setIsClimateVoucherEligible(res.greenTicks === 5)
-        const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
-          acc[btu] = acc[btu] ? acc[btu] + 1 : 1
-          return acc
-        }, {} as Record<number, number>)
-        setBtuFrequencies(btuFrequencies)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchProduct()
-  }, [router, id])
+  // useEffect(() => {
+  //   async function fetchProduct() {
+  //     if (id == null) {
+  //       router.push('/profile')
+  //     }
+  //     try {
+  //       // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
+  //       const res = await getAirconDetail(id, 1, RoomType.bedroom)
+  //       setProduct(res)
+  //       setIsClimateVoucherEligible(res.greenTicks === 5)
+  //       const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
+  //         acc[btu] = acc[btu] ? acc[btu] + 1 : 1
+  //         return acc
+  //       }, {} as Record<number, number>)
+  //       setBtuFrequencies(btuFrequencies)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   fetchProduct()
+  // }, [router, id])
 
   return (
     <>
