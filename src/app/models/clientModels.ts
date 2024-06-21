@@ -18,7 +18,7 @@ export type AirconWithDetail = Aircon & {
   airconDetail: {
     url: string,
     btus: number[]
-    system: System
+    systems: System[]
   }
  }
 

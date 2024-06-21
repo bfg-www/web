@@ -29,12 +29,14 @@ const HOUSEHOLD_AREAS = new Map<string, number>([
   [`${HouseType.jumbo}${RoomType.kitchen}`, 12],
 ])
 
+const STANDARD_BTUS = [9000, 12000, 14000, 18000, 22000, 24000, 30000]
+
 // formula from https://www.nea.gov.sg/our-services/climate-change-energy-efficiency/energy-efficiency/household-sector/choosing-the-right-cooling-capacity-for-your-air-conditioner
 // as of 20/6/2024
 export function getBtuRequired(
   householdType: HouseType,
   installationLocation: RoomType,
-) {
+): number {
   const area = HOUSEHOLD_AREAS.get(`${householdType}${installationLocation}`)
   if (!area) {
     throw new Error(
@@ -43,30 +45,49 @@ export function getBtuRequired(
   }
   const capacity = area / 5
   const btu = capacity * 3412
-  return btu
+  const standardBtu = STANDARD_BTUS.find((standardBtu) => standardBtu >= btu)
+  if (!standardBtu) {
+    return btu
+  }
+  return standardBtu
 }
 
-export function castBtusToSystem(btus: number[]) {
-    const rawUnits = new Map<number, number>()
-    // count the number of each btu
-    for (const btu of btus) {
-        if (rawUnits.has(btu)) {
-            rawUnits.set(btu, rawUnits.get(btu)?? 0 + 1)
-        } else {
-            rawUnits.set(btu, 1)
-        }
-    }
-    //sort by btu
-    const sortedUnits = Array.from(rawUnits.entries()).sort((a, b) => a[0] - b[0])
-    const system: System = {units: []}
-    for (const rawUnit of sortedUnits) {
-        const unit = {
-            roomType: Object.entries(RoomType)[rawUnit[0]][1],
-            amount: rawUnit[1]
-        }
-        system.units.push(unit)
-    }
-    return system
+export function castBtusToSystem(count: number, roomType: RoomType): System[] {
+  if (roomType == RoomType.entire_house) {
+    return [
+      {
+        units: [
+          {
+            roomType: RoomType.living_room,
+            amount: 1,
+          },
+          {
+            roomType: RoomType.bedroom,
+            amount: count - 1,
+          },
+        ],
+      },
+      {
+        units: [
+          {
+            roomType: RoomType.kitchen,
+            amount: count,
+          },
+        ],
+      },
+    ]
+  } else {
+    return [
+      {
+        units: [
+          {
+            roomType,
+            amount: count,
+          },
+        ],
+      },
+    ]
+  }
 }
 
 export function getCalculations(
@@ -74,7 +95,13 @@ export function getCalculations(
   averageConsumption: number,
   usageHours: number,
   price: number,
-) {
+): {
+  lifecycleCost: number
+  lifespanEnergyCost: number
+  annualEnergyCost: number
+  annualEnergySavings: number
+  carbonEmissionsReduced: number
+} {
   const annualEnergyCost = calcAnnualEnergyCost(annualConsumption, usageHours)
   const lifespanEnergyCost = calcLifespanEnergyCost(annualEnergyCost)
   const lifecycleCost = calcLifecycleCost(lifespanEnergyCost, price)
@@ -86,6 +113,7 @@ export function getCalculations(
   const carbonEmissionsReduced = calcCarbonEmissionsReduced(
     averageConsumption,
     annualConsumption,
+    usageHours,
   )
   return {
     lifecycleCost,
@@ -102,7 +130,7 @@ const AVERAGE_LIFESPAN = 7
 // values from https://www.ema.gov.sg/consumer-information/electricity/buying-electricity/buying-at-regulated-tariff
 const ELECTRICITY_TARIFF = 0.3247
 // values from https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2#grid-emission-factor
-const CO2_INTENSITY = 0.417
+// const CO2_INTENSITY = 0.417
 
 // cost of energy consumed annually
 export function calcAnnualEnergyCost(
@@ -133,10 +161,15 @@ export function calcAnnualEnergySavings(
   )
 }
 
-// carbon emissions reduced per year
+// % carbon emissions reduced per year
 export function calcCarbonEmissionsReduced(
   averageConsumption: number,
   annualConsumption: number,
+  usageHours: number,
 ) {
-  return (averageConsumption - annualConsumption) * CO2_INTENSITY
+  return (
+    (((averageConsumption - annualConsumption) * usageHours) /
+      averageConsumption) *
+    100
+  )
 }

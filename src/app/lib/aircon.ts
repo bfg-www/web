@@ -9,7 +9,7 @@ import {
 } from '../models/clientModels'
 import { getBtuRequired, castBtusToSystem, getCalculations } from './airconUtil'
 
-const BTU_UPPER_BOUND = 1.3
+const BTU_UPPER_BOUND = 1.35
 
 export async function getAirconsForProfile({
   householdType,
@@ -25,12 +25,6 @@ export async function getAirconsForProfile({
     const btuRequired = getBtuRequired(ht, rt)
     const res = (
       await db.aircon.findMany({
-        // TODO: should?
-        where: {
-          greenTicks: {
-            gte: 3,
-          },
-        },
         include: {
           airconDetail: true,
         },
@@ -50,90 +44,97 @@ export async function getAirconsForProfile({
       if (aircon.airconDetail == null) {
         return false
       }
-      const btusum = aircon.airconDetail.btus.reduce((acc, btu) => acc + btu, 0)
-      if (aircon.airconDetail.btus.length === ac) {
-        console.log(btusum, btuRequired, btuRequired * BTU_UPPER_BOUND)
-        console.log("^")
-      }
-      console.log(btusum, btuRequired, btuRequired * BTU_UPPER_BOUND)
-      // number of btu == number of aircons wanted
-      return (
-        aircon.airconDetail.btus.length === ac &&
-        btusum >= btuRequired &&
-        btusum <= btuRequired * BTU_UPPER_BOUND
-      )
-    })
-    const averageConsumption = await getAverageConsumption(
-      res[0].greenTicks,
-      ht,
-      rt,
-    )
 
-    return res.map((aircon) => {
-      return {
-        ...aircon,
-        ...getCalculations(
-          aircon.annualConsumption,
-          averageConsumption,
-          uh,
-          aircon.price,
-        ),
+      // //
+      // if (aircon.airconDetail.btus.length === ac) {
+      //   console.log(aircon.airconDetail.btus, btuRequired, btuRequired * BTU_UPPER_BOUND)
+      //   console.log("^")
+      // } else {
+      //   console.log(aircon.airconDetail.btus, btuRequired, btuRequired * BTU_UPPER_BOUND)
+      // }
+      // //
+
+      const airconCountMatches = aircon.airconDetail.btus.length === ac
+      if (rt === RoomType.entire_house) {
+        const btusum = aircon.airconDetail.btus.reduce(
+          (acc, btu) => acc + btu,
+          0,
+        )
+        return (
+          airconCountMatches &&
+          btusum >= btuRequired &&
+          btusum <= btuRequired * BTU_UPPER_BOUND
+        )
+      } else {
+        return (
+          airconCountMatches &&
+          aircon.airconDetail.btus.reduce(
+            (acc, btu) =>
+              acc && btu >= btuRequired && btu <= btuRequired * BTU_UPPER_BOUND,
+            true,
+          )
+        )
       }
     })
+
+    return Promise.all(
+      res.map(async (aircon) => {
+        const averageConsumption = await getAverageConsumptionAgainstAircon(
+          aircon.annualConsumption,
+          aircon.airconDetail?.btus ?? [],
+        )
+        return {
+          ...aircon,
+          ...getCalculations(
+            aircon.annualConsumption,
+            averageConsumption,
+            uh,
+            aircon.price,
+          ),
+        }
+      }),
+    )
   } catch (error) {
     console.error(error)
     throw new Error('Error fetching entries from database.')
   }
 }
 
-export async function getAverageConsumption(
-  ticks: number,
-  houseType: HouseType,
-  roomType: RoomType,
+export async function getAverageConsumptionAgainstAircon(
+  airconConsumption: number,
+  airconBtus: number[],
 ): Promise<number> {
-  const btuRequired = getBtuRequired(houseType, roomType)
-  // filter by ticks
-  const filterTicksAircons = await db.aircon.findMany({
+  if (airconBtus.length === 0) {
+    return 0
+  }
+  const aggregate = await db.aircon.aggregate({
+    _avg: {
+      annualConsumption: true,
+    },
     where: {
       greenTicks: {
-        equals: ticks,
+        equals: 3,
+      },
+      airconDetail: {
+        btus: {
+          equals: airconBtus,
+        },
       },
     },
-    include: {
-      airconDetail: true,
-    },
   })
-  // then filter by btu range
-  const filterBtuAircons = filterTicksAircons.filter((aircon) => {
-    if (aircon.airconDetail == null) {
-      return false
-    }
-    const btusum = aircon.airconDetail?.btus.reduce((acc, btu) => acc + btu, 0)
-    return btusum >= btuRequired && btusum <= btuRequired * BTU_UPPER_BOUND
-  })
-  // then get average consumption
-  let averageConsumption =
-    filterBtuAircons.reduce((acc, aircon) => {
-      return acc + aircon.annualConsumption
-    }, 0) / filterBtuAircons.length
-  // else get average consumption of all aircons
-  if (!averageConsumption) {
-    averageConsumption =
-      (
-        await db.aircon.aggregate({
-          _avg: {
-            annualConsumption: true,
-          },
-        })
-      )._avg.annualConsumption ?? 0
+  if (
+    aggregate == null ||
+    aggregate._avg == null ||
+    aggregate._avg.annualConsumption == null
+  ) {
+    return airconConsumption
   }
-  return averageConsumption
+  return aggregate._avg.annualConsumption
 }
 
 export async function getAirconDetail(
   id: number,
   usageHours: number,
-  houseType: HouseType,
   roomType: RoomType,
 ): Promise<AirconWithDetail> {
   try {
@@ -141,16 +142,18 @@ export async function getAirconDetail(
       where: { id },
       include: { airconDetail: true },
     })
-    const averageConsumption = await getAverageConsumption(
-      res.greenTicks,
-      houseType,
-      roomType,
+    if (res.airconDetail == null) {
+      throw new Error('Aircon detail not found.')
+    }
+    const averageConsumption = await getAverageConsumptionAgainstAircon(
+      res.annualConsumption,
+      res.airconDetail.btus,
     )
-    const system = castBtusToSystem(res.airconDetail?.btus ?? [])
+    const systems = castBtusToSystem(res.airconDetail.btus.length, roomType)
     const newAirconDetail = {
-      url: res.airconDetail?.url ?? '',
-      btus: res.airconDetail?.btus ?? [],
-      system,
+      url: res.airconDetail.url,
+      btus: res.airconDetail.btus,
+      systems,
     }
     const aircon: Aircon = {
       ...res,
