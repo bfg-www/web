@@ -78,7 +78,7 @@ export default function ProductCard({
           <HStack alignSelf="flex-start">
             <Image
               src={product.brandLogo}
-              alt="Logo of an air-conditioner brand"
+              alt="Picture of an air-conditioner"
               width="50"
               height="50"
             ></Image>
