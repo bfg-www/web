@@ -36,3 +36,10 @@ export function updateProfileFormValuesInLocalStorage(
     localStorage.setItem('profileFormValues', JSON.stringify(updatedValues))
   }
 }
+
+export function updateAirconResultsInLocalStorage(newResults: Aircon[]) {
+  if (typeof window !== 'undefined') {
+    // Save updated results back to localStorage
+    localStorage.setItem('airconResults', JSON.stringify(newResults))
+  }
+}

@@ -32,23 +32,6 @@ const airconResults = [
     name: 'LG Inverter V',
     price: 500,
   },
-  {
-    id: 2,
-    name: 'Mitsubishi Starmex',
-    brand: 'Mitsubishi',
-    model: 'Starmex',
-    greenTicks: 4,
-    annualConsumption: 600,
-    price: 600,
-    image: '/aircon/stock.png',
-    brandLogo: '/brands/mitsubishi.svg',
-    brandUrl: 'https://sg.mitsubishielectric.com/',
-    lifecycleCost: 900,
-    lifespanEnergyCost: 900,
-    annualEnergyCost: 900,
-    annualEnergySavings: 900,
-    carbonEmissionsReduced: 900,
-  },
 ]
 
 const favourites = [
