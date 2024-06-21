@@ -2,18 +2,23 @@ import { Aircon } from '@/app/models/clientModels'
 import { Box, Button, Flex, HStack, Link, Text, VStack } from '@chakra-ui/react'
 import { FaEarthAsia } from 'react-icons/fa6'
 import CustomTooltip from './CustomTooltip'
-import { capitalizeFirstLetter } from '../helpers'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Image from 'next/image'
 import { GiCheckMark } from 'react-icons/gi'
 
 /* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
 Not sure if it's product.id or product.airconDetail.id */
-export function generateTickIcons(count: number) {
+export function generateTickIcons({
+  count,
+  tickSize = '25px',
+}: {
+  count: number
+  tickSize?: string
+}) {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
-        <GiCheckMark size="25px" key={index} color="#4F772D" />
+        <GiCheckMark size={tickSize} key={index} color="#4F772D" />
       ))}
     </>
   )
