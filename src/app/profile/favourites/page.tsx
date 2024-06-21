@@ -1,5 +1,13 @@
 'use client'
-import { Button, Grid, GridItem, HStack, Link, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  HStack,
+  Link,
+  Text,
+} from '@chakra-ui/react'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 
@@ -106,15 +114,29 @@ export default function Page() {
         </HStack>
       </GridItem>
       <GridItem area={'favourites-list'} mt={10}>
-        <HStack width="100%" alignContent="flex-start" columnGap={50}>
-          {favourites.map((item, index) => (
-            <FavouritesCard
-              key={index}
-              product={item}
-              onChange={handleUnfavourite}
-            />
-          ))}
-        </HStack>
+        {favourites.length !== 0 && (
+          <HStack width="100%" alignContent="flex-start" columnGap={50}>
+            {favourites.map((item, index) => (
+              <FavouritesCard
+                key={index}
+                product={item}
+                onChange={handleUnfavourite}
+              />
+            ))}
+          </HStack>
+        )}
+        {favourites.length === 0 && (
+          <Box>
+            <Text
+              fontSize="3xl"
+              color="rgba(37, 54, 16, 0.5)"
+              pt={20}
+              textAlign="center"
+            >
+              You have no favourites saved.
+            </Text>
+          </Box>
+        )}
       </GridItem>
     </Grid>
   )
