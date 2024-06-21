@@ -1,10 +1,82 @@
+'use client'
+
 import { Box, Button, Grid, GridItem, Text, VStack } from '@chakra-ui/react'
 import Image from 'next/image'
 import EcoCentsLogo from '../../public/EcoCentsLogo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
 import Link from 'next/link'
 
+// Initialise local storage
+const userEnergyProfile = {
+  householdType: '4_room',
+  airconCount: 2,
+  installationLocation: 'bedroom',
+  usageHours: 8,
+}
+
+const airconResults = [
+  {
+    annualConsumption: 500,
+    annualEnergyCost: 1000,
+    annualEnergySavings: 1000,
+    brand: 'LG',
+    brandLogo: '/brands/lg.svg',
+    brandUrl: 'https://www.lg.com/sg/',
+    carbonEmissionsReduced: 1000,
+    greenTicks: 5,
+    id: 1,
+    image: '/aircon/stock.png',
+    lifecycleCost: 1000,
+    lifespanEnergyCost: 1000,
+    model: 'Inverter V',
+    name: 'LG Inverter V',
+    price: 500,
+  },
+  {
+    id: 2,
+    name: 'Mitsubishi Starmex',
+    brand: 'Mitsubishi',
+    model: 'Starmex',
+    greenTicks: 4,
+    annualConsumption: 600,
+    price: 600,
+    image: '/aircon/stock.png',
+    brandLogo: '/brands/mitsubishi.svg',
+    brandUrl: 'https://sg.mitsubishielectric.com/',
+    lifecycleCost: 900,
+    lifespanEnergyCost: 900,
+    annualEnergyCost: 900,
+    annualEnergySavings: 900,
+    carbonEmissionsReduced: 900,
+  },
+]
+
+const favourites = [
+  {
+    annualConsumption: 500,
+    annualEnergyCost: 1000,
+    annualEnergySavings: 1000,
+    brand: 'LG',
+    brandLogo: '/brands/lg.svg',
+    brandUrl: 'https://www.lg.com/sg/',
+    carbonEmissionsReduced: 1000,
+    greenTicks: 5,
+    id: 1,
+    image: '/aircon/stock.png',
+    lifecycleCost: 1000,
+    lifespanEnergyCost: 1000,
+    model: 'Inverter V',
+    name: 'LG Inverter V',
+    price: 500,
+  },
+]
+
 export default function Landing() {
+  //Write to localStorage
+  localStorage.setItem('profileFormValues', JSON.stringify(userEnergyProfile))
+  localStorage.setItem('airconResults', JSON.stringify(airconResults))
+  localStorage.setItem('favourites', JSON.stringify(favourites))
+
   return (
     <Grid
       templateAreas={`"tagline hero"`}
