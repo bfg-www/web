@@ -1,5 +1,5 @@
 import { USER_ENERGY_PROFILE } from '@/app/profile/page'
-import { FormValues } from '../profiling/EnergyProfileForm'
+import { ProfileFormValues } from '@/app/models/clientModels'
 import { useState } from 'react'
 import {
   Button,
@@ -20,7 +20,7 @@ import { IoIosRefresh } from 'react-icons/io'
 export default function EnergyProfileFormWidget({
   onSubmit,
 }: {
-  onSubmit: (data: FormValues) => void
+  onSubmit: (data: ProfileFormValues) => void
 }) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
