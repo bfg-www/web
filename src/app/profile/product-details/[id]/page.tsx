@@ -19,7 +19,7 @@ import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import { TbWorldWww } from 'react-icons/tb'
-import HeartIconAdd from '@/app/ui/product-details/FavouriteIcon'
+import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
 import { AirconWithDetail } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
@@ -63,13 +63,18 @@ export default function Page({
   const isClimateVoucherEligible = product.greenTicks === 5
   return (
     <Grid
-      templateAreas={`"personal" "redirections" "non-energy-info" "energy-info"`}
-      gridTemplateRows={'100px 50px 1fr 2fr'}
+      templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
+      gridTemplateRows={'10px 100px 50px 1fr 2fr'}
       minHeight="100vh"
       minWidth="100vh"
     >
+      <GridItem area="redirect-back">
+        <Button variant="link" color="#253610" leftIcon={<RiArrowGoBackLine />}>
+          Back to recommendations
+        </Button>
+      </GridItem>
       <GridItem area={'personal'}>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" mt={10}>
           <EnergyProfileFormWidget isEditable={false} />
           <Link href="/favourites">
             <Button
@@ -88,15 +93,8 @@ export default function Page({
           </Link>
         </HStack>
       </GridItem>
-      <GridItem area={'redirections'} pt={4}>
-        <HStack justifyContent="space-between">
-          <Button
-            variant="link"
-            color="#253610"
-            leftIcon={<RiArrowGoBackLine />}
-          >
-            Back to recommendations
-          </Button>
+      <GridItem area={'redirect-out'}>
+        <HStack justifyContent="flex-end" pt={6}>
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline />}>
             <a href="https://www.harveynorman.com.sg/">
               See retailer site for full specs
