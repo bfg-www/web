@@ -15,8 +15,8 @@ export interface Aircon {
   carbonEmissionsReduced: number
 }
 
-export interface AirconWithDetails {
-  id: string
+export interface AirconWithDetail {
+  id: number
   name: string
   brand: string
   model: string
