@@ -22,7 +22,7 @@ export const USER_ENERGY_PROFILE = {
 }
 
 // TODO: Remove FE's dummy data, call BE's instead
-const RESULTS: Aircon[] = [
+export const RESULTS: Aircon[] = [
   {
     id: '1',
     brand: 'Mitsubishi',
@@ -146,7 +146,7 @@ export default function Page() {
     >
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between">
-          <EnergyProfileFormWidget onSubmit={handleFormWidgetSubmit} />
+          <EnergyProfileFormWidget isEditable={false} onSubmit={handleFormWidgetSubmit} />
           <Link href="/favourites">
             <Button
               type="submit"
