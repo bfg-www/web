@@ -24,7 +24,7 @@ export default function EnergyProfileFormWidget({
   isEditable,
 }: {
   onSubmit?: (data: ProfileFormValues) => void
-  isFetching: boolean
+  isFetching?: boolean
   isEditable: boolean
 }) {
   // TODO: Get data from localStorage or context
