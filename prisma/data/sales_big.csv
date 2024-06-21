@@ -1,0 +1,504 @@
+image,url,brandLogo,brandUrl,model,description,price
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM42PVMGFTKM42PVM,SMART ENVI 14000 BTU 2 TICKS,1559
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM60XVMG/FTKM60XVMG,SMART ENVI 22000 BTU 3 TICKS,2329
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM50XVMG/FTKM50XVMG,SMART ENVI 18000 BTU 3 TICKS,1909
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM60VVMG-PROMO,3X9000 & X22000 BTU,5209
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/2XCTKM35VVMG-PROMO,2X9000 & 2X12000 BTU,5129
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/1XCTKM25VVMG/1XCTKM35/2XCTKM50-PROMO,"1X9000, 1X12000 & 2X18000 BTU",5339
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM35VVMG/2XCTKM50VVMG-PROMO,2X12000 & 2X18000 BTU,5389
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/3XCTKM35VVMG-PROMO,2X9000 & 3X12000 BTU,5979
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM35/1XCTKM50-PROMO,"3X9000, 1X12000 & 1X18000 BTU",5999
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/2XCTKM35VVMG-PROMO,3X9000 & 2X12000 BTU,5929
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG/1XCTKM60VVMG-PROMO,4X9000 & 1X22000 BTU,5999
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG/1XCTKM50VVMG-PROMO,4X9000 & 1X18000 BTU,5949
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG/1XCTKM35VVMG-PROMO,4X9000 & 1X12000 BTU,5869
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/5XCTKM25VVMG-PROMO,5X9000 BTU,5819
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/3XCTKM35VVMG,2X9000 & 3X12000 BTU,6209
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM35VVMG/1XCTKM50VVMG,"3X9000, 1X12000 & 1X18000 BTU",6229
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/2XCTKM35VVMG,3X9000 & 2X12000 BTU,6159
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG/1XCTKM60VVMG,4X9000 & 1X22000 BTU,6229
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG/1XCTKM50VVMG,4X9000 & 1X18000 BTU,6179
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 5 AIRCON - WIFI MKM100VVMG/5XCTKM25VVMG,5X9000 BTU,6049
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM35VVMG/1XCTKM50VVMG,3X12000 & 1X18000 BTU,5549
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/1XCTKM25VVMG/1XCTKM35VVMG/2XCTKM50VVMG,"1X9000, 1X12000 & 2X18000 BTU",5569
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/1XCTKM25VVMG/2XCTKM35VVMG/1XCTKM60VVMG,"1X9000, 2X12000 & 1X22000 BTU",5549
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/1XCTKM25VVMG/2XCTKM35VVMG/1XCTKM50VVMG,"1X9000, 2X12000 & 1X18000 BTU",5489
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/1XCTKM25VVMG/3XCTKM35VVMG,1X9000 & 3X12000 BTU,5419
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/1XCTKM50VVMG/1XCTKM60VVMG,"2X9000, 1X18000 & 1X22000 BTU",5569
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/2XCTKM50VVMG,2X9000 & 2X18000 BTU,5519
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/1XCTKM35VVMG/1XCTKM71VVMG,"2X9000, 1X12000 & 1X24000 BTU",5539
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/1XCTKM35VVMG/1XCTKM60VVMG,"2X9000, 1X12000 & 1X22000 BTU",5489
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/2XCTKM25VVMG/2XCTKM35VVMG,2X9000 & 2X12000 BTU,5359
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM71VVMG,3X9000 & 1X24000 BTU,5479
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM60VVMG,3X9000 & 1X22000 BTU,5439
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM50VVMG,3X9000 & 1X18000 BTU,5389
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/3XCTKM25VVMG/1XCTKM35VVMG,3X9000 & 1X12000 BTU,5309
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/4XCTKM35VVMG,4X12000 BTU,5469
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM100VVMG/4XCTKM25VVMG,4X9000 BTU,5259
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM50/1XCTKM71-PROMO,"2X9000, 1X18000 & 1X24000 BTU",4799
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM35VVMG/1XCTKM50VVMG-PROMO,3X12000 & 1X18000 BTU,4729
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/4XCTKM35VVMG-PROMO,4X12000 BTU,4649
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35/1XCTKM60-PROMO,"1X9000, 2X12000 & 1X22000 BTU",4729
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35/1XCTKM50-PROMO,"1X9000, 2X12000 & 1X18000 BTU",4679
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/3XCTKM35VVMG-PROMO,1X9000 & 3X12000 BTU,4599
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/2XCTKM50VVMG-PROMO,2X9000 & 2X18000 BTU,4699
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35/1XCTKM71-PROMO,"2X9000, 1X12000 & 1X24000 BTU",4719
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35/1XCTKM60-PROMO,"2X9000, 1X12000 & 1X22000 BTU",4679
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35/1XCTKM50-PROMO,"2X9000, 1X12000 & 1X18000 BTU",4619
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/2XCTKM35VVMG-PROMO,2X9000 & 2X12000 BTU,4549
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM71VVMG-PROMO,3X9000 & 1X24000 BTU,4669
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM60VVMG-PROMO,3X9000 & 1X22000 BTU,4619
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM50VVMG-PROMO,3X9000 & 1X18000 BTU,4569
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM35VVMG-PROMO,3X9000 & 1X12000 BTU,4489
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/4XCTKM25VVMG-PROMO,4X9000 BTU,4439
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM50VVMG-PROMO,3X18000 BTU,4049
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/2XCTKM60VVMG-PROMO,1X12000 & 2X22000 BTU,4079
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/1XCTKM50/1XCTKM71-PROMO,"1X12000, 1X18000 & 1X24000 BTU",4069
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/1XCTKM50/1XCTKM60-PROMO,"1X12000, 1X18000 & 1X22000 BTU",4029
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/2XCTKM50VVMG-PROMO,1X12000 & 2X18000 BTU,3969
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM71VVMG-PROMO,2X12000 & 1X24000 BTU,3989
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM60VVMG-PROMO,2X12000 & 1X22000 BTU,3949
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM50VVMG-PROMO,2X12000 & 1X18000 BTU,3899
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM60/1XCTKM71-PROMO,"1X9000, 1X22000 & 1X24000 BTU",4069
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM60VVMG-PROMO,1X9000 & 2X22000 BTU,4029
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM50/1XCTKM71-PROMO,"1X9000, 1X18000 & 1X24000 BTU",4019
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM50/1XCTKM60-PROMO,"1X9000, 1X18000 & 1X22000 BTU",3969
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM50VVMG-PROMO,1X9000 & 2X18000 BTU,3919
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35/1XCTKM71-PROMO,"1X9000, 1X12000 & 1X24000 BTU",3939
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35/1XCTKM60-PROMO,"1X9000, 1X12000 & 1X22000 BTU",3899
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35/1XCTKM50-PROMO,"1X9000, 1X12000 & 1X18000 BTU",3839
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM35VVMG-PROMO,3X12000 BTU,3819
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM71VVMG-PROMO,2X9000 & 1X24000 BTU,3889
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM60VVMG-PROMO,2X9000 & 1X22000 BTU,3839
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM50VVMG-PROMO,2X9000 & 1X18000 BTU,3789
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35VVMG-PROMO,2X9000 & 1X12000 BTU,3709
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35VVMG-PROMO,1X9000 & 2X12000 BTU,3769
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG-PROMO,3X9000 BTU,3659
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM35VVMG/1XCTKM50VVMG,3X12000 & 1X18000 BTU,4619
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/4XCTKM35VVMG,4X12000 BTU,4539
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35VVMG/1XCTKM60VVMG,"1X9000, 2X12000 & 1X22000 BTU",4619
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35VVMG/1XCTKM50VVMG,"1X9000, 2X12000 & 1X18000 BTU",4569
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/3XCTKM35VVMG,1X9000 & 3X12000 BTU,4489
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/2XCTKM50VVMG,2X9000 & 2X18000 BTU,4589
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35VVMG/1XCTKM71VVMG,"2X9000, 1X12000 & 1X24000 BTU",4609
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35VVMG/1XCTKM60VVMG,"2X9000, 1X12000 & 1X22000 BTU",4569
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35VVMG/1XCTKM50VVMG,"2X9000, 1X12000 & 1X18000 BTU",4509
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/2XCTKM35VVMG,2X9000 & 2X12000 BTU,4439
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM71VVMG,3X9000 & 1X24000 BTU,4559
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM60VVMG,3X9000 & 1X22000 BTU,4509
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM50VVMG,3X9000 & 1X18000 BTU,4459
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG/1XCTKM35VVMG,3X9000 & 1X12000 BTU,4379
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM85VVMG/4XCTKM25VVMG,4X9000 BTU,4329
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM50VVMG,3X18000 BTU,3939
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/2XCTKM60VVMG,1X12000 & 2X22000 BTU,3969
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/1XCTKM50VVMG/1XCTKM71VVMG,"1X12000, 1X18000 & 1X24000 BTU",3959
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/1XCTKM50VVMG/1XCTKM60VVMG,"1X12000, 1X18000 & 1X22000 BTU",3919
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM35VVMG/2XCTKM50VVMG,1X12000 & 2X18000 BTU,3859
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM71VVMG,2X12000 & 1X24000 BTU,3879
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM60VVMG,2X12000 & 1X22000 BTU,3839
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM35VVMG/1XCTKM50VVMG,2X12000 & 1X18000 BTU,3789
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM60VVMG/1XCTKM71VVMG,"1X9000, 1X22000 & 1X24000 BTU",3959
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM60VVMG,1X9000 & 2X22000 BTU,3919
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM50VVMG/1XCTKM71VVMG,"1X9000, 1X18000 & 1X24000 BTU",3909
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM50VVMG/1XCTKM60VVMG,"1X9000, 1X18000 & 1X22000 BTU",3859
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM50VVMG,1X9000 & 2X18000 BTU,3809
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35VVMG/1XCTKM71VVMG,"1X9000, 1X12000 & 1X24000 BTU",3829
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35VVMG/1XCTKM60VVMG,"1X9000, 1X12000 & 1X22000 BTU",3789
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/1XCTKM35VVMG/1XCTKM50VVMG,"1X9000, 1X12000 & 1X18000 BTU",3729
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM35VVMG,3X12000 BTU,3709
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM71VVMG,2X9000 & 1X24000 BTU,3779
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM60VVMG,2X9000 & 1X22000 BTU,3729
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM50VVMG,2X9000 & 1X18000 BTU,3679
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/2XCTKM25VVMG/1XCTKM35VVMG,2X9000 & 1X12000 BTU,3599
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/1XCTKM25VVMG/2XCTKM35VVMG,1X9000 & 2X12000 BTU,3659
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM85VVMG/3XCTKM25VVMG,3X9000 BTU,3549
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM25XVMG/FTKM25XVMG,SMART ENVI 9000 BTU 5 TICKS,1309
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM71XVMG/FTKM71XVMG,SMART ENVI 24000 BTU 2 TICKS,2529
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM50VVMG/2XCTKM25VVMG/1XCTKM35VVMG-PROMO,2X9000 & 1X12000 BTU,3309
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM50VVMG/3XCTKM25VVMG-PROMO,3X9000 BTU,3249
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/2XCTKM35VVMG-PROMO,2X12000 BTU,2689
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/1XCTKM25VVMG/1XCTKM35VVMG-PROMO,1X9000 & 1X12000 BTU,2639
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/2XCTKM25VVMG-PROMO,2X9000 BTU,2579
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM50VVMG/2XCTKM25VVMG/1XCTKM35VVMG,2X9000 & 1X12000 BTU,3199
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM50VVMG/3XCTKM25VVMG,3X9000 BTU,3139
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/2XCTKM35VVMG,2X12000 BTU,2689
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/1XCTKM25VVMG/1XCTKM35VVMG,1X9000 & 1X12000 BTU,2639
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM50VVMG/2XCTKM25VVMG,2X9000 BTU,2579
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM35VVMG/1XCTKM50VVMG-PROMO,2X12000 & 1X18000 BTU,3829
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM75VVMG/3XCTKM25VVMG/1XCTKM35VVMG-PROMO,3X9000 & 1X12000 BTU,4429
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM75VVMG/4XCTKM25VVMG-PROMO,4X9000 BTU,4379
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/3XCTKM35VVMG-PROMO,3X12000 BTU,3759
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM35V/1XCTKM50V-PROMO,"1X9000, 1X12000 & 1X18000 BTU",3779
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/2XCTKM35VVMG-PROMO,1X9000 & 2X12000 BTU,3699
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM60VVMG-PROMO,2X9000 & 1X22000 BTU,3779
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM50VVMG-PROMO,2X9000 & 1X18000 BTU,3729
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM35VVMG-PROMO,2X9000 & 1X12000 BTU,3649
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/3XCTKM25VVMG-PROMO,3X9000 BTU,3599
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM50VVMG/1XCTKM60VVMG-PROMO,1X18000 & 1X22000 BTU,3289
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM50VVMG-PROMO,2X18000 BTU,3239
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM35VVMG/1XCTKM60VVMG-PROMO,1X12000 & 1X22000 BTU,3219
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM35VVMG/1XCTKM50VVMG-PROMO,1X12000 & 1X18000 BTU,3159
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM35VVMG-PROMO,2X12000 BTU,3089
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM60VVMG-PROMO,1X9000 & 1X22000 BTU,3159
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM50VVMG-PROMO,1X9000 & 1X18000 BTU,3109
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM35VVMG-PROMO,1X9000 & 1X12000 BTU,3029
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG-PROMO,2X9000 BTU,2979
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM75VVMG/3XCTKM25VVMG/1XCTKM35VVMG,3X9000 & 1X12000 BTU,4319
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 4 AIRCON - WIFI MKM75VVMG/4XCTKM25VVMG,4X9000 BTU,4269
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/3XCTKM35VVMG,3X12000 BTU,3649
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM35VVMG/1XCTKM50VVMG,"1X9000, 1X12000 & 1X18000 BTU",3669
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/2XCTKM35VVMG,1X9000 & 2X12000 BTU,3589
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM60VVMG,2X9000 & 1X22000 BTU,3669
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM50VVMG,2X9000 & 1X18000 BTU,3619
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG/1XCTKM35VVMG,2X9000 & 1X12000 BTU,3539
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 3 AIRCON - WIFI MKM75VVMG/3XCTKM25VVMG,3X9000 BTU,3489
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM50VVMG/1XCTKM60VVMG,1X18000 & 1X22000 BTU,3289
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM50VVMG,2X18000 BTU,3239
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM35VVMG/1XCTKM60VVMG,1X12000 & 1X22000 BTU,3219
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM35VVMG/1XCTKM50VVMG,1X12000 & 1X18000 BTU,3159
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM35VVMG,2X12000 BTU,3089
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM60VVMG,1X9000 & 1X22000 BTU,3159
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM50VVMG,1X9000 & 1X18000 BTU,3109
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/1XCTKM25VVMG/1XCTKM35VVMG,1X9000 & 1X12000 BTU,3029
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 2 AIRCON - WIFI MKM75VVMG/2XCTKM25VVMG,2X9000 BTU,2979
+/aircon/stock.png,https://www.daikin.com.sg/,/brands/daikin.png,https://www.daikin.com.sg/,DAIKIN SYSTEM 1 AIRCON- R32 RKM35XVMG/FTKM35XVMG,SMART ENVI 12000 BTU 3 TICKS,1409
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 1 AIRCON AOAG12CMTA/ASAG12CMTA,1X12000 BTU - 5 TICKS,1479
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 1 AIRCON AOAG09CMTA/ASAG09CMTA,1X9000 BTU - 5 TICKS,1369
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA(B)/1XASAH18CMTA,2X9000 & 1X18000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CETA(B)/1XASAH18CMTA,1X12000 & 1X18000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/1XASAH18CMTA,1X9000 &1X18000 BTU,3279
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CETA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA/1XASAH18CMTA,1X9000 &1X18000 BTU,3279
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CETA(B),3X12000 BTU,4459
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/2XASAH12CETA(B),1X9000 & 2X12000 BTU,4399
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA(B)/1XASAH12CETA(B),2X9000 & 1X12000 BTU,4349
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CETA(B),3X9000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/1XASAH12CETA(B),1X9000 &1X12000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CETA,3X12000 BTU,4459
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CETA/2XASAH12CETA,1X9000 & 2X12000 BTU,4399
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA/1XASAH12CETA,2X9000 & 1X12000 BTU,4349
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CETA,3X9000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA/1XASAH12CETA,1X9000 &1X12000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CMCA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3229
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CMCA,3X12000 BTU,4129
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CMCA/2XASAH12CMCA,1X9000 & 2X12000 BTU,4079
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CMCA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4079
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CMCA/1XASAH12CMCA,2X9000 & 1X12000 BTU,4019
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CMCA,3X9000 BTU,3969
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CMCA/1XASAH18CMTA,1X9000 &1X18000 BTU,3169
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CMCA/1XASAH12CMCA,1X9000 &1X12000 BTU,3119
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 1 AIRCON AOAG30CMTA/ASAG30CMTA,1X30000 BTU - 4 TICKS,2819
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 1 AIRCON AOAG18CMTA/ASAG18CMTA,1X18000 BTU - 4 TICKS,2029
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA(B)/1XASAH18CMTA,2X9000 & 1X18000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CETA(B)/1XASAH18CMTA,1X12000 & 1X18000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/1XASAH18CMTA,1X9000 &1X18000 BTU,3279
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CETA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA/1XASAH18CMTA,1X9000 &1X18000 BTU,3279
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CETA(B),3X12000 BTU,4459
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/2XASAH12CETA(B),1X9000 & 2X12000 BTU,4399
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA(B)/1XASAH12CETA(B),2X9000 & 1X12000 BTU,4349
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CETA(B),3X9000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA(B)/1XASAH12CETA(B),1X9000 &1X12000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CETA,3X12000 BTU,4459
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CETA/2XASAH12CETA,1X9000 & 2X12000 BTU,4399
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CETA/1XASAH12CETA,2X9000 & 1X12000 BTU,4349
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CETA,3X9000 BTU,4289
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CETA/1XASAH12CETA,1X9000 &1X12000 BTU,3339
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH12CMCA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3229
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH12CMCA,3X12000 BTU,4129
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/1XASAH09CMCA/2XASAH12CMCA,1X9000 & 2X12000 BTU,4079
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CMCA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4079
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/2XASAH09CMCA/1XASAH12CMCA,2X9000 & 1X12000 BTU,4019
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH24CBTA3/3XASAH09CMCA,3X9000 BTU,3969
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CMCA/1XASAH18CMTA,1X9000 &1X18000 BTU,3169
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH24CBTA3/1XASAH09CMCA/1XASAH12CMCA,1X9000 &1X12000 BTU,3119
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CETA(B)/1XASAH18CMTA,3X9000 & 1X18000 BTU,5309
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH12CETA(B)/1XASAH18CMTA,2X12000 & 1X18000 BTU,4579
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CETA(B)/1XASAH18CMTA,2X9000 & 1X18000 BTU,4469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH12CETA(B)/1XASAH18CMTA,1X12000 & 1X18000 BTU,3489
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH09CETA(B)/1XASAH18CMTA,1X9000 &1X18000 BTU,3429
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CETA/1XASAH18CMTA,3X9000 & 1X18000 BTU,5309
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH12CETA/1XASAH18CMTA,2X12000 & 1X18000 BTU,4579
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CETA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH12CETA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3489
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH09CETA/1XASAH18CMTA,1X9000 &1X18000 BTU,3429
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/1XASAH09CETA(B)/3XASAH12CETA(B),1X9000 & 3X12000 BTU,5469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/2XASAH09CETA(B)/2XASAH12CETA(B),2X9000 & 2X12000 BTU,5419
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CETA(B)/1XASAH12CETA(B),3X9000 & 1X12000 BTU,5359
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/4XASAH09CETA(B),4X9000 BTU,5309
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/1XASAH09CETA(B)/2XASAH12CETA(B),1X9000 & 2X12000 BTU,4579
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CETA(B)/1XASAH12CETA(B),2X9000 & 1X12000 BTU,4519
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/3XASAH09CETA(B),3X9000 BTU,4469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/1XASAH09CETA/3XASAH12CETA,1X9000 & 3X12000 BTU,5469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/2XASAH09CETA/2XASAH12CETA,2X9000 & 2X12000 BTU,5419
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CETA/1XASAH12CETA,3X9000 & 1X12000 BTU,5359
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/4XASAH09CETA,4X9000 BTU,5309
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/1XASAH09CETA/2XASAH12CETA,1X9000 & 2X12000 BTU,4579
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CETA/1XASAH12CETA,2X9000 & 1X12000 BTU,4519
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/3XASAH09CETA,3X9000 BTU,4469
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/1XASAH09CMCA/3XASAH12CMCA,1X9000 & 3X12000 BTU,5039
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/2XASAH09CMCA/2XASAH12CMCA,2X9000 & 2X12000 BTU,4979
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CMCA/1XASAH18CMTA,3X9000 & 1X18000 BTU,4979
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/3XASAH09CMCA/1XASAH12CMCA,3X9000 & 1X12000 BTU,4929
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 4 AIRCON AOAH30CBTA4/4XASAH09CMCA,4X9000 BTU,4869
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH12CMCA/1XASAH18CMTA,2X12000 & 1X18000 BTU,4359
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/1XASAH09CMCA/2XASAH12CMCA,1X9000 & 2X12000 BTU,4249
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CMCA/1XASAH18CMTA,2X9000 & 1X18000 BTU,4249
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/2XASAH09CMCA/1XASAH12CMCA,2X9000 & 1X12000 BTU,4199
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 3 AIRCON AOAH30CBTA4/3XASAH09CMCA,3X9000 BTU,4139
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH12CMCA/1XASAH18CMTA,1X12000 & 1X18000 BTU,3379
+/aircon/stock.png,https://www.fujitsu-general.com/sg/,/brands/fujitsu.png,https://www.fujitsu-general.com/sg/,FUJITSU SYSTEM 2 AIRCON AOAH30CBTA4/1XASAH09CMCA/1XASAH18CMTA,1X9000 &1X18000 BTU,3319
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/2XASW25S2SF2FA2/1XASW35/1XASW71,2X9000-1X12000-1X24000 BTU,4539
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/3XASW25S2SF2FA2/1XASW71S2SF2FA2,3X9000-1X24000 BTU,4489
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/3XASW25S2SF2FA2/1XASW50S2SF2FA2,3X9000-1X18000 BTU,4399
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/2XASW25S2SF2FA2/2XASW35S2SF2FA2,2X9000-2X12000 BTU,4409
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/3XASW25S2SF2FA2/1XASW35S2SF2FA2,3X9000-1X12000 BTU,4359
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 4 AIRCON-5 TICKS 4U80SH1SRA/4XASW25S2SF2FA2,4X9000 BTU,4309
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/2XASW35S2SF2FA2/1XASW71S2SF2FA2,2X12000-1X24000 BTU,3919
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/2XASW25S2SF2FA2/1XASW71S2SF2FA2,2X9000-1X24000 BTU,3819
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/2XASW25S2SF2FA2/1XASW50S2SF2FA2,2X9000-1X18000 BTU,3739
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/1XASW25S2SF2FA2/2XASW35S2SF2FA2,1X9000-2X12000 BTU,3749
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/2XASW25S2SF2FA2/1XASW35S2SF2FA2,2X9000-1X12000 BTU,3699
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U80SH1SRA/3XASW25S2SF2FA2,3X9000 BTU,3639
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U65RH1SRA/1XASW25S2SF2FA2/2XASW35S2SF2FA2,1X9000-2X12000 BTU,3519
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U65RH1SRA/2XASW25S2SF2FA2/1XASW50S2SF2FA2,2X9000-1X18000 BTU,3499
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U65RH1SRA/2XASW25S2SF2FA2/1XASW35S2SF2FA2,2X9000-1X12000 BTU,3459
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 3 AIRCON-5 TICKS 4U65RH1SRA/3XASW25S2SF2FA2,3X9000 BTU,3409
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 2 AIRCON-5 TICKS 4U65RH1SRA/1XASW35S2SF2FA2/1XASW50S2SF2FA2,1X12000-1X18000 BTU,2719
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 2 AIRCON-5 TICKS 4U65RH1SRA/1XASW25S2SF2FA2/1XASW50S2SF2FA2,1X9000-1X18000 BTU,2659
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 2 AIRCON-5 TICKS 4U65RH1SRA/1XASW25S2SF2FA2/1XASW35S2SF2FA2,1X9000-1X12000 BTU,2619
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 2 AIRCON-5 TICKS 4U65RH1SRA/2XASW35S2SF2FA2,2X12000 BTU,2669
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 2 AIRCON-5 TICKS 4U65RH1SRA/2XASW25S2SF2FA2,2X9000 BTU,2569
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 5 AIRCON-5 TICKS 5U90NH1SRA/4XASW25S2SF2FA2/1XASW71S2F2FA2,4X9000-1X24000 BTU,6349
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 5 AIRCON-5 TICKS 5U90NH1SRA/4XASW25S2SF2FA2/1XASW50S2F2FA2,4X9000-1X18000 BTU,6269
+/aircon/stock.png,https://www.haier.com/,/brands/haier.svg,https://www.haier.com/,HAIER SYSTEM 5 AIRCON-5 TICKS 5U90NH1SRA/5XASW25S2SF2FA2,5X9000 BTU,6179
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 1 AIRCON RAC-GJ10CMS/RAS-G10CMS,9000 BTU - 3 TICKS,1319
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/2XRAK-ZJ10CMS/1XRAK-ZJ13CMS/1XRAK-ZJ24,"2X9000,1X12000 & 1X24000 BTU",4779
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/2XRAK-ZJ10CMS/1XRAK-ZJ13CMS/1XRAK-ZJ18,"2X9000,1X12000 & 1X18000 BTU",4709
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/2XRAK-ZJ10CMS/2XRAK-ZJ13CMS,3X9000 & 1X12000 BTU,4689
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/3XRAK-ZJ10CMS/1XRAK-ZJ24CMS,3X9000 & 1X24000 BTU,4719
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/3XRAK-ZJ10CMS/1XRAK-ZJ18CMS,3X9000 & 1X18000 BTU,4659
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/3XRAK-ZJ10CMS/1XRAK-ZJ13CMS,3X9000 & 1X12000 BTU,4629
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 4 AIRCON RAM-Z38C4MS/4XRAK-ZJ10CMS,4X9000 BTU,4579
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 1 AIRCON RAC-GJ24CMS/RAS-G24CMS,24000 BTU - 3 TICKS,1929
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 3 AIRCON RAM-Z30C3MS/1XRAK-ZJ10CMS/1XRAK-ZJ13CMS/1XRAK-ZJ18,"1X9000, 1X12000 & 1X18000 BTU",3609
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 3 AIRCON RAM-Z30C3MS/2XRAK-ZJ10CMS/1XRAK-ZJ18CMS,2X9000 & 1X18000 BTU,3549
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 3 AIRCON RAM-Z30C3MS/2XRAK-ZJ10CMS/1XRAK-ZJ13CMS,2X9000 & 1X12000 BTU,3529
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 3 AIRCON RAM-Z30C3MS/3XRAK-ZJ13CMS,3X12000 BTU,3639
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 3 AIRCON RAM-Z30C3MS/3XRAK-ZJ10CMS,3X9000 BTU,3469
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 2 AIRCON RAM-Z23C2MS/1XRAK-ZJ10CMS/1XRAK-ZJ24CMS,1X9000 & 1X24000 BTU,2609
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 2 AIRCON RAM-Z23C2MS/1XRAK-ZJ10CMS/1XRAK-ZJ18CMS,1X9000 & 1X18000 BTU,2539
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 2 AIRCON RAM-Z23C2MS/1XRAK-ZJ10CMS/1XRAK-ZJ13CMS,1X9000 & 1X12000 BTU,2519
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 2 AIRCON RAM-Z23C2MS/2XRAK-ZJ13CMS,2X12000 BTU,2569
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 2 AIRCON RAM-Z23C2MS/2XRAK-ZJ10CMS,2X9000 BTU,2459
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 1 AIRCON RAC-GJ13CMS/RAS-G13CMS,12000 BTU - 3 TICKS,1379
+/aircon/stock.png,https://www.hitachi.asia/,/brands/hitachi.svg,https://www.hitachi.asia/,HITACHI SYSTEM 1 AIRCON RAC-GJ18CMS/RAS-G18CMS,18000 BTU - 3 TICKS,1809
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 1 AIRCON - R32 S3UQ18K21PA-S3NQ18K21PA,18000 BTU - 3 TICKS,1729
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 1 AIRCON - R32 S3UQ09JL1PA-S3NQ09JL1PA,9000 BTU - 3 TICKS,1249
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-3X12GDJR0-1X18GDKR0,3X12000-1X18000 BTU,5279
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-4X12GDJR0,4X12000 BTU,5229
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-1X09GDJR0-2X12GDJR0-1X18GDKR0,1X9000-2X12000-1X18000 BTU,5249
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-1X12GDJR0-1X24GDKR0,2X9000-1X12000-1X24000 BTU,5289
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-1X12GDJR0-1X18GDKR0,2X9000-1X12000-1X18000 BTU,5229
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-2X12GDJR0,2X9000-2X12000 BTU,5189
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-3X09GDJR0-1X24GDKR0,3X9000-1X24000 BTU,5259
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-3X09GDJR0-1X18GDKR0,3X9000-1X18000 BTU,5209
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-3X09GDJR0-1X12GDJR0,3X9000-1X12000 BTU,5169
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ARTCOOL Z4UQ28GFA0-4X09GDJR0,4X9000 BTU,5139
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-2X12GDJR0-1X18GDKR0,2X12000-1X18000 BTU,4399
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-3X12GDJR0,3X12000 BTU,4359
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-1X09GDJR0-1X18GDKR0-1X24GDKR0,1X9000-1X18000-1X24000 BTU,4479
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-1X09GDJR0-2X18GDKR0,1X9000-2X18000 BTU,4429
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-1X09GDJR0-1X12GDJR0-1X18GDKR0,1X9000-1X12000-1X18000 BTU,4379
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-1X09GDJR0-2X12GDJR0,1X9000- 2X12000 BTU,4339
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-1X24GDKR0,2X9000- 1X24000 BTU,4409
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-1X18GDKR0,2X9000- 1X18000 BTU,4359
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-2X09GDJR0-1X12GDJR0,2X9000- 1X12000 BTU,4319
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z4UQ28GFA0-3X09GDJR0,3X9000 BTU,4289
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/3X12GSJC0/1X18GSKC0,3X12000-1X18000 BTU,4759
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/4X12GSJC0,4X12000 BTU,4709
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/2X12GSJC0/1X18GSKC0,1X9000-2X12000-1X18000 BTU,4749
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/3X12GSJC0,1X9000-3X12000 BTU,4699
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/2X18GSKC0,2X9000-2X18000 BTU,4799
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/1X12GSJC0/1X24GSKC0,2X9000-1X12000-1X24000 BTU,4769
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/1X12GSJC0/1X18GSKC0,2X9000-1X12000-1X18000 BTU,4739
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/2X12GSJC0,2X9000-2X12000 BTU,4689
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/3X09GSJC0/1X24GSKC0,3X9000-1X24000 BTU,4759
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/3X09GSJC0/1X18GSKC0,3X9000-1X18000 BTU,4729
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/3X09GSJC0/1X12GSJC0,3X9000-1X12000 BTU,4679
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 4 AIRCON - ALPHA Z4UQ28GFA0/4X09GSJC0,4X9000 BTU,4669
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/3X18GSKC0,3X18000 BTU,4129
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/2X12GSJC0/1X18GSKC0,2X12000-1X18000 BTU,4019
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/3X12GSJC0,3X12000 BTU,3969
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/1X18GSKC0/1X24GSKC0,1X9000-1X18000-1X24000 BTU,4099
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/2X18GSKC0,1X9000-2X18000 BTU,4069
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/1X12GSJC0/1X24GSKC0,1X9000-1X12000-1X24000 BTU,4039
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/1X12GSJC0/1X18GSKC0,1X9000-1X12000-1X18000 BTU,4009
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/1X09GSJC0/2X12GSJC0,1X9000-2X12000 BTU,3959
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/1X24GSKC0,2X9000-1X24000 BTU,4029
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/1X18GSKC0,2X9000-1X18000 BTU,3999
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/2X09GSJC0/1X12GSJC0,2X9000-1X12000 BTU,3949
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z4UQ28GFA0/3X09GSJC0,3X9000 BTU,3929
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ18GFA0/3X09GDJR0,3X9000 BTU,3999
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ18GFA0/2X12GDJR0,2X12000 BTU,3019
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ18GFA0/1X09GDJR0-1X12GDJR0,1X9000-1X12000 BTU,2999
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ18GFA0/2X09GDJR0,2X9000 BTU,2979
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ18GFA0/3X12GSJC0,3X12000 BTU,3669
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ18GFA0/1X09GSJC0/2X12GSJCO,1X9000-2X12000 BTU,3659
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ18GFA0/2X09GSJC0/1X12GSJCO,2X9000-1X12000 BTU,3649
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ18GFA0/3X09GSJC0,3X9000 BTU,3639
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ALPHA Z3UQ18GFA0/2X12GSJC0,2X12000 BTU,2759
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ALPHA Z3UQ18GFA0/1X09GSJC0/1X12GSJC0,1X9000-1X12000 BTU,2749
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ALPHA Z3UQ18GFA0/2X09GSJC0,2X9000 BTU,2739
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 1 AIRCON - R32 S3UQ12JL1PA-S3NQ12JL1PA,12000 BTU - 3 TICKS,1299
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/1X09GDJR0/1X12GDJR0/1X24GDKR0,1X9000-1X12000-1X24000 BTU,4279
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/2X12GDJR0/1X18GDKR0,2X12000- 1X18000 BTU,4249
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/2X09GDJR0/1X24GDKR0,2X9000- 1X24000 BTU,4259
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/3X12GDJR0,3X12000 BTU,4209
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/2X09GDJR0/1X18GDKR0,2X9000- 1X18000 BTU,4209
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/1X09GDJR0/2X12GDJR0,1X9000- 2X12000 BTU,4189
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ARTCOOL Z3UQ26GFA0/2X09GDJR0/1X12GDJR0,2X9000- 1X12000 BTU,4159
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ26GFA0/1X12GDJR0/1X18GDKR0,1X12000-1X18000 BTU,3249
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ26GFA0/1X09GDJR0/1X18GDKR0,1X9000-1X18000 BTU,3229
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ26GFA0/2X12GDJR0,2X12000 BTU,3199
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ26GFA0/1X09GDJR0/1X12GDJR0,1X9000-1X12000 BTU,3179
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ARTCOOL Z3UQ26GFA0/2X09GDJR0,2X9000 BTU,3159
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/2X12GSJC0/1X24GSKC0,2X12000-1X24000 BTU,3899
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/2X09GSJC0/1X24GSKC0,2X9000-1X24000 BTU,3879
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/1X09GSJC0/1X12GSJC0/1X18GSKC0,1X9000-1X12000-1X18000 BTU,3859
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/3X12GSJC0,3X12000 BTU,3819
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/2X09GSJC0/1X18GSKC0,2X9000-1X18000 BTU,3849
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/1X09GSJC0/2X12GSJC0,1X9000-2X12000 BTU,3799
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/2X09GSJC0/1X12GSJC0,2X9000-1X12000 BTU,3789
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 3 AIRCON - ALPHA Z3UQ26GFA0/3X09GSJC0,3X9000 BTU,3779
+/aircon/stock.png,https://www.lg.com/sg/,/brands/lg.svg,https://www.lg.com/sg/,LG SYSTEM 2 AIRCON - ALPHA Z3UQ26GFA0/1X09GSJC0/1X24GSKC0,1X9000-1X24000 BTU,3019
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 1 AIRCON MPAG-1S12D/MPAG-12D,12000 BTU - 4 TICKS,1039
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/1XMSEID-12/1XMSEID-24,"2x9000, 1x12000, 1x24000 BTU",4359
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/3XMSEID-09/1XMSEID-24,"3x9000, 1x24000 BTU",4319
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/1XMSEID-24,"2x9000, 1x24000 BTU",3709
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/1XMSEID-12/1XMSEID-18,"2x9000, 1x12000, 1x18000 BTU",4319
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/3XMSEID-09/1XMSEID-18,"3x9000, 1x18000 BTU",4269
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/2XMSEID-12,"2x9000, 2x12000 BTU",4249
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M30E/3XMSEID-09/1XMSEID-12,"3x9000, 1x12000 BTU",4209
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/1XMSEID-18,"2x9000, 1x18000 BTU",3659
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-4M30E/2XMSEID-09/1XMSEID-12,"2x9000, 1x12000 BTU",3599
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 1 AIRCON MAS-1S09E/MSAS-09E,9000 BTU - 5 TICKS,1249
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON MKC-2M15E/2XSMKC-09,2x9000 BTU,2399
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON MKC-4M27E/4XSMKC-09,4x9000 BTU,3859
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 1 AIRCON MPAG-1S09C/MPAG-09C,9000 BTU - 3 TICKS,999
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 1 AIRCON MPAG-1S18B/MPAG-18B,18000 BTU - 2 TICKS,1449
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-2M18E/2XMSEID-12,2x12000 BTU,2649
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-2M18E/1XMSEID-09/1XMSEID-12,"1x9000, 1x12000 BTU",2599
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-2M18E/2XMSEID-09,2x9000 BTU,2559
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/O WIFI MAE-3M21D/3XMSEID-12(S),3x12000 BTU,3089
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/O WIFI MAE-3M21D/1XMSEID-09(S)/2XMSEID-12(S),"1x9000, 2x12000 BTU",3059
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/O WIFI MAE-3M21D/2XMSEID-09(S)/1XMSEID-12(S),"2x9000, 1x12000 BTU",3019
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/O WIFI MAE-3M21D/3XMSEID-09(S),3x9000 BTU,2989
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/O WIFI MAE-3M21D/2XMSEID-12(S),2X12000 BTU,2409
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/O WIFI MAE-3M21D/1XMSEID-09(S)/1XMSEID-12(S),"1x9000, 1x1200 BTU",2379
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/O WIFI MAE-3M21D/2XMSEID-09(S),2x9000 BTU,2339
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M21D/3XMSEID-12,3x12000 BTU,3319
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M21D/1XMSEID-09/2XMSEID-12,"1x9000, 2x12000 BTU",3269
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M21D/2XMSEID-09/1XMSEID-12,"2x9000, 1x12000 BTU",3229
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M21D/3XMSEID-09,3x9000 BTU,3179
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M21D/2XMSEID-12,2X12000 BTU,2559
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M21D/1XMSEID-09/1XMSEID-12,"1x9000, 1x1200 BTU",2519
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M21D/2XMSEID-09,2x9000 BTU,2469
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/O WIFI MAE-4M28D/3XMSEID-09(S)/1XMSEID-18(S),"3x9000, 1x18000 BTU",3779
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/O WIFI MAE-4M28D/2XMSEID-09(S)/2XMSEID-12(S),"2x9000, 2x12000 BTU",3739
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/O WIFI MAE-4M28D/3XMSEID-09(S)/1XMSEID-12(S),"3x9000, 1x12000 BTU",3699
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M28D/2XMSEID-09/1XMSEID-12/1XMSEID-18,"2x9000, 1x12000, 1x18000 BTU",4079
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M28D/3XMSEID-09/1XMSEID-18,"3x9000, 1x18000 BTU",4039
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M28D/2XMSEID-09/2XMSEID-12,"2x9000, 2x12000 BTU",4019
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 4 AIRCON-W/WIFI MAE-4M28D/3XMSEID-09/1XMSEID-12,"3x9000, 1x12000 BTU",3969
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M25E/3XMSEID-12,3x12000 BTU,3539
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M25E/1XMSEID-09/2XMSEID-12,"1x9000, 2x12000 BTU",3499
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M25E/2XMSEID-09/1XMSEID-12,"2x9000, 1x12000 BTU",3459
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 3 AIRCON-W/WIFI MAE-3M25E/3XMSEID-09,3x9000 BTU,3409
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M25E/2XMSEID-12,2x12000 BTU,2809
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M25E/1XMSEID-09/1XMSEID-12,"1x9000, 1x12000 BTU",2769
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 2 AIRCON-W/WIFI MAE-3M25E/2XMSEID-09,2x9000 BTU,2729
+/aircon/stock.png,https://www.midea.com/sg/,/brands/midea.svg,https://www.midea.com/sg/,MIDEA SYSTEM 1 AIRCON MAS-1S12D/MSAS-12D,12000 BTU - 4 TICKS,1359
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP13VG/1XMSXY-FP24VG,3X12000 & 1X24000 BTU,5199
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP13VG/1XMSXY-FP18VG,3X12000 & 1X18000 BTU,5149
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/2XMSXY-FP13VG/2XMSXY-FP18VG,2X12000 & 2X18000 BTU,5179
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/4XMSXY-FP13VG,4X12000 BTU,5119
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/1XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP24,"1X9000, 2X12000 & 1X24000 BTU",5149
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/1XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP18,"1X9000, 2X12000 & 1X18000 BTU",5099
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/2XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP24,"2X9000, 1X12000 & 1X24000 BTU",5099
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/2XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP18,"2X9000, 1X12000 & 1X18000 BTU",5059
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/1XMSXY-FP10VG/1XMSXY-FP13VG/2XMSXY-FP18,"1X9000, 1X12000 & 2X18000 BTU",5129
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/2XMSXY-FP10VG/2XMSXY-FP18VG,2X9000 & 2X18000 BTU,5079
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/2XMSXY-FP10VG/2XMSXY-FP13VG,2X9000 & 2X12000 BTU,5029
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP10VG/1XMSXY-FP24VG,3X9000 & 1X24000 BTU,5059
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP10VG/1XMSXY-FP20VG,3X9000 & 1X20000 BTU,5029
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP10VG/1XMSXY-FP18VG,3X9000 & 1X18000 BTU,5009
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/3XMSXY-FP10VG/1XMSXY-FP13VG,3X9000 & 1X12000 BTU,4979
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H33VG/4XMSXY-FP10VG,4X9000 BTU,4929
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/5XMSXY-FP10VG,5X9000 BTU,6799
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/1XMSXY-FP13VG/2XMSXY-FP24,"2X9000, 1X12000 & 2X24000 BTU",7099
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/1XMSXY-FP13VG/2XMSXY-FP20,"2X9000, 1X12000 & 2X20000 BTU",7039
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/1XMSXY-FP13VG/2XMSXY-FP18,"2X9000, 1X12000 & 2X18000 BTU",6999
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP24,"2X9000, 2X12000 & 1X24000 BTU",7019
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP18,"2X9000, 2X12000 & 1X18000 BTU",6969
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/2XMSXY-FP10VG/3XMSXY-FP13VG,2X9000 & 3X12000 BTU,6939
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/1XMSXY-FP18VG/1XMSXY-FP24,"3X9000, 1X18000 & 1X24000 BTU",6999
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/2XMSXY-FP18VG,3X9000 & 2X18000 BTU,6949
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP24,"3X9000, 1X12000 & 1X24000 BTU",6969
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP20,"3X9000, 1X12000 & 1X20000 BTU",6939
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP18,"3X9000, 1X12000 & 1X18000 BTU",6919
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/3XMSXY-FP10VG/2XMSXY-FP13VG,3X9000 & 2X12000 BTU,6899
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/4XMSXY-FP10VG/1XMSXY-FP24VG,4X9000 & 1X24000 BTU,6919
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/4XMSXY-FP10VG/1XMSXY-FP20VG,4X9000 & 1X20000 BTU,6899
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/4XMSXY-FP10VG/1XMSXY-FP18VG,4X9000 & 1X18000 BTU,6879
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 5 AIRCON MXY-5H48VG/4XMSXY-FP10VG/1XMSXY-FP13VG,4X9000 & 1X12000 BTU,6849
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP13VG/1XMSXY-FP24VG,3X12000 & 1X24000 BTU,5689
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP13VG/1XMSXY-FP18VG,3X12000 & 1X18000 BTU,5639
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/4XMSXY-FP13VG,4X12000 BTU,5609
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/1XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP24,"1X9000, 2X12000 & 1X24000 BTU",5639
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/1XMSXY-FP10VG/2XMSXY-FP13VG/1XMSXY-FP20,"1X9000, 2X12000 & 1X20000 BTU",5609
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/1XMSXY-FP10VG/3XMSXY-FP13VG,1X9000 & 3X12000 BTU,5559
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/1XMSXY-FP10VG/1XMSXY-FP13VG/2XMSXY-FP18,"1X9000, 1X12000 & 2X18000 BTU",5619
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/2XMSXY-FP18VG,2X9000 & 2X18000 BTU,5569
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/1XMSXY-FP18VG/1XMSXY-FP24,"2X9000, 1X18000 & 1X24000 BTU",5619
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP24,"2X9000, 1X12000 & 1X24000 BTU",5589
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP20,"2X9000, 1X12000 & 1X20000 BTU",5559
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP18,"2X9000, 1X12000 & 1X18000 BTU",5539
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/2XMSXY-FP10VG/2XMSXY-FP13VG,2X9000 & 2X12000 BTU,5509
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP10VG/1XMSXY-FP24VG,3X9000 & 1X24000 BTU,5539
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP10VG/1XMSXY-FP20VG,3X9000 & 1X20000 BTU,5509
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP10VG/1XMSXY-FP18VG,3X9000 & 1X18000 BTU,5489
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/3XMSXY-FP10VG/1XMSXY-FP13VG,3X9000 & 1X12000 BTU,5459
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 4 AIRCON MXY-4H38VG/4XMSXY-FP10VG,4X9000 BTU,5419
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP13VG/1XMSXY-FP18VG/1XMSXY-FP24,"1X12000, 1X18000 & 1X24000 BTU",4219
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP13VG/1XMSXY-FP18VG/1XMSXY-FP20,"1X12000, 1X18000 & 1X20000 BTU",4189
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP13VG/2XMSXY-FP18VG,1X12000 & 2X18000 BTU,4169
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP13VG/1XMSXY-FP24VG,2X12000 & 1X24000 BTU,4189
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP13VG/1XMSXY-FP20VG,2X12000 & 1X20000 BTU,4159
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP13VG/1XMSXY-FP18VG,2X12000 & 1X18000 BTU,4149
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/3XMSXY-FP13VG,3X12000 BTU,4119
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP10VG/2XMSXY-FP18VG,1X9000 & 2X18000 BTU,4129
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP10VG/2XMSXY-FP13VG,1X9000 & 2X13000 BTU,4069
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP24,"1X9000, 1X12000 & 1X24000 BTU",4149
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP20,"1X9000, 1X12000 & 1X20000 BTU",4119
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/1XMSXY-FP10VG/1XMSXY-FP13VG/1XMSXY-FP18,"1X9000, 1X12000 & 1X18000 BTU",4099
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP10VG/1XMSXY-FP24VG,2X9000 & 1X24000 BTU,4099
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP10VG/1XMSXY-FP20VG,2X9000 & 1X20000 BTU,4069
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP10VG/1XMSXY-FP18VG,2X9000 & 1X18000 BTU,4049
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/2XMSXY-FP10VG/1XMSXY-FP13VG,2X9000 & 1X12000 BTU,4019
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 3 AIRCON MXY-3H28VG/3XMSXY-FP10VG,3X9000 BTU,3969
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP18VG/1XMSXY-FP20VG,1X18000 & 1X20000 BTU,2829
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/2XMSXY-FP18VG,2X18000 BTU,2809
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP13VG/1XMSXY-FP20VG,1X12000 & 1X20000 BTU,2799
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP13VG/1XMSXY-FP18VG,1X12000 & 1X18000 BTU,2779
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/2XMSXY-FP13VG,2X12000 BTU,2759
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP10VG/1XMSXY-FP20VG,1X9000 & 1X20000 BTU,2759
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP10VG/1XMSXY-FP18VG,1X9000 & 1X18000 BTU,2739
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/1XMSXY-FP10VG/1XMSXY-FP13VG,1X9000 & 1X12000 BTU,2709
+/aircon/stock.png,https://sg.mitsubishielectric.com/,/brands/mitsubishi.svg,https://sg.mitsubishielectric.com/,MITSUBISHI SYSTEM 2 AIRCON MXY-2H20VF/2XMSXY-FP10VG,2X9000 BTU,2659
+/aircon/stock.png,https://www.mhi.com/,/brands/mitsubishi-heavy.svg,https://www.mhi.com/,MITSUBISHI HV SYS 1 AIRCON SRC13YVS-W7/SRK13YVS-W7,1X12000 BTU - 4 TICKS,1449
+/aircon/stock.png,https://www.mhi.com/,/brands/mitsubishi-heavy.svg,https://www.mhi.com/,MITSUBISHI HV SYS 1 AIRCON SRC10YVS-W7/SRK10YVS-W7,1X9000 BTU - 5 TICKS,1359
+/aircon/stock.png,https://www.mhi.com/,/brands/mitsubishi-heavy.svg,https://www.mhi.com/,MITSUBISHI HV SYS 1 AIRCON SRC24YVS-W7/SRK24YVS-W7,1X24000 BTU - 3 TICKS,2229
+/aircon/stock.png,https://www.mhi.com/,/brands/mitsubishi-heavy.svg,https://www.mhi.com/,MITSUBISHI HV SYS 1 AIRCON SRC18YVS-W7/SRK18YVS-W7,1X18000 BTU - 2 TICKS,2019

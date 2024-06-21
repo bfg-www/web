@@ -9,7 +9,8 @@ import {
 } from '../models/clientModels'
 import { getBtuRequired, castBtusToSystem, getCalculations } from './airconUtil'
 
-const BTU_UPPER_BOUND = 1.35
+const BTU_UPPER_BOUND = 1.1
+const RECOMMENDATION_LIMIT = 30
 
 export async function getAirconsForProfile({
   householdType,
@@ -23,7 +24,9 @@ export async function getAirconsForProfile({
     const rt = RoomType[installationLocation as keyof typeof RoomType]
     const uh = Number(usageHours)
     const btuRequired = getBtuRequired(ht, rt)
-    const res = (
+    console.log('btuRequired:', btuRequired)
+    console.log('upper bound:', btuRequired * BTU_UPPER_BOUND)
+    let res = (
       await db.aircon.findMany({
         include: {
           airconDetail: true,
@@ -44,15 +47,6 @@ export async function getAirconsForProfile({
       if (aircon.airconDetail == null) {
         return false
       }
-
-      // //
-      // if (aircon.airconDetail.btus.length === ac) {
-      //   console.log(aircon.airconDetail.btus, btuRequired, btuRequired * BTU_UPPER_BOUND)
-      //   console.log("^")
-      // } else {
-      //   console.log(aircon.airconDetail.btus, btuRequired, btuRequired * BTU_UPPER_BOUND)
-      // }
-      // //
 
       const airconCountMatches = aircon.airconDetail.btus.length === ac
       if (rt === RoomType.entire_house) {
@@ -76,7 +70,9 @@ export async function getAirconsForProfile({
         )
       }
     })
-
+    if (res.length > RECOMMENDATION_LIMIT) {
+      res = res.slice(0, RECOMMENDATION_LIMIT)
+    }
     return Promise.all(
       res.map(async (aircon) => {
         const averageConsumption = await getAverageConsumptionAgainstAircon(
