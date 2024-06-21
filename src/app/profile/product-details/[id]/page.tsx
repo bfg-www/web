@@ -8,6 +8,7 @@ import {
   Grid,
   GridItem,
   HStack,
+  Skeleton,
   Text,
   VStack,
 } from '@chakra-ui/react'
@@ -108,6 +109,15 @@ export default function Page() {
 
   return (
     <>
+      {!product && (
+        <Skeleton
+          height="100%"
+          width="100%"
+          startColor="#F0F1E7"
+          endColor="white"
+          borderRadius="15px"
+        />
+      )}
       {product && (
         <Grid
           templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
