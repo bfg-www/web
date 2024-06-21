@@ -1,15 +1,21 @@
 'use client'
 
 import EnergyProfileFormWidget from "@/app/ui/profile/EnergyProfileFormWidget";
-import { Box, Button, Flex, Grid, GridItem, HStack, Link } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, GridItem, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { FaRegHeart, } from "react-icons/fa";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import { IoOpenOutline } from "react-icons/io5";
 import { TbWorldWww } from "react-icons/tb";
 import HeartIcon from "@/app/ui/product-details/FavouriteIcon";
 import { AirconWithDetail } from "@/app/ui/models/aircon-options";
+import CustomTooltip from "@/app/ui/profile/CustomTooltip";
+import { generateTickIcons } from "@/app/ui/profile/ProductCard";
+import Image from "next/image";
+import climateVoucherLogo from '/public/climate-voucher-logo.png'
+import { capitalizeFirstLetter } from "@/app/ui/helpers";
 
-// JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section. I'll put a placeholder for you.
+
+// JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
 const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
   name: 'starmex system 4 aircon',
@@ -36,7 +42,9 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
 // TOOD: Wire up site redirection to retailer site, product.airconDetail.url?
 // TODO: Wire up favourites action to favourites list
 
-export default function Page() {
+export default function Page({product = AIRCON_WITH_DETAIL} : {product: AirconWithDetail}) {
+
+  const isClimateVoucherEligible = product.greenTicks === 5
     return (
         <Grid
       templateAreas={`"personal" "redirections" "non-energy-info" "energy-info"`}
@@ -79,7 +87,7 @@ export default function Page() {
         <Box borderWidth="1px" width="40%">
           INSERT AIRCON IMAGE
         </Box>
-        <VStack borderWidth="1px" width="100%">
+        <VStack borderWidth="1px" width="100%" spacing={0}>
           <HStack borderWidth="1px" alignSelf="flex-start">
             <Box>INSERT BRAND LOGO</Box>
             <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
@@ -90,7 +98,25 @@ export default function Page() {
           <Text fontSize="sm" alignSelf="flex-start" color="grey">
             {product.model.toUpperCase()}
           </Text>
-          <HStack alignSelf="flex-start" spacing="150px" borderWidth="1px">
+          <VStack borderWidth="1px">
+            <VStack></VStack>
+            <VStack>
+              <Text>This system-${'JX TODO: INSERT SYSTEM UNIT FROM BE FOR THIS PRODUCT'} unit consists of:</Text>
+              <Text>JX TODO: get system-to-room mapping unit info</Text>
+            </VStack>
+          </VStack>
+        </VStack>
+        </HStack>
+      </GridItem>
+      <GridItem bg="blue.300" area={'energy-info'}>
+      </GridItem>
+    </Grid>
+  )
+
+}
+
+
+{/* <HStack alignSelf="flex-start" spacing="150px" borderWidth="1px">
             <VStack>
               <Text as="b" fontSize="lg">
                 Price
@@ -129,13 +155,4 @@ export default function Page() {
                 />
               </Box>
             )}
-          </HStack>
-        </VStack>
-        </HStack>
-      </GridItem>
-      <GridItem bg="blue.300" area={'energy-info'}>
-      </GridItem>
-    </Grid>
-  )
-
-}
+          </HStack> */}
