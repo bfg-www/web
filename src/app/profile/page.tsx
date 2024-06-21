@@ -41,7 +41,7 @@ export default function Page() {
       console.error(error)
     } finally {
       // else the loading speed is near-instant and the UX is jarring
-      setTimeout(() => setIsResultsFetching(false), 2000)
+      setTimeout(() => setIsResultsFetching(false), 1500)
     }
     /* BY TODO: handle data fetching state
         -> skeleton loading, for profile widget & product listings, pass in isLoading prop
@@ -80,7 +80,7 @@ export default function Page() {
       console.log('filteredResults:', filteredResults)
       setResults(filteredResults)
       setIsResultsFetching(false)
-    }, 3000)
+    }, 1500)
   }
 
   return (
@@ -97,6 +97,7 @@ export default function Page() {
           <EnergyProfileFormWidget
             onSubmit={handleFormWidgetSubmit}
             isFetching={isResultsFetching}
+            isEditable={true}
           />
           <Link href="/favourites">
             <Button

@@ -7,7 +7,6 @@ import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Image from 'next/image'
 import { GiCheckMark } from 'react-icons/gi'
 
-
 /* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
 Not sure if it's product.id or product.airconDetail.id */
 export function generateTickIcons(count: number) {
@@ -32,11 +31,12 @@ export default function ProductCard({
   return (
     <VStack
       backgroundColor="white"
-      height="320px"
+      height="310px"
       borderRadius="15px"
       p={3}
       boxShadow="base"
       mb={5}
+      spacing={1}
     >
       <Flex width="100%" justifyContent="space-between">
         <HStack
@@ -67,12 +67,15 @@ export default function ProductCard({
           </Text>
         )}
       </Flex>
-      <HStack borderWidth="1px" justifyContent="flex-start" width="100%">
-        <Box borderWidth="1px" width="40%">
-          {product.image}
-        </Box>
-        <VStack borderWidth="1px" width="100%">
-          <HStack borderWidth="1px" alignSelf="flex-start">
+      <HStack justifyContent="flex-start" width="100%" mt={1}>
+        <Image
+          src={product.image}
+          alt="Logo of an air-conditioner brand"
+          width="500"
+          height="200"
+        ></Image>
+        <VStack width="100%" mt={0} spacing={0} ml={5}>
+          <HStack alignSelf="flex-start">
             <Image
               src={product.brandLogo}
               alt="Logo of an air-conditioner brand"
@@ -87,7 +90,7 @@ export default function ProductCard({
           <Text fontSize="sm" alignSelf="flex-start" color="grey">
             {product.model.toUpperCase()}
           </Text>
-          <HStack alignSelf="flex-start" spacing="150px" borderWidth="1px">
+          <HStack alignSelf="flex-start" spacing="150px" mt={5}>
             <VStack>
               <Text as="b" fontSize="lg">
                 Price
@@ -113,7 +116,7 @@ export default function ProductCard({
               <Text fontSize="lg">${product.annualEnergyCost}</Text>
             </VStack>
           </HStack>
-          <HStack alignSelf="flex-start" borderWidth="1px" spacing={5}>
+          <HStack alignSelf="flex-start" spacing={5} mt={5}>
             <HStack spacing={0}>
               {generateTickIcons(Number(product.greenTicks))}
             </HStack>
@@ -127,21 +130,22 @@ export default function ProductCard({
               </Box>
             )}
           </HStack>
+          <Box width="100%" display="flex" justifyContent="flex-end">
+            <Link href={`/product-details/${product.id}`}>
+              <Button
+                backgroundColor="#F0F1E7"
+                color="#253610"
+                borderRadius="16px"
+                p={3}
+                boxShadow="base"
+                size="sm"
+              >
+                Find out more
+              </Button>
+            </Link>
+          </Box>
         </VStack>
       </HStack>
-      <Link href={`/product-details/${product.id}`}>
-      </Link>
-      <Button
-        alignSelf="flex-end"
-        ml="auto"
-        backgroundColor="#F0F1E7"
-        color="#253610"
-        borderRadius="16px"
-        p={3}
-        boxShadow="base"
-      >
-        Find out more
-      </Button>
     </VStack>
   )
 }
