@@ -49,8 +49,8 @@ export default function ProductCard({
           <FaEarthAsia color="#F0F1E7" size="20px" />
           <Text fontSize="xs" color="#F0F1E7" as="kbd" ml={2} mr={1}>
             Reduce your carbon emissions by up to{' '}
-            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
-            option compared to less efficient models
+            <strong>{product.carbonEmissionsReduced}%</strong> with this option
+            compared to less efficient models
           </Text>
           <CustomTooltip content="To be added"></CustomTooltip>
         </HStack>
