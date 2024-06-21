@@ -20,7 +20,7 @@ import { IoIosRefresh } from 'react-icons/io'
 export default function EnergyProfileFormWidget({
   onSubmit, isEditable = false
 }: {
-  onSubmit: (data: ProfileFormValues) => void
+  onSubmit?: (data: ProfileFormValues) => void
 , isEditable: boolean}, ) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
@@ -80,7 +80,7 @@ export default function EnergyProfileFormWidget({
           <FormControl display="inline-block" w="auto">
             <HStack>
               <NumberInput
-              disabled={!isEditable}
+                isDisabled={!isEditable}
                 min={1}
                 max={10}
                 value={airconCount}
