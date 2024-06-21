@@ -209,9 +209,10 @@ export default function Page({
                 width="100%"
                 pt={2}
               >
-                <Text color="#F0F1E7" as="b" fontSize="md">
-                  This system-{product.airconDetail.btus.length} unit consists
-                  of:
+                <Text color="#F0F1E7" fontSize="md">
+                  This{' '}
+                  <strong>system-{product.airconDetail.btus.length}</strong>{' '}
+                  unit consists of:
                 </Text>
                 {product.airconDetail.systems.map((system, index) => (
                   <HStack width="100%" key={index}>
