@@ -51,6 +51,7 @@ export async function getAirconsForProfile({
     const btu = getBtuRequired(ht, rt)
     const res = (
       await db.aircon.findMany({
+        // TODO: should?
         where: {
           greenTicks: {
             gte: 3,
@@ -74,7 +75,9 @@ export async function getAirconsForProfile({
     ).filter(
       (aircon) =>
         // number of btu == number of aircons wanted
-        aircon.airconDetail != null && aircon.airconDetail.btus.length === ac,
+        aircon.airconDetail != null && 
+        aircon.airconDetail.btus.length === ac
+        // TODO: add range of btus for recos
     )
     const averageConsumption = await getAverageConsumption(res[0].greenTicks)
 
@@ -104,6 +107,12 @@ export async function getAverageConsumption(ticks: number): Promise<number> {
       greenTicks: {
         equals: ticks,
       },
+      // TODO: add range of btus for recos
+      // airconDetail: {
+      //   btus: {
+      //     has: 1,
+      //   },
+      // }
     },
   })
   if (
@@ -155,8 +164,9 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 5,
       annualConsumption: 500,
       price: 500,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/lg.svg',
+      brandUrl: 'https://www.lg.com/sg/',
       lifecycleCost: 1000,
       lifespanEnergyCost: 1000,
       annualEnergyCost: 1000,
@@ -171,8 +181,9 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 4,
       annualConsumption: 600,
       price: 600,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/mitsubishi.svg',
+      brandUrl: 'https://sg.mitsubishielectric.com/',
       lifecycleCost: 900,
       lifespanEnergyCost: 900,
       annualEnergyCost: 900,
@@ -187,8 +198,9 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 3,
       annualConsumption: 700,
       price: 700,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/daikin.png',
+      brandUrl: 'https://www.daikin.com.sg/',
       lifecycleCost: 800,
       lifespanEnergyCost: 800,
       annualEnergyCost: 800,
@@ -230,7 +242,7 @@ function getCalculations(
     usageHours,
   )
   const carbonEmmissionsReduced = calcCarbonEmmissionsReduced(
-    averageConsumption, 
+    averageConsumption,
     annualConsumption
   )
   return {
