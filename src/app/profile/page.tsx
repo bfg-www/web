@@ -23,6 +23,7 @@ export const USER_ENERGY_PROFILE = {
   usageHours: '8',
 }
 
+// TODO: Remove FE's dummy data, call BE's instead
 const RESULTS: Aircon[] = [
   {
     id: '1',
