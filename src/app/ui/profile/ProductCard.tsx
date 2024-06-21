@@ -1,5 +1,5 @@
 import { Aircon } from '@/app/models/clientModels'
-import { Box, Button, Flex, HStack, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Link, Text, VStack } from '@chakra-ui/react'
 import { FaEarthAsia } from 'react-icons/fa6'
 import CustomTooltip from './CustomTooltip'
 import { capitalizeFirstLetter } from '../helpers'
@@ -7,7 +7,10 @@ import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Image from 'next/image'
 import { GiCheckMark } from 'react-icons/gi'
 
-function generateTickIcons(count: number) {
+
+/* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
+Not sure if it's product.id or product.airconDetail.id */
+export function generateTickIcons(count: number) {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
@@ -121,6 +124,8 @@ export default function ProductCard({
           </HStack>
         </VStack>
       </HStack>
+      <Link href={`/product-details/${product.id}`}>
+      </Link>
       <Button
         alignSelf="flex-end"
         ml="auto"

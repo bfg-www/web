@@ -94,7 +94,7 @@ export default function Page() {
     >
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between">
-          <EnergyProfileFormWidget onSubmit={handleFormWidgetSubmit} />
+          <EnergyProfileFormWidget isEditable={true} onSubmit={handleFormWidgetSubmit} />
           <Link href="/favourites">
             <Button
               type="submit"
