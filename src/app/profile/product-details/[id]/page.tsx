@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   CardBody,
+  Divider,
   Flex,
   Grid,
   GridItem,
@@ -65,7 +66,6 @@ export default function Page({
       gridTemplateRows={'100px 50px 1fr 2fr'}
       minHeight="100vh"
       minWidth="100vh"
-      borderWidth="1px"
     >
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between">
@@ -111,17 +111,17 @@ export default function Page({
         px={4}
         py={2}
       >
-        <Flex justifyContent="flex-end" mt={5} borderWidth="1px">
+        <Flex justifyContent="flex-end" mt={5} pr={2}>
           <HeartIcon />
         </Flex>
-        <HStack borderWidth="1px">
+        <HStack>
           <Box borderWidth="1px" width="40%">
             INSERT AIRCON IMAGE
           </Box>
           <VStack
             borderWidth="1px"
             width="100%"
-            spacing={0}
+            spacing={1}
             alignItems="flex-start"
           >
             <HStack borderWidth="1px" alignItems="flex-start">
@@ -135,10 +135,12 @@ export default function Page({
               {product.model.toUpperCase()}
             </Text>
             <VStack
-              borderWidth="1px"
               borderRadius="15px"
-              bg="#253610"
+              bg="#4F772D"
+              boxShadow="base"
               alignItems="flex-start"
+              p={3}
+              mt={5}
             >
               <VStack alignItems="flex-start">
                 <Flex>
@@ -169,15 +171,32 @@ export default function Page({
           </VStack>
         </HStack>
       </GridItem>
-      <GridItem area={'energy-info'} bg="white" px={4} pt={2}>
+      <GridItem
+        area={'energy-info'}
+        bg="white"
+        px={4}
+        pt={2}
+        borderBottomRadius="15px"
+      >
         <VStack
-          bg="white"
           borderRadius="15px"
           alignItems="flex-start"
           width="100%"
-          borderWidth="1px"
+          rowGap={0}
+          bg="white"
         >
-          <VStack alignItems="flex-start" width="100%" px={5} py={0} rowGap={0}>
+          <VStack
+            alignItems="flex-start"
+            width="100%"
+            height="auto"
+            px={5}
+            mt={14}
+            rowGap={0}
+            bg="white"
+            borderTopRightRadius="15px"
+            borderTopLeftRadius="15px"
+            sx={{ boxShadow: 'rgba(0, 0, 0, 0.2) -1.95px -1.95px 15px' }}
+          >
             <HStack
               spacing={5}
               width="100%"
@@ -198,78 +217,118 @@ export default function Page({
                 </Box>
               )}
             </HStack>
-            <Text as="kbd" size="lg" color="#253610">
-              What's in an air-con purchase?
+            <Text as="kbd" fontSize="md" color="#253610">
+              <strong>What's in an air-con purchase?</strong>
             </Text>
           </VStack>
           <VStack
-            bg="#4F772D"
+            bg="#253610"
             alignSelf="flex-start"
             width="100%"
+            height="100%"
             borderTopRightRadius="15px"
             borderTopLeftRadius="15px"
             px={5}
+            pb={5}
             alignItems="flex-start"
             rowGap={1}
+            sx={{ boxShadow: 'rgba(0, 0, 0, 0.3) -1.95px -1.95px 10px' }}
           >
-            <Text as="kbd" size="lg" color="#F0F1E7" pt={2}>
+            <Text as="kbd" fontSize="md" color="#F0F1E7" pt={2}>
               Over a year
             </Text>
-            <Flex>
-              <Text as="b" size="lg" color="#F0F1E7" p={0}>
-                Annual Energy Costs
+            <VStack justifyContent="center">
+              <Flex>
+                <Text as="b" fontSize="lg" color="#F0F1E7">
+                  Annual Energy Costs
+                </Text>
+                <CustomTooltip content="To be added" color="#F0F1E7" />
+              </Flex>
+              <Text
+                width="auto"
+                as="b"
+                fontSize="lg"
+                color="#F0F1E7"
+                p={0}
+                alignSelf="center"
+              >
+                ${product.annualEnergyCost}
               </Text>
-              <CustomTooltip content="To be added" color="#F0F1E7" />
-            </Flex>
-            <Text as="b" size="lg" color="#F0F1E7" p={0}>
-              ${product.annualEnergyCost}
+            </VStack>
+          </VStack>
+          <VStack
+            bg="#253610"
+            alignSelf="flex-start"
+            width="100%"
+            height="150px"
+            borderRadius="15px"
+            px={5}
+            mt={-1}
+            alignItems="flex-start"
+            spacing={0}
+            sx={{ boxShadow: 'rgba(0, 0, 0, 0.3) -1.95px -1.95px 10px' }}
+          >
+            <Text as="kbd" fontSize="md" color="#F0F1E7" pt={2}>
+              Over the air-con's lifetime
             </Text>
+            <HStack spacing={10} width="100%" height="100%">
+              <VStack borderRightWidth={1}>
+                <Flex mr={5}>
+                  <Text as="b" fontSize="xl" color="#F0F1E7">
+                    Lifecycle Cost
+                  </Text>
+                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                </Flex>
+                <Text
+                  width="auto"
+                  as="b"
+                  fontSize="lg"
+                  color="#F0F1E7"
+                  alignSelf="center"
+                >
+                  ${product.lifecycleCost}
+                </Text>
+              </VStack>
+              <VStack>
+                <Text as="b" fontSize="xl" color="#F0F1E7">
+                  Price
+                </Text>
+                <Text
+                  width="auto"
+                  as="b"
+                  fontSize="lg"
+                  color="#F0F1E7"
+                  p={0}
+                  alignSelf="center"
+                >
+                  ${product.price}
+                </Text>
+              </VStack>
+              <Text as="b" fontSize="xl" color="#F0F1E7">
+                +
+              </Text>
+              <VStack>
+                <Flex>
+                  <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
+                    Lifetime Energy Cost
+                  </Text>
+                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                </Flex>
+                <Text
+                  width="auto"
+                  as="b"
+                  fontSize="lg"
+                  color="#F0F1E7"
+                  p={0}
+                  alignSelf="center"
+                >
+                  ${product.lifespanEnergyCost}
+                </Text>
+              </VStack>
+            </HStack>
           </VStack>
         </VStack>
       </GridItem>
     </Grid>
   )
-}
-
-{
-  /* <HStack alignSelf="flex-start" spacing="150px" borderWidth="1px">
-            <VStack>
-              <Text as="b" fontSize="lg">
-                Price
-              </Text>
-              <Text fontSize="lg">${product.price}</Text>
-            </VStack>
-            <VStack>
-              <Flex>
-                <Text as="b" fontSize="lg">
-                  Lifecycle cost
-                </Text>
-                <CustomTooltip content="To be added" color="#253610" />
-              </Flex>
-              <Text fontSize="lg">${product.lifecycleCost}</Text>
-            </VStack>
-            <VStack>
-              <Flex>
-                <Text as="b" fontSize="lg">
-                  Annual energy cost
-                </Text>
-                <CustomTooltip content="To be added" color="#253610" />
-              </Flex>
-              <Text fontSize="lg">${product.annualEnergyCost}</Text>
-            </VStack>
-          </HStack>
-          <HStack alignSelf="flex-start" borderWidth="1px" spacing={5}>
-            <HStack spacing={0}>
-              {generateTickIcons(Number(product.greenTicks))}
-            </HStack>
-            {isClimateVoucherEligible && (
-              <Box width="100px" borderRadius="15px" boxShadow="base">
-                <Image
-                  src={climateVoucherLogo}
-                  alt="Logo of government-issued climate vouchers"
-                  width={100}
-                />
-              </Box>
-            )}
-          </HStack> */
 }
