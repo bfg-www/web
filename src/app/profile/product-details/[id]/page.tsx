@@ -161,7 +161,14 @@ export default function Page() {
         px={4}
         py={2}
       >
-        <Flex justifyContent="flex-end" mt={5} pr={2}>
+        <Flex justifyContent="flex-end">
+          <CustomTooltip
+            content="Our data is retrieved from the National Environmental Agency (NEA)'s database of registered goods. They update daily, which means so will we. Sales data is currently mocked for this MVP but stay tuned as we hunt for data. Contact us for corporate partnerships at bfgw3energy@gmail.com."
+            color="#253610"
+            iconType="info"
+          />
+        </Flex>
+        <Flex justifyContent="flex-end" mt={3} pr={3}>
           <HeartIconAdd />
         </Flex>
         <HStack spacing={10}>
@@ -200,18 +207,21 @@ export default function Page() {
               p={3}
               mt={5}
             >
-              <VStack alignItems="flex-start">
+              <VStack alignItems="flex-start" width="500px">
                 <Flex>
                   <Text as="b" fontSize="lg" color="#F0F1E7">
                     Air-con cooling capacity
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="BTU (British Thermal Unit) is a way to measure energy. This measures how much heat energy your aircon is removing per hour. The smaller the space, the smaller the BTU required."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text fontSize="lg" color="#F0F1E7">
                   {Object.entries(btuFrequencies).map(
                     ([btu, frequency], index) => (
                       <Text key={index}>
-                        {frequency} x {btu} <strong>BTU</strong>
+                        {frequency} x <strong>{btu}</strong> BTU
                       </Text>
                     ),
                   )}{' '}
@@ -222,28 +232,31 @@ export default function Page() {
                 borderWidth="80%"
                 borderColor="#F0F1E7"
                 alignItems="flex-start"
+                width="100%"
+                pt={2}
               >
-                <Text color="#F0F1E7" as="b" fontSize="md">
-                  This system-{product.airconDetail.btus.length} unit consists
-                  of:
+                <Text color="#F0F1E7" fontSize="md">
+                  This{' '}
+                  <strong>system-{product.airconDetail.btus.length}</strong>{' '}
+                  unit consists of:
                 </Text>
-                <Text color="#F0F1E7">
-                  {product.airconDetail.systems.map((system, index) => (
-                    <HStack key={index}>
-                      <VStack>
-                        {system.units.map((unit) => (
-                          <Text key={unit.roomType}>
-                            {unit.amount} {capitalizeFirstLetter(unit.roomType)}
-                          </Text>
-                        ))}
-                      </VStack>
-
-                      {index < product.airconDetail.systems.length - 1 ? (
-                        <Text>OR</Text>
-                      ) : null}
+                {product.airconDetail.systems.map((system, index) => (
+                  <HStack width="100%" key={index}>
+                    <HStack>
+                      {system.units.map((unit) => (
+                        <Text color="#F0F1E7" key={unit.roomType}>
+                          {unit.amount}{' '}
+                          <strong>
+                            {capitalizeFirstLetter(unit.roomType)}
+                          </strong>
+                        </Text>
+                      ))}
                     </HStack>
-                  ))}
-                </Text>
+                    {index < product.airconDetail.systems.length - 1 ? (
+                      <Text color="#F0F1E7">OR</Text>
+                    ) : null}
+                  </HStack>
+                ))}
               </VStack>
             </VStack>
           </VStack>
@@ -320,7 +333,10 @@ export default function Page() {
                 <Text as="b" fontSize="lg" color="#F0F1E7">
                   Annual energy cost
                 </Text>
-                <CustomTooltip content="To be added" color="#F0F1E7" />
+                <CustomTooltip
+                  content="This cost is calculated based on your air-con usage levels, the capacity of the air-con and the efficiency of the air-con unit. We used $0.32/kWh as the price of electricity (source: Energy Market Authority)."
+                  color="#F0F1E7"
+                />
               </Flex>
               <Text
                 width="auto"
@@ -355,7 +371,10 @@ export default function Page() {
                   <Text as="b" fontSize="xl" color="#F0F1E7">
                     Lifecycle cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan. It is calculated with the formula: Life Cycle Cost = Price + Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
@@ -390,7 +409,10 @@ export default function Page() {
                   <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
                     Lifetime energy cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan, excluding the retail price. It is calculated with the formula: Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
