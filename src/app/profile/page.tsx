@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
 import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
 import { useState } from 'react'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
 import { Aircon } from '@/app/models/clientModels'
 import EnergyProfileFormWidget from '../ui/profile/EnergyProfileFormWidget'
@@ -126,7 +126,7 @@ export default function Page() {
               color="#F0F1E7"
               colorScheme="blackAlpha"
               borderRadius="15px"
-              rightIcon={<FaRegHeart />}
+              rightIcon={<FaHeart />}
               boxShadow="base"
             >
               Favourites
