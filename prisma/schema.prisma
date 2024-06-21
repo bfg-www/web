@@ -23,6 +23,8 @@ model Sale {
   image             String
   url               String
   description       String
+  brandLogo          String
+  brandUrl           String
 }
 
 model Aircon {
@@ -34,6 +36,8 @@ model Aircon {
   annualConsumption Int
   price             Int
   image             String
+  brandLogo          String
+  brandUrl           String
   airconDetail      AirconDetail?
 }
 
