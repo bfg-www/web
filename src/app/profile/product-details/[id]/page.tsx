@@ -139,13 +139,8 @@ export default function Page({
             width="600"
             height="300"
           ></Image>
-          <VStack
-            borderWidth="1px"
-            width="100%"
-            spacing={1}
-            alignItems="flex-start"
-          >
-            <HStack borderWidth="1px" alignItems="flex-start">
+          <VStack width="100%" spacing={1} alignItems="flex-start">
+            <HStack alignItems="center">
               <Image
                 src={product.brandLogo}
                 alt="Logo of an air-conditioner brand"
@@ -181,7 +176,6 @@ export default function Page({
               </VStack>
               <VStack
                 borderTop="1px"
-                borderWidth="80%"
                 borderColor="#F0F1E7"
                 alignItems="flex-start"
               >
