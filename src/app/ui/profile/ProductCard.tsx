@@ -82,7 +82,7 @@ export default function ProductCard({
               width="50"
               height="50"
             ></Image>
-            <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
+            <Text fontSize="lg">{product.brand}</Text>
           </HStack>
           <Text as="b" fontSize="lg" alignSelf="flex-start">
             {product.name.toUpperCase()}
