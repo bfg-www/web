@@ -4,6 +4,7 @@ import { useState } from 'react'
 import EnergyProfileForm from '../ui/profiling/EnergyProfileForm'
 import { ProfileFormValues } from '../models/clientModels'
 import FullscreenSpinner from '../ui/profiling/FullscreenSpinner'
+import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
 
 {
   /* Page manages the state for form submission, mock loading, and education tidbit visibility. 
@@ -17,8 +18,10 @@ export default function Page() {
   const [isMockLoading, setIsMockLoading] = useState<boolean>(false)
   const [mockProgressStat, setMockProgressStat] = useState<number>(0)
 
-  const handleFormSubmit = (data: ProfileFormValues) => {
-    // ************* JX TODO: call getDummyAircon(data) ************* //
+  const handleFormSubmit = async (data: ProfileFormValues) => {
+    // ************* TODO: PASS aircons TO PROFILE ************* //
+    // const aircons = await getAirconsForProfile(data)
+    const aircons = await getDummyAircons()
     console.log('handleSubmit called')
     console.log('data:', data)
     console.log('set state transitions')

@@ -23,7 +23,6 @@ import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
 import Link from 'next/link'
 
-// JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
 export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
   name: 'Starmex system 4 aircon',
@@ -42,7 +41,7 @@ export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   carbonEmissionsReduced: 0.5,
   airconDetail: {
     url: 'https://www.harveynorman.com.sg/',
-    btus: [],
+    btus: [9000, 9000, 12000, 24000],
     systems: [
       {
         units: [
@@ -77,6 +76,12 @@ export default function Page({
   product: AirconWithDetail
 }) {
   const isClimateVoucherEligible = product.greenTicks === 5
+
+  const btuFrequencies = product.airconDetail.btus.reduce((acc, btu) => {
+    acc[btu] = acc[btu] ? acc[btu] + 1 : 1
+    return acc
+  }, {} as Record<number, number>)
+
   return (
     <Grid
       templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
@@ -187,7 +192,13 @@ export default function Page({
                   />
                 </Flex>
                 <Text fontSize="lg" color="#F0F1E7">
-                  {'[JX TODO: Show BTU units here]'} <strong>BTU</strong>
+                  {Object.entries(btuFrequencies).map(
+                    ([btu, frequency], index) => (
+                      <Text key={index}>
+                        {frequency} x {btu} <strong>BTU</strong>
+                      </Text>
+                    ),
+                  )}{' '}
                 </Text>
               </VStack>
               <VStack
@@ -197,11 +208,25 @@ export default function Page({
                 alignItems="flex-start"
               >
                 <Text color="#F0F1E7" as="b" fontSize="md">
-                  This system-{'[JX TODO: INSERT SYSTEM UNIT]'} unit consists
+                  This system-{product.airconDetail.btus.length} unit consists
                   of:
                 </Text>
                 <Text color="#F0F1E7">
-                  JX TODO: get system-to-room mapping unit info
+                  {product.airconDetail.systems.map((system, index) => (
+                    <HStack key={index}>
+                      <VStack>
+                        {system.units.map((unit) => (
+                          <Text key={unit.roomType}>
+                            {unit.amount} {capitalizeFirstLetter(unit.roomType)}
+                          </Text>
+                        ))}
+                      </VStack>
+
+                      {index < product.airconDetail.systems.length - 1 ? (
+                        <Text>OR</Text>
+                      ) : null}
+                    </HStack>
+                  ))}
                 </Text>
               </VStack>
             </VStack>
