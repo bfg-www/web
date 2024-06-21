@@ -1,18 +1,39 @@
 export interface Aircon {
   id: string
-  brand: string
-  brandLogo: string
-  airconRetailerURL: string
-  image: string
-  model: string
   name: string
-  price: number
+  brand: string
+  model: string
   greenTicks: number
   annualConsumption: number
-  btu: number
+  price: number
+  image: string
+  brandLogo: string
   lifecycleCost: number
   lifespanEnergyCost: number
   annualEnergyCost: number
   annualEnergySavingsAmt: number
   carbonEmissionsReduced: number
+}
+
+export interface AirconWithDetails {
+  id: string
+  name: string
+  brand: string
+  model: string
+  greenTicks: number
+  annualConsumption: number
+  price: number
+  image: string
+  brandLogo: string
+  lifecycleCost: number
+  lifespanEnergyCost: number
+  annualEnergyCost: number
+  annualEnergySavingsAmt: number
+  carbonEmissionsReduced: number
+  airconDetail: {
+    id: number;
+    airconId: number | null;
+    url: string;
+    btus: number[];
+}
 }
