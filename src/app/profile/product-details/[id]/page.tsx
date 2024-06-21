@@ -26,15 +26,15 @@ import Link from 'next/link'
 // JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
 export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
-  name: 'starmex system 4 aircon',
-  brand: 'mitsubishi',
+  name: 'Starmex system 4 aircon',
+  brand: 'Mitsubishi',
   model: 'MSY-GE10VA',
   greenTicks: 5,
   annualConsumption: 1000,
   price: 3000,
-  image: '',
-  brandLogo: '',
-  brandUrl: '',
+  image: '/aircon/stock.png',
+  brandLogo: '/brands/lg.svg',
+  brandUrl: 'https://www.lg.com/sg/',
   lifecycleCost: 5000,
   lifespanEnergyCost: 2000,
   annualEnergyCost: 324.1,
@@ -54,7 +54,7 @@ export const AIRCON_WITH_DETAIL: AirconWithDetail = {
             roomType: RoomType.living_room,
             amount: 1,
           },
-        ]
+        ],
       },
       {
         units: [
@@ -62,9 +62,9 @@ export const AIRCON_WITH_DETAIL: AirconWithDetail = {
             roomType: RoomType.bedroom,
             amount: 2,
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
 }
 
@@ -133,10 +133,13 @@ export default function Page({
         <Flex justifyContent="flex-end" mt={5} pr={2}>
           <HeartIconAdd />
         </Flex>
-        <HStack>
-          <Box borderWidth="1px" width="40%">
-            INSERT AIRCON IMAGE
-          </Box>
+        <HStack spacing={10}>
+          <Image
+            src={product.image}
+            alt="Image of an air-conditioner"
+            width="600"
+            height="300"
+          ></Image>
           <VStack
             borderWidth="1px"
             width="100%"
@@ -144,8 +147,13 @@ export default function Page({
             alignItems="flex-start"
           >
             <HStack borderWidth="1px" alignItems="flex-start">
-              <Box>INSERT BRAND LOGO</Box>
-              <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
+              <Image
+                src={product.brandLogo}
+                alt="Logo of an air-conditioner brand"
+                width="50"
+                height="50"
+              ></Image>
+              <Text fontSize="lg">{product.brand}</Text>
             </HStack>
             <Text as="b" fontSize="lg">
               {product.name.toUpperCase()}
@@ -209,7 +217,7 @@ export default function Page({
             width="100%"
             height="auto"
             px={5}
-            mt={14}
+            mt={12}
             rowGap={0}
             bg="white"
             borderTopRightRadius="15px"
