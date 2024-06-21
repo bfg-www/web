@@ -130,7 +130,14 @@ export default function Page({
         px={4}
         py={2}
       >
-        <Flex justifyContent="flex-end" mt={5} pr={2}>
+        <Flex justifyContent="flex-end">
+          <CustomTooltip
+            content="Our data is retrieved from the National Environmental Agency (NEA)'s database of registered goods. They update daily, which means so will we. Sales data is currently mocked for this MVP but stay tuned as we hunt for data. Contact us for corporate partnerships at bfgw3energy@gmail.com."
+            color="#253610"
+            iconType="info"
+          />
+        </Flex>
+        <Flex justifyContent="flex-end" mt={3} pr={3}>
           <HeartIconAdd />
         </Flex>
         <HStack spacing={10}>
