@@ -19,7 +19,7 @@ import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import { TbWorldWww } from 'react-icons/tb'
-import HeartIcon from '@/app/ui/product-details/FavouriteIcon'
+import HeartIconAdd from '@/app/ui/product-details/FavouriteIcon'
 import { AirconWithDetail } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
@@ -28,7 +28,7 @@ import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
 
 // JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
-const AIRCON_WITH_DETAIL: AirconWithDetail = {
+export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
   name: 'starmex system 4 aircon',
   brand: 'mitsubishi',
@@ -95,7 +95,7 @@ export default function Page({
             color="#253610"
             leftIcon={<RiArrowGoBackLine />}
           >
-            Back to results
+            Back to recommendations
           </Button>
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline />}>
             <a href="https://www.harveynorman.com.sg/">
@@ -113,7 +113,7 @@ export default function Page({
         py={2}
       >
         <Flex justifyContent="flex-end" mt={5} pr={2}>
-          <HeartIcon />
+          <HeartIconAdd />
         </Flex>
         <HStack>
           <Box borderWidth="1px" width="40%">
