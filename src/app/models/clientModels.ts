@@ -7,7 +7,7 @@ export type Aircon = PrismaAircon & {
   lifespanEnergyCost: number,
   annualEnergyCost: number,
   annualEnergySavings: number,
-  carbonEmmissionsReduced: number,
+  carbonEmissionsReduced: number,
 }
 
 export type AirconDetail = PrismaAirconDetail

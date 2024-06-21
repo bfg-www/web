@@ -23,7 +23,7 @@ import { FaRegHeart } from 'react-icons/fa'
 import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Aircon, RoomType } from '../models/clientModels'
+import { Aircon } from '../models/clientModels'
 import { IoIosRefresh } from 'react-icons/io'
 import { LuDollarSign } from 'react-icons/lu'
 import { PiMoneyWavyFill } from 'react-icons/pi'
@@ -106,7 +106,6 @@ export default function Page() {
     console.log('data:', data)
     setIsFiltersApplying(true)
     try {
-      const roomTypeInput = data['installationLocation'] as string
       // const newResults = await getAirconsForProfile(data)
       const newResults = await getDummyAircons()
       setResults(newResults)

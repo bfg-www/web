@@ -171,7 +171,7 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       lifespanEnergyCost: 1000,
       annualEnergyCost: 1000,
       annualEnergySavings: 1000,
-      carbonEmmissionsReduced: 1000,
+      carbonEmissionsReduced: 1000,
     },
     {
       id: 2,
@@ -188,7 +188,7 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       lifespanEnergyCost: 900,
       annualEnergyCost: 900,
       annualEnergySavings: 900,
-      carbonEmmissionsReduced: 900,
+      carbonEmissionsReduced: 900,
     },
     {
       id: 3,
@@ -205,7 +205,7 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       lifespanEnergyCost: 800,
       annualEnergyCost: 800,
       annualEnergySavings: 800,
-      carbonEmmissionsReduced: 800,
+      carbonEmissionsReduced: 800,
     },
   ]
 }
@@ -241,7 +241,7 @@ function getCalculations(
     annualConsumption,
     usageHours,
   )
-  const carbonEmmissionsReduced = calcCarbonEmmissionsReduced(
+  const carbonEmissionsReduced = calcCarbonEmissionsReduced(
     averageConsumption,
     annualConsumption
   )
@@ -250,7 +250,7 @@ function getCalculations(
     lifespanEnergyCost,
     annualEnergyCost,
     annualEnergySavings,
-    carbonEmmissionsReduced,
+    carbonEmissionsReduced,
   }
 }
 
@@ -287,7 +287,7 @@ function calcAnnualEnergySavings(
 }
 
 // carbon emissions reduced per year
-function calcCarbonEmmissionsReduced(
+function calcCarbonEmissionsReduced(
   averageConsumption: number,
   annualConsumption: number,
 ) {
