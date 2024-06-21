@@ -8,32 +8,33 @@ import {
   RoomType,
 } from '../models/clientModels'
 
-// TODO ALL
-
-// values from
+// values from https://doorvisual.com/hdb-flat-sizes-and-types-singapore/ , chatGPT 4o, https://www.teoalida.com/singapore/hdbflattypes/
+// as of 20/6/2024
 const HOUSEHOLD_AREAS = new Map<string, number>([
-  [`${HouseType.one_room}${RoomType.bedroom}`, 1],
-  [`${HouseType.one_room}${RoomType.kitchen}`, 1],
-  [`${HouseType.two_room}${RoomType.entire_house}`, 2],
-  [`${HouseType.two_room}${RoomType.living_room}`, 1],
-  [`${HouseType.two_room}${RoomType.bedroom}`, 2],
-  [`${HouseType.two_room}${RoomType.kitchen}`, 1],
-  [`${HouseType.three_room}${RoomType.entire_house}`, 3],
-  [`${HouseType.three_room}${RoomType.living_room}`, 1],
-  [`${HouseType.three_room}${RoomType.bedroom}`, 3],
-  [`${HouseType.three_room}${RoomType.kitchen}`, 1],
-  [`${HouseType.four_room}${RoomType.entire_house}`, 4],
-  [`${HouseType.four_room}${RoomType.living_room}`, 1],
-  [`${HouseType.four_room}${RoomType.bedroom}`, 4],
-  [`${HouseType.four_room}${RoomType.kitchen}`, 1],
-  [`${HouseType.five_room}${RoomType.entire_house}`, 5],
-  [`${HouseType.five_room}${RoomType.living_room}`, 1],
-  [`${HouseType.five_room}${RoomType.bedroom}`, 5],
-  [`${HouseType.five_room}${RoomType.kitchen}`, 1],
-  [`${HouseType.jumbo}${RoomType.entire_house}`, 6],
-  [`${HouseType.jumbo}${RoomType.living_room}`, 1],
-  [`${HouseType.jumbo}${RoomType.bedroom}`, 5],
-  [`${HouseType.jumbo}${RoomType.kitchen}`, 1],
+  [`${HouseType.one_room}${RoomType.entire_house}`, 35],
+  [`${HouseType.one_room}${RoomType.living_room}`, 35],
+  [`${HouseType.one_room}${RoomType.bedroom}`, 35],
+  [`${HouseType.one_room}${RoomType.kitchen}`, 35],
+  [`${HouseType.two_room}${RoomType.entire_house}`, 40],
+  [`${HouseType.two_room}${RoomType.living_room}`, 14],
+  [`${HouseType.two_room}${RoomType.bedroom}`, 11],
+  [`${HouseType.two_room}${RoomType.kitchen}`, 7],
+  [`${HouseType.three_room}${RoomType.entire_house}`, 63],
+  [`${HouseType.three_room}${RoomType.living_room}`, 20],
+  [`${HouseType.three_room}${RoomType.bedroom}`, 12],
+  [`${HouseType.three_room}${RoomType.kitchen}`, 8],
+  [`${HouseType.four_room}${RoomType.entire_house}`, 95],
+  [`${HouseType.four_room}${RoomType.living_room}`, 24],
+  [`${HouseType.four_room}${RoomType.bedroom}`, 13],
+  [`${HouseType.four_room}${RoomType.kitchen}`, 9],
+  [`${HouseType.five_room}${RoomType.entire_house}`, 115],
+  [`${HouseType.five_room}${RoomType.living_room}`, 27],
+  [`${HouseType.five_room}${RoomType.bedroom}`, 12],
+  [`${HouseType.five_room}${RoomType.kitchen}`, 11],
+  [`${HouseType.jumbo}${RoomType.entire_house}`, 150],
+  [`${HouseType.jumbo}${RoomType.living_room}`, 33],
+  [`${HouseType.jumbo}${RoomType.bedroom}`, 14],
+  [`${HouseType.jumbo}${RoomType.kitchen}`, 11],
 ])
 
 export async function getAirconsForProfile({
@@ -47,41 +48,84 @@ export async function getAirconsForProfile({
     const ac = Number(airconCount)
     const rt = RoomType[installationLocation as keyof typeof RoomType]
     const uh = Number(usageHours)
-    console.log(ht, rt)
     const btu = getBtuRequired(ht, rt)
-    const res = await db.aircon.findMany({
-      where: {
-        greenTicks: {
-          gte: 3,
+    const res = (
+      await db.aircon.findMany({
+        // TODO: should?
+        where: {
+          greenTicks: {
+            gte: 3,
+          },
         },
-      },
-      include: {
-        airconDetail: true,
-      },
-    })
-    res.filter(
+        include: {
+          airconDetail: true,
+        },
+        orderBy: [
+          {
+            price: 'asc',
+          },
+          {
+            greenTicks: 'desc',
+          },
+          {
+            annualConsumption: 'asc',
+          },
+        ],
+      })
+    ).filter(
       (aircon) =>
-        aircon.airconDetail != null && aircon.airconDetail.btus.length === ac,
+        // number of btu == number of aircons wanted
+        aircon.airconDetail != null && 
+        aircon.airconDetail.btus.length === ac
+        // TODO: add range of btus for recos
     )
+    const averageConsumption = await getAverageConsumption(res[0].greenTicks)
+
     return res.map((aircon) => {
-      const lifecycleCost = calcLifecycleCost(aircon.annualConsumption, uh)
-      const lifespanEnergyCost = calcLifespanEnergyCost(aircon.price, lifecycleCost)
-      const annualEnergyCost = calcAnnualEnergyCost()
-      const annualEnergySavings = calcAnnualEnergySavings()
-      const carbonEmmissionsReduced = calcCarbonEmmissionsReduced()
       return {
         ...aircon,
-        lifecycleCost,
-        lifespanEnergyCost,
-        annualEnergyCost,
-        annualEnergySavings,
-        carbonEmmissionsReduced,
+        ...getCalculations(
+          aircon.annualConsumption,
+          averageConsumption,
+          uh,
+          aircon.price,
+        ),
       }
     })
   } catch (error) {
     console.error(error)
     throw new Error('Error fetching entries from database.')
   }
+}
+
+export async function getAverageConsumption(ticks: number): Promise<number> {
+  let averageConsumption = await db.aircon.aggregate({
+    _avg: {
+      annualConsumption: true,
+    },
+    where: {
+      greenTicks: {
+        equals: ticks,
+      },
+      // TODO: add range of btus for recos
+      // airconDetail: {
+      //   btus: {
+      //     has: 1,
+      //   },
+      // }
+    },
+  })
+  if (
+    !averageConsumption ||
+    averageConsumption._avg.annualConsumption == null
+  ) {
+    averageConsumption = await db.aircon.aggregate({
+      _avg: {
+        annualConsumption: true,
+      },
+    })
+  }
+  return averageConsumption._avg.annualConsumption ?? 0
 }
 
 export async function getAirconDetail(
@@ -93,18 +137,15 @@ export async function getAirconDetail(
       where: { id },
       include: { airconDetail: true },
     })
-    const lifecycleCost = calcLifecycleCost(res.annualConsumption, usageHours)
-    const lifespanEnergyCost = calcLifespanEnergyCost(res.price, lifecycleCost)
-    const annualEnergyCost = calcAnnualEnergyCost()
-    const annualEnergySavings = calcAnnualEnergySavings()
-    const carbonEmmissionsReduced = calcCarbonEmmissionsReduced()
+    const averageConsumption = await getAverageConsumption(res.greenTicks)
     return {
       ...res,
-      lifecycleCost,
-      lifespanEnergyCost,
-      annualEnergyCost,
-      annualEnergySavings,
-      carbonEmmissionsReduced,
+      ...getCalculations(
+        res.annualConsumption,
+        averageConsumption,
+        usageHours,
+        res.price,
+      ),
     }
   } catch (error) {
     console.error(error)
@@ -123,13 +164,14 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 5,
       annualConsumption: 500,
       price: 500,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/lg.svg',
+      brandUrl: 'https://www.lg.com/sg/',
       lifecycleCost: 1000,
       lifespanEnergyCost: 1000,
       annualEnergyCost: 1000,
       annualEnergySavings: 1000,
-      carbonEmmissionsReduced: 1000,
+      carbonEmissionsReduced: 1000,
     },
     {
       id: 2,
@@ -139,13 +181,14 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 4,
       annualConsumption: 600,
       price: 600,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/mitsubishi.svg',
+      brandUrl: 'https://sg.mitsubishielectric.com/',
       lifecycleCost: 900,
       lifespanEnergyCost: 900,
       annualEnergyCost: 900,
       annualEnergySavings: 900,
-      carbonEmmissionsReduced: 900,
+      carbonEmissionsReduced: 900,
     },
     {
       id: 3,
@@ -155,13 +198,14 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       greenTicks: 3,
       annualConsumption: 700,
       price: 700,
-      image:
-        'https://www.gaincity.com/media/catalog/product/cache/be915254533b907fb2702448e2097390/m/x/mxy-4h33vg_sys_4_17.jpg',
+      image: '/aircon/stock.png',
+      brandLogo: '/brands/daikin.png',
+      brandUrl: 'https://www.daikin.com.sg/',
       lifecycleCost: 800,
       lifespanEnergyCost: 800,
       annualEnergyCost: 800,
       annualEnergySavings: 800,
-      carbonEmmissionsReduced: 800,
+      carbonEmissionsReduced: 800,
     },
   ]
 }
@@ -183,26 +227,69 @@ function getBtuRequired(
   return btu
 }
 
+function getCalculations(
+  annualConsumption: number,
+  averageConsumption: number,
+  usageHours: number,
+  price: number,
+) {
+  const annualEnergyCost = calcAnnualEnergyCost(annualConsumption, usageHours)
+  const lifespanEnergyCost = calcLifespanEnergyCost(annualEnergyCost)
+  const lifecycleCost = calcLifecycleCost(lifespanEnergyCost, price)
+  const annualEnergySavings = calcAnnualEnergySavings(
+    averageConsumption,
+    annualConsumption,
+    usageHours,
+  )
+  const carbonEmissionsReduced = calcCarbonEmissionsReduced(
+    averageConsumption,
+    annualConsumption
+  )
+  return {
+    lifecycleCost,
+    lifespanEnergyCost,
+    annualEnergyCost,
+    annualEnergySavings,
+    carbonEmissionsReduced,
+  }
+}
+
+// as of 20/6/2024
+// values from google search
+const AVERAGE_LIFESPAN = 7
 // values from https://www.ema.gov.sg/consumer-information/electricity/buying-electricity/buying-at-regulated-tariff
-// as of 20/6/2024
-function calcLifecycleCost(annualConsumption: number, usageHours: number) {
-  return annualConsumption * usageHours * 0.3247
+const ELECTRICITY_TARIFF = 0.3247
+// values from https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2#grid-emission-factor
+const CO2_INTENSITY = 0.417
+
+// cost of energy consumed annually
+function calcAnnualEnergyCost(annualConsumption: number, usageHours: number) {
+  return annualConsumption * usageHours * ELECTRICITY_TARIFF
 }
 
-// values from
-// as of 20/6/2024
-function calcLifespanEnergyCost(price: number, lifecycleCost: number) {
-  return price + lifecycleCost * 7
+// cost of energy consumed over the lifespan of the aircon
+function calcLifespanEnergyCost(annualEnergyCost: number) {
+  return annualEnergyCost * AVERAGE_LIFESPAN
 }
 
-function calcAnnualEnergyCost() {
-  return 0
+// total cost of ownership
+function calcLifecycleCost(lifespanEnergyCost: number, price: number) {
+  return lifespanEnergyCost + price
 }
 
-function calcAnnualEnergySavings() {
-  return 0
+// difference in cost in personal consumption and the average consumption
+function calcAnnualEnergySavings(
+  averageConsumption: number,
+  annualConsumption: number,
+  usageHours: number,
+) {
+  return (averageConsumption - annualConsumption) * usageHours * ELECTRICITY_TARIFF
 }
 
-function calcCarbonEmmissionsReduced() {
-  return 0
+// carbon emissions reduced per year
+function calcCarbonEmissionsReduced(
+  averageConsumption: number,
+  annualConsumption: number,
+) {
+  return (averageConsumption - annualConsumption) * CO2_INTENSITY
 }

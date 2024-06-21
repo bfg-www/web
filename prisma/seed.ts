@@ -12,7 +12,7 @@ const NEA_FILES = [
   'prisma/data/NEA_ELS_AirConditioner(3-Phase)_2024-06-16_152052.csv',
 ]
 
-const SALES_FILES = ['prisma/data/gaincitys.csv']
+const SALES_FILES = ['prisma/data/sales.csv']
 
 const prisma = new PrismaClient()
 
@@ -77,15 +77,17 @@ async function main() {
     const records = results.data
       .map((row, index) => {
         if (errorRows.includes(index)) {
-          console.log('eeeeeee', errorRows)
           return null
         }
         const sale = {
-          image: row['Image']?.replace(/^['"]+|['"]+$/g, '').trim(),
-          url: row['Title_URL']?.replace(/^['"]+|['"]+$/g, '').trim(),
-          model: row['Model']?.replace(/^['"]+|['"]+$/g, '').trim(),
-          description: row['Description']?.replace(/^['"]+|['"]+$/g, '').trim(),
-          price: Math.round(parseFloat(row['Price'].replace(/[^0-9.]/g, ''))),
+          image: row['image']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          url: row['url']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          brandLogo: row['brandLogo']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          brandUrl: row['brandUrl']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          model: row['model']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          description: row['description']?.replace(/^['"]+|['"]+$/g, '').trim(),
+          price: Math.round(parseFloat(row['price'])),
+
         }
         return sale
       })
@@ -119,6 +121,8 @@ async function main() {
           annualConsumption: nea.annualConsumption,
           price: sale.price,
           image: sale.image,
+          brandLogo: sale.brandLogo,
+          brandUrl: sale.brandUrl,
           airconDetail: {
             create: {
               url: sale.url,
