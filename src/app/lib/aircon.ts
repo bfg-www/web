@@ -7,35 +7,9 @@ import {
   ProfileFormValues,
   RoomType,
 } from '../models/clientModels'
+import { getBtuRequired, castBtusToSystem, getCalculations } from './airconUtil'
 
-// values from https://doorvisual.com/hdb-flat-sizes-and-types-singapore/ , chatGPT 4o, https://www.teoalida.com/singapore/hdbflattypes/
-// as of 20/6/2024
-const HOUSEHOLD_AREAS = new Map<string, number>([
-  [`${HouseType.one_room}${RoomType.entire_house}`, 35],
-  [`${HouseType.one_room}${RoomType.living_room}`, 35],
-  [`${HouseType.one_room}${RoomType.bedroom}`, 35],
-  [`${HouseType.one_room}${RoomType.kitchen}`, 35],
-  [`${HouseType.two_room}${RoomType.entire_house}`, 40],
-  [`${HouseType.two_room}${RoomType.living_room}`, 14],
-  [`${HouseType.two_room}${RoomType.bedroom}`, 11],
-  [`${HouseType.two_room}${RoomType.kitchen}`, 7],
-  [`${HouseType.three_room}${RoomType.entire_house}`, 63],
-  [`${HouseType.three_room}${RoomType.living_room}`, 20],
-  [`${HouseType.three_room}${RoomType.bedroom}`, 12],
-  [`${HouseType.three_room}${RoomType.kitchen}`, 8],
-  [`${HouseType.four_room}${RoomType.entire_house}`, 95],
-  [`${HouseType.four_room}${RoomType.living_room}`, 24],
-  [`${HouseType.four_room}${RoomType.bedroom}`, 13],
-  [`${HouseType.four_room}${RoomType.kitchen}`, 9],
-  [`${HouseType.five_room}${RoomType.entire_house}`, 115],
-  [`${HouseType.five_room}${RoomType.living_room}`, 27],
-  [`${HouseType.five_room}${RoomType.bedroom}`, 12],
-  [`${HouseType.five_room}${RoomType.kitchen}`, 11],
-  [`${HouseType.jumbo}${RoomType.entire_house}`, 150],
-  [`${HouseType.jumbo}${RoomType.living_room}`, 33],
-  [`${HouseType.jumbo}${RoomType.bedroom}`, 14],
-  [`${HouseType.jumbo}${RoomType.kitchen}`, 11],
-])
+const BTU_UPPER_BOUND = 1.3
 
 export async function getAirconsForProfile({
   householdType,
@@ -48,7 +22,7 @@ export async function getAirconsForProfile({
     const ac = Number(airconCount)
     const rt = RoomType[installationLocation as keyof typeof RoomType]
     const uh = Number(usageHours)
-    const btu = getBtuRequired(ht, rt)
+    const btuRequired = getBtuRequired(ht, rt)
     const res = (
       await db.aircon.findMany({
         // TODO: should?
@@ -72,14 +46,28 @@ export async function getAirconsForProfile({
           },
         ],
       })
-    ).filter(
-      (aircon) =>
-        // number of btu == number of aircons wanted
-        aircon.airconDetail != null && 
-        aircon.airconDetail.btus.length === ac
-        // TODO: add range of btus for recos
+    ).filter((aircon) => {
+      if (aircon.airconDetail == null) {
+        return false
+      }
+      const btusum = aircon.airconDetail.btus.reduce((acc, btu) => acc + btu, 0)
+      if (aircon.airconDetail.btus.length === ac) {
+        console.log(btusum, btuRequired, btuRequired * BTU_UPPER_BOUND)
+        console.log("^")
+      }
+      console.log(btusum, btuRequired, btuRequired * BTU_UPPER_BOUND)
+      // number of btu == number of aircons wanted
+      return (
+        aircon.airconDetail.btus.length === ac &&
+        btusum >= btuRequired &&
+        btusum <= btuRequired * BTU_UPPER_BOUND
+      )
+    })
+    const averageConsumption = await getAverageConsumption(
+      res[0].greenTicks,
+      ht,
+      rt,
     )
-    const averageConsumption = await getAverageConsumption(res[0].greenTicks)
 
     return res.map((aircon) => {
       return {
@@ -98,47 +86,73 @@ export async function getAirconsForProfile({
   }
 }
 
-export async function getAverageConsumption(ticks: number): Promise<number> {
-  let averageConsumption = await db.aircon.aggregate({
-    _avg: {
-      annualConsumption: true,
-    },
+export async function getAverageConsumption(
+  ticks: number,
+  houseType: HouseType,
+  roomType: RoomType,
+): Promise<number> {
+  const btuRequired = getBtuRequired(houseType, roomType)
+  // filter by ticks
+  const filterTicksAircons = await db.aircon.findMany({
     where: {
       greenTicks: {
         equals: ticks,
       },
-      // TODO: add range of btus for recos
-      // airconDetail: {
-      //   btus: {
-      //     has: 1,
-      //   },
-      // }
+    },
+    include: {
+      airconDetail: true,
     },
   })
-  if (
-    !averageConsumption ||
-    averageConsumption._avg.annualConsumption == null
-  ) {
-    averageConsumption = await db.aircon.aggregate({
-      _avg: {
-        annualConsumption: true,
-      },
-    })
+  // then filter by btu range
+  const filterBtuAircons = filterTicksAircons.filter((aircon) => {
+    if (aircon.airconDetail == null) {
+      return false
+    }
+    const btusum = aircon.airconDetail?.btus.reduce((acc, btu) => acc + btu, 0)
+    return btusum >= btuRequired && btusum <= btuRequired * BTU_UPPER_BOUND
+  })
+  // then get average consumption
+  let averageConsumption =
+    filterBtuAircons.reduce((acc, aircon) => {
+      return acc + aircon.annualConsumption
+    }, 0) / filterBtuAircons.length
+  // else get average consumption of all aircons
+  if (!averageConsumption) {
+    averageConsumption =
+      (
+        await db.aircon.aggregate({
+          _avg: {
+            annualConsumption: true,
+          },
+        })
+      )._avg.annualConsumption ?? 0
   }
-  return averageConsumption._avg.annualConsumption ?? 0
+  return averageConsumption
 }
 
 export async function getAirconDetail(
   id: number,
   usageHours: number,
+  houseType: HouseType,
+  roomType: RoomType,
 ): Promise<AirconWithDetail> {
   try {
     const res = await db.aircon.findFirstOrThrow({
       where: { id },
       include: { airconDetail: true },
     })
-    const averageConsumption = await getAverageConsumption(res.greenTicks)
-    return {
+    const averageConsumption = await getAverageConsumption(
+      res.greenTicks,
+      houseType,
+      roomType,
+    )
+    const system = castBtusToSystem(res.airconDetail?.btus ?? [])
+    const newAirconDetail = {
+      url: res.airconDetail?.url ?? '',
+      btus: res.airconDetail?.btus ?? [],
+      system,
+    }
+    const aircon: Aircon = {
       ...res,
       ...getCalculations(
         res.annualConsumption,
@@ -146,6 +160,10 @@ export async function getAirconDetail(
         usageHours,
         res.price,
       ),
+    }
+    return {
+      ...aircon,
+      airconDetail: newAirconDetail,
     }
   } catch (error) {
     console.error(error)
@@ -208,88 +226,4 @@ export async function getDummyAircons(): Promise<Aircon[]> {
       carbonEmissionsReduced: 800,
     },
   ]
-}
-
-// formula from https://www.nea.gov.sg/our-services/climate-change-energy-efficiency/energy-efficiency/household-sector/choosing-the-right-cooling-capacity-for-your-air-conditioner
-// as of 20/6/2024
-function getBtuRequired(
-  householdType: HouseType,
-  installationLocation: RoomType,
-) {
-  const area = HOUSEHOLD_AREAS.get(`${householdType}${installationLocation}`)
-  if (!area) {
-    throw new Error(
-      'Invalid household type and installation location combination',
-    )
-  }
-  const capacity = area / 5
-  const btu = capacity * 3412
-  return btu
-}
-
-function getCalculations(
-  annualConsumption: number,
-  averageConsumption: number,
-  usageHours: number,
-  price: number,
-) {
-  const annualEnergyCost = calcAnnualEnergyCost(annualConsumption, usageHours)
-  const lifespanEnergyCost = calcLifespanEnergyCost(annualEnergyCost)
-  const lifecycleCost = calcLifecycleCost(lifespanEnergyCost, price)
-  const annualEnergySavings = calcAnnualEnergySavings(
-    averageConsumption,
-    annualConsumption,
-    usageHours,
-  )
-  const carbonEmissionsReduced = calcCarbonEmissionsReduced(
-    averageConsumption,
-    annualConsumption
-  )
-  return {
-    lifecycleCost,
-    lifespanEnergyCost,
-    annualEnergyCost,
-    annualEnergySavings,
-    carbonEmissionsReduced,
-  }
-}
-
-// as of 20/6/2024
-// values from google search
-const AVERAGE_LIFESPAN = 7
-// values from https://www.ema.gov.sg/consumer-information/electricity/buying-electricity/buying-at-regulated-tariff
-const ELECTRICITY_TARIFF = 0.3247
-// values from https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2#grid-emission-factor
-const CO2_INTENSITY = 0.417
-
-// cost of energy consumed annually
-function calcAnnualEnergyCost(annualConsumption: number, usageHours: number) {
-  return annualConsumption * usageHours * ELECTRICITY_TARIFF
-}
-
-// cost of energy consumed over the lifespan of the aircon
-function calcLifespanEnergyCost(annualEnergyCost: number) {
-  return annualEnergyCost * AVERAGE_LIFESPAN
-}
-
-// total cost of ownership
-function calcLifecycleCost(lifespanEnergyCost: number, price: number) {
-  return lifespanEnergyCost + price
-}
-
-// difference in cost in personal consumption and the average consumption
-function calcAnnualEnergySavings(
-  averageConsumption: number,
-  annualConsumption: number,
-  usageHours: number,
-) {
-  return (averageConsumption - annualConsumption) * usageHours * ELECTRICITY_TARIFF
-}
-
-// carbon emissions reduced per year
-function calcCarbonEmissionsReduced(
-  averageConsumption: number,
-  annualConsumption: number,
-) {
-  return (averageConsumption - annualConsumption) * CO2_INTENSITY
 }

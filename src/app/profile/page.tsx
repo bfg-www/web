@@ -106,8 +106,9 @@ export default function Page() {
     console.log('data:', data)
     setIsFiltersApplying(true)
     try {
-      // const newResults = await getAirconsForProfile(data)
-      const newResults = await getDummyAircons()
+      const newResults = await getAirconsForProfile(data)
+      // const newResults = await getDummyAircons()
+      console.log(newResults)
       setResults(newResults)
     } catch (error) {
       console.error(error)
