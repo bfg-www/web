@@ -2,9 +2,7 @@
 import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
-import { FaRegHeart } from 'react-icons/fa'
 import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
-import Image from 'next/image'
 import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
@@ -30,10 +28,11 @@ const RESULTS: Aircon[] = [
     brand: 'Mitsubishi',
     model: 'MSY-GE10VA',
     name: 'starmex system 4 aircon',
+    image: '',
+    brandLogo: '',
     greenTicks: 5,
     annualConsumption: 1000,
     price: 3000,
-    btu: 9000,
     lifecycleCost: 5000,
     lifespanEnergyCost: 2000,
     annualEnergyCost: 324.1,
@@ -45,10 +44,11 @@ const RESULTS: Aircon[] = [
     brand: 'Daikin',
     model: 'FTXJ25P',
     name: 'inverter system 4 aircon ismile',
+    image: '',
+    brandLogo: '',
     greenTicks: 4,
     annualConsumption: 1200,
     price: 2000,
-    btu: 9500,
     lifecycleCost: 6000,
     lifespanEnergyCost: 2200,
     annualEnergyCost: 350.2,
@@ -60,10 +60,11 @@ const RESULTS: Aircon[] = [
     brand: 'Panasonic',
     model: 'CS/CU-Z25VKR',
     name: 'inverter system 4 aircon coolbreeze',
+    image: '',
+    brandLogo: '',
     greenTicks: 3,
     annualConsumption: 1500,
     price: 1000,
-    btu: 8000,
     lifecycleCost: 7000,
     lifespanEnergyCost: 2600,
     annualEnergyCost: 400.1,
