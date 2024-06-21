@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  Flex,
   Grid,
   GridItem,
   HStack,
@@ -18,8 +17,9 @@ import Image from 'next/image'
 import { Aircon } from '@/app/models/clientModels'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
-import { FaEarthAsia } from 'react-icons/fa6'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
+
+// TODO: replace with real data from local storage
 
 const dummyFavourites = [
   {
@@ -125,8 +125,10 @@ export default function Page() {
         </HStack>
       </GridItem>
       <GridItem area={'favourites-list'} mt={10}>
-        <HStack width="100%" alignContent="flex-start" spacing={2}>
-          <FavouritesCard product={dummyFavourite} />
+        <HStack width="100%" alignContent="flex-start" columnGap={50}>
+          {dummyFavourites.map((dummyFavourite, index) => (
+            <FavouritesCard key={index} product={dummyFavourite} />
+          ))}
         </HStack>
       </GridItem>
     </Grid>
