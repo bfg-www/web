@@ -41,10 +41,30 @@ export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   annualEnergySavings: 0,
   carbonEmissionsReduced: 0.5,
   airconDetail: {
-    id: 1,
-    airconId: 1,
     url: 'https://www.harveynorman.com.sg/',
     btus: [],
+    systems: [
+      {
+        units: [
+          {
+            roomType: RoomType.bedroom,
+            amount: 1,
+          },
+          {
+            roomType: RoomType.living_room,
+            amount: 1,
+          },
+        ]
+      },
+      {
+        units: [
+          {
+            roomType: RoomType.bedroom,
+            amount: 2,
+          },
+        ]
+      },
+    ]
   },
 }
 

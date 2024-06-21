@@ -14,7 +14,13 @@ export type Aircon = PrismaAircon & {
 }
 
 export type AirconDetail = PrismaAirconDetail
-export type AirconWithDetail = Aircon & { airconDetail?: AirconDetail | null }
+export type AirconWithDetail = Aircon & { 
+  airconDetail: {
+    url: string,
+    btus: number[]
+    systems: System[]
+  }
+ }
 
 export enum HouseType {
   one_room = '1-Room',
@@ -37,4 +43,11 @@ export interface ProfileFormValues {
   airconCount: string
   installationLocation: string
   usageHours: string
+}
+
+export type System = {
+  units: {
+    roomType: RoomType
+    amount: number
+  }[]
 }

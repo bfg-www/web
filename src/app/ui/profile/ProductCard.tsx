@@ -89,30 +89,30 @@ export default function ProductCard({
           <Text fontSize="sm" alignSelf="flex-start" color="grey">
             {product.model.toUpperCase()}
           </Text>
-          <HStack alignSelf="flex-start" spacing="150px" mt={5}>
+          <HStack alignSelf="flex-start" spacing="50px" mt={5}>
             <VStack>
+              <Text fontSize="lg">Price</Text>
               <Text as="b" fontSize="lg">
-                Price
+                ${product.price}
               </Text>
-              <Text fontSize="lg">${product.price}</Text>
             </VStack>
             <VStack>
               <Flex>
-                <Text as="b" fontSize="lg">
-                  Lifecycle cost
-                </Text>
+                <Text fontSize="lg">Lifecycle cost</Text>
                 <CustomTooltip content="To be added" color="#253610" />
               </Flex>
-              <Text fontSize="lg">${product.lifecycleCost}</Text>
+              <Text as="b" fontSize="lg">
+                ${product.lifecycleCost}
+              </Text>
             </VStack>
             <VStack>
               <Flex>
-                <Text as="b" fontSize="lg">
-                  Annual energy cost
-                </Text>
+                <Text fontSize="lg">Annual energy cost</Text>
                 <CustomTooltip content="To be added" color="#253610" />
               </Flex>
-              <Text fontSize="lg">${product.annualEnergyCost}</Text>
+              <Text as="b" fontSize="lg">
+                ${product.annualEnergyCost}
+              </Text>
             </VStack>
           </HStack>
           <HStack alignSelf="flex-start" spacing={5} mt={5}>
