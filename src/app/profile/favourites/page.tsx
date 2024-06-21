@@ -102,7 +102,7 @@ export default function Page() {
       minWidth="100vh"
       p={3}
     >
-      <GridItem area={'heading'} borderWidth="1px">
+      <GridItem area={'heading'}>
         <HStack justifyContent="space-between">
           <Text as="b" fontSize="3xl" color="#253610">
             MY FAVOURITES
