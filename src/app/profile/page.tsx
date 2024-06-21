@@ -6,7 +6,7 @@ import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
 import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
-import { Aircon } from '../ui/models/aircon-options'
+import { Aircon } from '@/app/models/clientModels'
 import EnergyProfileFormWidget from '../ui/profile/EnergyProfileFormWidget'
 import FilterPanel, { Filter } from '../ui/profile/FilterPanel'
 import SkeletonPlaceholder from '../ui/profile/SkeletonPlaceholder'
@@ -20,58 +20,6 @@ export const USER_ENERGY_PROFILE = {
   installationLocation: 'bedroom',
   usageHours: '8',
 }
-
-// TODO: Remove FE's dummy data, call BE's instead
-const RESULTS: Aircon[] = [
-  {
-    id: '1',
-    brand: 'Mitsubishi',
-    model: 'MSY-GE10VA',
-    name: 'starmex system 4 aircon',
-    image: '',
-    brandLogo: '',
-    greenTicks: 5,
-    annualConsumption: 1000,
-    price: 3000,
-    lifecycleCost: 5000,
-    lifespanEnergyCost: 2000,
-    annualEnergyCost: 324.1,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.5,
-  },
-  {
-    id: '2',
-    brand: 'Daikin',
-    model: 'FTXJ25P',
-    name: 'inverter system 4 aircon ismile',
-    image: '',
-    brandLogo: '',
-    greenTicks: 4,
-    annualConsumption: 1200,
-    price: 2000,
-    lifecycleCost: 6000,
-    lifespanEnergyCost: 2200,
-    annualEnergyCost: 350.2,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.2,
-  },
-  {
-    id: '3',
-    brand: 'Panasonic',
-    model: 'CS/CU-Z25VKR',
-    name: 'inverter system 4 aircon coolbreeze',
-    image: '',
-    brandLogo: '',
-    greenTicks: 3,
-    annualConsumption: 1500,
-    price: 1000,
-    lifecycleCost: 7000,
-    lifespanEnergyCost: 2600,
-    annualEnergyCost: 400.1,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.1,
-  },
-]
 
 // Page component should handle filter state + data fetching state
 /* JX TODO: fetch data icon + picture for listings, render it together with results component render */
@@ -111,7 +59,7 @@ export default function Page() {
     setIsResultsFetching(true)
     // simulate filtering UX
     setTimeout(() => {
-      const filteredResults = RESULTS.filter((result) => {
+      const filteredResults = results.filter((result) => {
         const matchesGreenTicks =
           filters.greenTicks === 0 || result.greenTicks === filters.greenTicks
         const matchesMaxPrice =

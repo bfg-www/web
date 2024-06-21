@@ -1,4 +1,4 @@
-import { Aircon } from './models/aircon-options'
+import { Aircon } from '@/app/models/clientModels'
 
 export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
