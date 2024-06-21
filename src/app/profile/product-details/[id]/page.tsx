@@ -15,7 +15,7 @@ import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
-import { AirconWithDetail } from '@/app/models/clientModels'
+import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
@@ -130,7 +130,14 @@ export default function Page({
         px={4}
         py={2}
       >
-        <Flex justifyContent="flex-end" mt={5} pr={2}>
+        <Flex justifyContent="flex-end">
+          <CustomTooltip
+            content="Our data is retrieved from the National Environmental Agency (NEA)'s database of registered goods. They update daily, which means so will we. Sales data is currently mocked for this MVP but stay tuned as we hunt for data. Contact us for corporate partnerships at bfgw3energy@gmail.com."
+            color="#253610"
+            iconType="info"
+          />
+        </Flex>
+        <Flex justifyContent="flex-end" mt={3} pr={3}>
           <HeartIconAdd />
         </Flex>
         <HStack spacing={10}>
@@ -174,7 +181,10 @@ export default function Page({
                   <Text as="b" fontSize="lg" color="#F0F1E7">
                     Air-con cooling capacity
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="BTU (British Thermal Unit) is a way to measure energy. This measures how much heat energy your aircon is removing per hour. The smaller the space, the smaller the BTU required."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text fontSize="lg" color="#F0F1E7">
                   {'[JX TODO: Show BTU units here]'} <strong>BTU</strong>
@@ -269,7 +279,10 @@ export default function Page({
                 <Text as="b" fontSize="lg" color="#F0F1E7">
                   Annual energy cost
                 </Text>
-                <CustomTooltip content="To be added" color="#F0F1E7" />
+                <CustomTooltip
+                  content="This cost is calculated based on your air-con usage levels, the capacity of the air-con and the efficiency of the air-con unit. We used $0.32/kWh as the price of electricity (source: Energy Market Authority)."
+                  color="#F0F1E7"
+                />
               </Flex>
               <Text
                 width="auto"
@@ -304,7 +317,10 @@ export default function Page({
                   <Text as="b" fontSize="xl" color="#F0F1E7">
                     Lifecycle cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan. It is calculated with the formula: Life Cycle Cost = Price + Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
@@ -339,7 +355,10 @@ export default function Page({
                   <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
                     Lifetime energy cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan, excluding the retail price. It is calculated with the formula: Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
