@@ -1,5 +1,5 @@
 import { USER_ENERGY_PROFILE } from '@/app/profile/page'
-import { FormValues } from '../profiling/EnergyProfileForm'
+import { ProfileFormValues } from '@/app/models/clientModels'
 import { useState } from 'react'
 import {
   Button,
@@ -18,10 +18,10 @@ import {
 import { IoIosRefresh } from 'react-icons/io'
 
 export default function EnergyProfileFormWidget({
-  onSubmit,
+  onSubmit = () => {}, isEditable = false
 }: {
-  onSubmit: (data: FormValues) => void
-}) {
+  onSubmit?: (data: ProfileFormValues) => void
+, isEditable: boolean}, ) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
     USER_ENERGY_PROFILE.householdType,
@@ -61,6 +61,7 @@ export default function EnergyProfileFormWidget({
         <HStack spacing={5}>
           <FormControl display="inline-block" w="auto">
             <Select
+              disabled={!isEditable}
               value={householdType}
               color="#F0F1E7"
               borderColor="#F0F1E7"
@@ -79,6 +80,7 @@ export default function EnergyProfileFormWidget({
           <FormControl display="inline-block" w="auto">
             <HStack>
               <NumberInput
+                isDisabled={!isEditable}
                 min={1}
                 max={10}
                 value={airconCount}
@@ -98,6 +100,7 @@ export default function EnergyProfileFormWidget({
           </FormControl>
           <FormControl display="inline-block" w="auto">
             <Select
+            disabled={!isEditable}
               value={installationLocation}
               color="#F0F1E7"
               borderColor="#F0F1E7"
@@ -115,7 +118,8 @@ export default function EnergyProfileFormWidget({
           </FormControl>
           <FormControl display="inline-block" w="auto">
             <HStack>
-              <NumberInput
+              <NumberInput 
+                isDisabled={!isEditable}
                 min={1}
                 max={24}
                 value={usageHours}
@@ -136,6 +140,7 @@ export default function EnergyProfileFormWidget({
             </HStack>
           </FormControl>
           <Button
+            isDisabled={!isEditable}
             type="submit"
             form="energy-profile-form-widget"
             size="xs"
