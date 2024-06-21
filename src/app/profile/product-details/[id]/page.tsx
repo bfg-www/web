@@ -4,21 +4,16 @@ import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 import {
   Box,
   Button,
-  Card,
-  CardBody,
-  Divider,
   Flex,
   Grid,
   GridItem,
   HStack,
-  Link,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
-import { TbWorldWww } from 'react-icons/tb'
 import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
 import { AirconWithDetail } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
@@ -26,6 +21,7 @@ import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
+import Link from 'next/link'
 
 // JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
 export const AIRCON_WITH_DETAIL: AirconWithDetail = {
@@ -69,9 +65,15 @@ export default function Page({
       minWidth="100vh"
     >
       <GridItem area="redirect-back">
-        <Button variant="link" color="#253610" leftIcon={<RiArrowGoBackLine />}>
-          Back to recommendations
-        </Button>
+        <Link href="/profile">
+          <Button
+            variant="link"
+            color="#253610"
+            leftIcon={<RiArrowGoBackLine />}
+          >
+            Back to recommendations
+          </Button>
+        </Link>
       </GridItem>
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between" mt={10}>
