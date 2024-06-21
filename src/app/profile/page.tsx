@@ -31,16 +31,17 @@ export default function Page() {
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
-    setIsFiltersApplying(true)
+    setIsResultsFetching(true)
     try {
-      const newResults = await getAirconsForProfile(data)
-      // const newResults = await getDummyAircons()
-      console.log(newResults)
+      // const newResults = await getAirconsForProfile(data)
+      const newResults = await getDummyAircons()
+      console.log('newResults from BE:', newResults)
       setResults(newResults)
     } catch (error) {
       console.error(error)
     } finally {
-      setIsFiltersApplying(false)
+      // else the loading speed is near-instant and the UX is jarring
+      setTimeout(() => setIsResultsFetching(false), 2000)
     }
     /* BY TODO: handle data fetching state
         -> skeleton loading, for profile widget & product listings, pass in isLoading prop
@@ -51,7 +52,6 @@ export default function Page() {
 
   // Both search (profile update) and apply filter (filter apply) will update the listings, albeit due to different reasons
   // * JX TODO: add getDummyAircon(data), wire up update button from EnergyProfileFormWidget //
-  const handleSearch = () => {}
 
   const handleApplyFilters = (filters: Filter) => {
     console.log('handleApplyFilters called')
@@ -94,7 +94,11 @@ export default function Page() {
     >
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between">
-          <EnergyProfileFormWidget isEditable={true} onSubmit={handleFormWidgetSubmit} />
+          <EnergyProfileFormWidget
+            onSubmit={handleFormWidgetSubmit}
+            isFetching={isResultsFetching}
+            isEditable={true}
+          />
           <Link href="/favourites">
             <Button
               type="submit"
@@ -113,7 +117,11 @@ export default function Page() {
         </HStack>
       </GridItem>
       <GridItem bg="white" borderRadius="10px" area={'filter'}>
-        <FilterPanel results={results} onSubmit={handleApplyFilters} />
+        <FilterPanel
+          results={results}
+          onSubmit={handleApplyFilters}
+          isUpdating={isFiltersApplying}
+        />
       </GridItem>
       <GridItem borderRadius="10px" area={'results'}>
         {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}

@@ -9,7 +9,7 @@ export const HOUSEHOLD_TYPE_OPTIONS = [
 
 export const INSTALLATION_LOCATION_OPTIONS = [
   { label: 'entire house', value: 'entire_house' },
-  { label: 'bedroom(s)', value: 'bedroom' },
+  { label: 'bedroom', value: 'bedroom' },
   { label: 'living room', value: 'living_room' },
   { label: 'kitchen', value: 'kitchen' },
 ]

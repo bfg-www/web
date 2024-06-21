@@ -69,11 +69,16 @@ export default function ProductCard({
       </Flex>
       <HStack borderWidth="1px" justifyContent="flex-start" width="100%">
         <Box borderWidth="1px" width="40%">
-          INSERT AIRCON IMAGE
+          {product.image}
         </Box>
         <VStack borderWidth="1px" width="100%">
           <HStack borderWidth="1px" alignSelf="flex-start">
-            <Box>INSERT BRAND LOGO</Box>
+            <Image
+              src={product.brandLogo}
+              alt="Logo of an air-conditioner brand"
+              width="50"
+              height="50"
+            ></Image>
             <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
           </HStack>
           <Text as="b" fontSize="lg" alignSelf="flex-start">

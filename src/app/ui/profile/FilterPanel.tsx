@@ -6,6 +6,7 @@ import {
   NumberInput,
   NumberInputField,
   Select,
+  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react'
@@ -40,9 +41,11 @@ export const INITIAL_FILTERS = {
 export default function FilterPanel({
   results,
   onSubmit,
+  isUpdating,
 }: {
   results: Aircon[]
   onSubmit: (data: Filter) => void
+  isUpdating: boolean
 }) {
   console.log('FilterPanel renders')
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS)
@@ -181,6 +184,7 @@ export default function FilterPanel({
           borderRadius="20px"
           onClick={handleReset}
           boxShadow="base"
+          isDisabled={isUpdating}
         >
           Clear
         </Button>
@@ -193,6 +197,8 @@ export default function FilterPanel({
           width="150px"
           onClick={() => onSubmit(filters)}
           boxShadow="base"
+          isDisabled={isUpdating}
+          rightIcon={isUpdating ? <Spinner size="xs" color="#F0F1E7" /> : <></>}
         >
           Apply
         </Button>
