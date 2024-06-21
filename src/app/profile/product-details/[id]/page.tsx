@@ -20,7 +20,7 @@ import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import { TbWorldWww } from 'react-icons/tb'
 import HeartIcon from '@/app/ui/product-details/FavouriteIcon'
-import { AirconWithDetail } from '@/app/ui/models/aircon-options'
+import { AirconWithDetail } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
@@ -38,10 +38,11 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
   price: 3000,
   image: '',
   brandLogo: '',
+  brandUrl: '',
   lifecycleCost: 5000,
   lifespanEnergyCost: 2000,
   annualEnergyCost: 324.1,
-  annualEnergySavingsAmt: 0,
+  annualEnergySavings: 0,
   carbonEmissionsReduced: 0.5,
   airconDetail: {
     id: 1,
