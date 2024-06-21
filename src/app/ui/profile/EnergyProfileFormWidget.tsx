@@ -8,6 +8,7 @@ import {
   NumberInput,
   NumberInputField,
   Select,
+  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react'
@@ -19,8 +20,10 @@ import { IoIosRefresh } from 'react-icons/io'
 
 export default function EnergyProfileFormWidget({
   onSubmit,
+  isFetching,
 }: {
   onSubmit: (data: FormValues) => void
+  isFetching: boolean
 }) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
@@ -61,6 +64,7 @@ export default function EnergyProfileFormWidget({
         <HStack spacing={5}>
           <FormControl display="inline-block" w="auto">
             <Select
+              isDisabled={isFetching}
               value={householdType}
               color="#F0F1E7"
               borderColor="#F0F1E7"
@@ -79,6 +83,7 @@ export default function EnergyProfileFormWidget({
           <FormControl display="inline-block" w="auto">
             <HStack>
               <NumberInput
+                isDisabled={isFetching}
                 min={1}
                 max={10}
                 value={airconCount}
@@ -98,6 +103,7 @@ export default function EnergyProfileFormWidget({
           </FormControl>
           <FormControl display="inline-block" w="auto">
             <Select
+              isDisabled={isFetching}
               value={installationLocation}
               color="#F0F1E7"
               borderColor="#F0F1E7"
@@ -116,6 +122,7 @@ export default function EnergyProfileFormWidget({
           <FormControl display="inline-block" w="auto">
             <HStack>
               <NumberInput
+                isDisabled={isFetching}
                 min={1}
                 max={24}
                 value={usageHours}
@@ -136,6 +143,7 @@ export default function EnergyProfileFormWidget({
             </HStack>
           </FormControl>
           <Button
+            isDisabled={isFetching}
             type="submit"
             form="energy-profile-form-widget"
             size="xs"
@@ -146,7 +154,13 @@ export default function EnergyProfileFormWidget({
             borderRadius="10px"
             alignSelf="flex-end"
             iconSpacing={1}
-            rightIcon={<IoIosRefresh />}
+            rightIcon={
+              isFetching ? (
+                <Spinner size="xs" color="#F0F1E7" />
+              ) : (
+                <IoIosRefresh />
+              )
+            }
             boxShadow="base"
           >
             Update
