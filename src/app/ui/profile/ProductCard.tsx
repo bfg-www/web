@@ -8,13 +8,7 @@ import { GiCheckMark } from 'react-icons/gi'
 
 /* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
 Not sure if it's product.id or product.airconDetail.id */
-export function generateTickIcons({
-  count,
-  tickSize = '25px',
-}: {
-  count: number
-  tickSize?: string
-}) {
+export function generateTickIcons(count: number, tickSize = '25px') {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
@@ -130,7 +124,6 @@ export default function ProductCard({
                 <Image
                   src={climateVoucherLogo}
                   alt="Logo of government-issued climate vouchers"
-                  width={100}
                 />
               </Box>
             )}
