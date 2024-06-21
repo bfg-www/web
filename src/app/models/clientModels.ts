@@ -1,13 +1,16 @@
 // Remaps Prisma models to models for use in client-side code for abstraction of ORM
 
-import { Aircon as PrismaAircon, AirconDetail as PrismaAirconDetail } from '@prisma/client'
+import {
+  Aircon as PrismaAircon,
+  AirconDetail as PrismaAirconDetail,
+} from '@prisma/client'
 
 export type Aircon = PrismaAircon & {
-  lifecycleCost: number,
-  lifespanEnergyCost: number,
-  annualEnergyCost: number,
-  annualEnergySavings: number,
-  carbonEmissionsReduced: number,
+  lifecycleCost: number
+  lifespanEnergyCost: number
+  annualEnergyCost: number
+  annualEnergySavings: number
+  carbonEmissionsReduced: number
 }
 
 export type AirconDetail = PrismaAirconDetail
@@ -19,13 +22,13 @@ export enum HouseType {
   three_room = '3-Room',
   four_room = '4-Room',
   five_room = '5-Room',
-  jumbo = 'Jumbo/Executive'
+  jumbo = 'Jumbo/Executive',
 }
 
 export enum RoomType {
   entire_house = 'entire house',
   living_room = 'Living Room',
-  bedroom = 'bedroom(s)',
+  bedroom = 'bedroom',
   kitchen = 'kitchen',
 }
 
