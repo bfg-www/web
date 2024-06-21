@@ -2,18 +2,15 @@ import { Aircon } from '@/app/models/clientModels'
 import { Box, Button, Flex, HStack, Link, Text, VStack } from '@chakra-ui/react'
 import { FaEarthAsia } from 'react-icons/fa6'
 import CustomTooltip from './CustomTooltip'
-import { capitalizeFirstLetter } from '../helpers'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Image from 'next/image'
 import { GiCheckMark } from 'react-icons/gi'
 
-/* JX TODO: Please check if  id in the NextJS link to product-details is correct, see 'Find out more' btn. 
-Not sure if it's product.id or product.airconDetail.id */
-export function generateTickIcons(count: number) {
+export function generateTickIcons(count: number, tickSize = '25px') {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
-        <GiCheckMark size="25px" key={index} color="#4F772D" />
+        <GiCheckMark size={tickSize} key={index} color="#4F772D" />
       ))}
     </>
   )
@@ -48,11 +45,11 @@ export default function ProductCard({
         >
           <FaEarthAsia color="#F0F1E7" size="20px" />
           <Text fontSize="xs" color="#F0F1E7" as="kbd" ml={2} mr={1}>
-            Reduce your carbon emissions by up to{' '}
-            <strong>{product.carbonEmissionsReduced * 100}%</strong> with this
-            option compared to less efficient models
+            This unit emits{' '}
+            <strong>{product.carbonEmissionsReduced}% less CO2 </strong>{' '}
+            compared to the average 3-tick air-con unit in the market
           </Text>
-          <CustomTooltip content="To be added"></CustomTooltip>
+          <CustomTooltip content="Unit lifecycle emissions are calculated per lifetime of the unit (7 years) and based on factors such as air-con capacity, usage hours and the average amount of CO2 emitted to produce one unit of electricity in Singapore (source: Energy Market Authority)."></CustomTooltip>
         </HStack>
         {showTopChoiceTag && (
           <Text
@@ -61,7 +58,7 @@ export default function ProductCard({
             color="#F0F1E7"
             borderRadius="15px"
             as="b"
-            p={1}
+            p={2}
           >
             Top choice!
           </Text>
@@ -70,7 +67,7 @@ export default function ProductCard({
       <HStack justifyContent="flex-start" width="100%" mt={1}>
         <Image
           src={product.image}
-          alt="Logo of an air-conditioner brand"
+          alt="Image of an air-conditioner"
           width="500"
           height="200"
         ></Image>
@@ -78,11 +75,11 @@ export default function ProductCard({
           <HStack alignSelf="flex-start">
             <Image
               src={product.brandLogo}
-              alt="Logo of an air-conditioner brand"
+              alt="Picture of an air-conditioner"
               width="50"
               height="50"
             ></Image>
-            <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
+            <Text fontSize="lg">{product.brand}</Text>
           </HStack>
           <Text as="b" fontSize="lg" alignSelf="flex-start">
             {product.name.toUpperCase()}
@@ -100,7 +97,10 @@ export default function ProductCard({
             <VStack>
               <Flex>
                 <Text fontSize="lg">Lifecycle cost</Text>
-                <CustomTooltip content="To be added" color="#253610" />
+                <CustomTooltip
+                  content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan. It is calculated with the formula: Life Cycle Cost = Price + Energy Cost to run air-con for 7 years."
+                  color="#253610"
+                />
               </Flex>
               <Text as="b" fontSize="lg">
                 ${product.lifecycleCost}
@@ -109,7 +109,10 @@ export default function ProductCard({
             <VStack>
               <Flex>
                 <Text fontSize="lg">Annual energy cost</Text>
-                <CustomTooltip content="To be added" color="#253610" />
+                <CustomTooltip
+                  content="This cost is calculated based on your air-con usage levels, the capacity of the air-con and the efficiency of the air-con unit. We used $0.32/kWh as the price of electricity (source: Energy Market Authority)."
+                  color="#253610"
+                />
               </Flex>
               <Text as="b" fontSize="lg">
                 ${product.annualEnergyCost}
@@ -125,13 +128,12 @@ export default function ProductCard({
                 <Image
                   src={climateVoucherLogo}
                   alt="Logo of government-issued climate vouchers"
-                  width={100}
                 />
               </Box>
             )}
           </HStack>
           <Box width="100%" display="flex" justifyContent="flex-end">
-            <Link href={`/product-details/${product.id}`}>
+            <Link href={`profile/product-details/${product.id}`}>
               <Button
                 backgroundColor="#F0F1E7"
                 color="#253610"

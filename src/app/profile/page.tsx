@@ -1,5 +1,5 @@
 'use client'
-import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
+import { Button, Grid, GridItem, HStack, Select, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
 import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
@@ -21,12 +21,19 @@ export const USER_ENERGY_PROFILE = {
   usageHours: '8',
 }
 
+export const SORTING_OPTIONS = [
+  { label: 'Price', value: 'price' },
+  { label: 'Lifecycle cost', value: 'lifecycleCost' },
+  { label: 'Energy tick ratings', value: 'greenTicks' },
+]
+
 // Page component should handle filter state + data fetching state
-/* JX TODO: fetch data icon + picture for listings, render it together with results component render */
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
+  const [isSortApplying, setIsSortApplying] = useState<boolean>(false)
   const [results, setResults] = useState<Aircon[]>([])
+  const [sortOrder, setSortOrder] = useState<string>('')
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')
@@ -43,20 +50,12 @@ export default function Page() {
       // else the loading speed is near-instant and the UX is jarring
       setTimeout(() => setIsResultsFetching(false), 1500)
     }
-    /* BY TODO: handle data fetching state
-        -> skeleton loading, for profile widget & product listings, pass in isLoading prop
-        -> data returned 
-        -> listings renders
-        ->  update local storage, get from local storage to populate profile widget */
   }
-
-  // Both search (profile update) and apply filter (filter apply) will update the listings, albeit due to different reasons
-  // * JX TODO: add getDummyAircon(data), wire up update button from EnergyProfileFormWidget //
 
   const handleApplyFilters = (filters: Filter) => {
     console.log('handleApplyFilters called')
     console.log('filters:', filters)
-    setIsResultsFetching(true)
+    setIsFiltersApplying(true)
     // simulate filtering UX
     setTimeout(() => {
       const filteredResults = results.filter((result) => {
@@ -79,8 +78,27 @@ export default function Page() {
       })
       console.log('filteredResults:', filteredResults)
       setResults(filteredResults)
-      setIsResultsFetching(false)
+      setIsFiltersApplying(false)
     }, 1500)
+  }
+
+  const handleSort = (sortBy: string) => {
+    console.log('handleSort called')
+    setSortOrder(sortBy)
+    setIsSortApplying(true)
+    // Sort results based on sortBy
+    const sortedResults = [...results].sort((a, b) => {
+      if (sortBy === 'price') {
+        return a.price - b.price
+      } else if (sortBy === 'lifecycleCost') {
+        return a.lifecycleCost - b.lifecycleCost
+      } else if (sortBy === 'greenTicks') {
+        return a.greenTicks - b.greenTicks
+      }
+      return 0
+    })
+    setTimeout(() => setIsSortApplying(false), 1000)
+    setResults(sortedResults)
   }
 
   return (
@@ -99,7 +117,7 @@ export default function Page() {
             isFetching={isResultsFetching}
             isEditable={true}
           />
-          <Link href="/favourites">
+          <Link href="profile/favourites">
             <Button
               type="submit"
               size="md"
@@ -124,8 +142,35 @@ export default function Page() {
         />
       </GridItem>
       <GridItem borderRadius="10px" area={'results'}>
-        {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}
-        {isResultsFetching && <SkeletonPlaceholder />}
+        <HStack width="100%" justifyContent="space-between" mb={3}>
+          {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}
+          {!isResultsFetching && (
+            <Select
+              w="230px"
+              placeholder="Sort by"
+              value={sortOrder}
+              bg="#F0F1E7"
+              color="#4F772D"
+              borderRadius="20px"
+              focusBorderColor="#4F772D"
+              variant="flushed"
+              boxShadow="base"
+              sx={{ textAlign: 'center' }}
+              onChange={(e) => {
+                handleSort(e.target.value)
+              }}
+            >
+              {SORTING_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </Select>
+          )}
+        </HStack>
+        {isResultsFetching ||
+          isFiltersApplying ||
+          (isSortApplying && <SkeletonPlaceholder />)}
         {!isResultsFetching && results.length === 0 && <ResultsNotFound />}
         {!isResultsFetching &&
           results.length !== 0 &&

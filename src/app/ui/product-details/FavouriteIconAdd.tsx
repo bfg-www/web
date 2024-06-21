@@ -2,7 +2,7 @@ import { Box, useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { RiHeartAdd2Fill } from 'react-icons/ri'
 
-export const HeartIcon = () => {
+export const HeartIconAdd = () => {
   const toast = useToast()
   const [liked, setLiked] = useState(false)
 
@@ -22,7 +22,6 @@ export const HeartIcon = () => {
   return (
     <RiHeartAdd2Fill
       size="35px"
-      viewBox="0 0 24 24"
       fill={liked ? '#68D391' : 'black'}
       stroke={liked ? '#68D391' : 'black'}
       cursor="pointer"
@@ -31,4 +30,4 @@ export const HeartIcon = () => {
   )
 }
 
-export default HeartIcon
+export default HeartIconAdd

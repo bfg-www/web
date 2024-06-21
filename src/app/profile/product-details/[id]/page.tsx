@@ -4,41 +4,39 @@ import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 import {
   Box,
   Button,
-  Card,
-  CardBody,
-  Divider,
   Flex,
   Grid,
   GridItem,
   HStack,
-  Link,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
-import { TbWorldWww } from 'react-icons/tb'
-import HeartIcon from '@/app/ui/product-details/FavouriteIcon'
+import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
 import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
+import Link from 'next/link'
+import { getAirconDetail } from '@/app/lib/aircon'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-// JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
-const AIRCON_WITH_DETAIL: AirconWithDetail = {
+export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
-  name: 'starmex system 4 aircon',
-  brand: 'mitsubishi',
+  name: 'Starmex system 4 aircon',
+  brand: 'Mitsubishi',
   model: 'MSY-GE10VA',
   greenTicks: 5,
   annualConsumption: 1000,
   price: 3000,
-  image: '',
-  brandLogo: '',
-  brandUrl: '',
+  image: '/aircon/stock.png',
+  brandLogo: '/brands/lg.svg',
+  brandUrl: 'https://www.lg.com/sg/',
   lifecycleCost: 5000,
   lifespanEnergyCost: 2000,
   annualEnergyCost: 324.1,
@@ -46,7 +44,7 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
   carbonEmissionsReduced: 0.5,
   airconDetail: {
     url: 'https://www.harveynorman.com.sg/',
-    btus: [],
+    btus: [9000, 9000, 12000, 24000],
     systems: [
       {
         units: [
@@ -58,7 +56,7 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
             roomType: RoomType.living_room,
             amount: 1,
           },
-        ]
+        ],
       },
       {
         units: [
@@ -66,32 +64,72 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
             roomType: RoomType.bedroom,
             amount: 2,
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
 }
 
 // TOOD: Wire up site redirection to retailer site, product.airconDetail.url?
 // TODO: Wire up favourites action to favourites list
 
-export default function Page({
-  product = AIRCON_WITH_DETAIL,
-}: {
-  product: AirconWithDetail
-}) {
-  const isClimateVoucherEligible = product.greenTicks === 5
+export default function Page() {
+  const params = useParams()
+  const id = Number(params.id)
+  const router = useRouter()
+  const [product, setProduct] = useState<AirconWithDetail>()
+  const [isClimateVoucherEligible, setIsClimateVoucherEligible] =
+    useState(false)
+  const [btuFrequencies, setBtuFrequencies] = useState<Record<number, number>>(
+    {},
+  )
+
+  useEffect(() => {
+    async function fetchProduct() {
+      if (id == null) {
+        router.push('/profile')
+      }
+      try {
+        // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
+        const res = await getAirconDetail(id, 1, RoomType.bedroom)
+        setProduct(res)
+        setIsClimateVoucherEligible(res.greenTicks === 5)
+        const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
+          acc[btu] = acc[btu] ? acc[btu] + 1 : 1
+          return acc
+        }, {} as Record<number, number>)
+        setBtuFrequencies(btuFrequencies)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchProduct()
+  }, [router, id])
+
   return (
+    <>
+      {product && (
     <Grid
-      templateAreas={`"personal" "redirections" "non-energy-info" "energy-info"`}
-      gridTemplateRows={'100px 50px 1fr 2fr'}
+      templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
+      gridTemplateRows={'10px 100px 50px 1fr 2fr'}
       minHeight="100vh"
       minWidth="100vh"
     >
+      <GridItem area="redirect-back">
+        <Link href="/profile">
+          <Button
+            variant="link"
+            color="#253610"
+            leftIcon={<RiArrowGoBackLine />}
+          >
+            Back to results
+          </Button>
+        </Link>
+      </GridItem>
       <GridItem area={'personal'}>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" mt={10}>
           <EnergyProfileFormWidget isEditable={false} />
-          <Link href="/favourites">
+          <Link href="profile/favourites">
             <Button
               type="submit"
               size="md"
@@ -108,19 +146,10 @@ export default function Page({
           </Link>
         </HStack>
       </GridItem>
-      <GridItem area={'redirections'} pt={4}>
-        <HStack justifyContent="space-between">
-          <Button
-            variant="link"
-            color="#253610"
-            leftIcon={<RiArrowGoBackLine />}
-          >
-            Back to results
-          </Button>
+      <GridItem area={'redirect-out'}>
+        <HStack justifyContent="flex-end" pt={6}>
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline />}>
-            <a href="https://www.harveynorman.com.sg/">
-              See retailer site for full specs
-            </a>
+            <a href={product.brandUrl}>See retailer site for full specs</a>
           </Button>
         </HStack>
       </GridItem>
@@ -132,13 +161,23 @@ export default function Page({
         px={4}
         py={2}
       >
-        <Flex justifyContent="flex-end" mt={5} pr={2}>
-          <HeartIcon />
+        <Flex justifyContent="flex-end">
+          <CustomTooltip
+            content="Our data is retrieved from the National Environmental Agency (NEA)'s database of registered goods. They update daily, which means so will we. Sales data is currently mocked for this MVP but stay tuned as we hunt for data. Contact us for corporate partnerships at bfgw3energy@gmail.com."
+            color="#253610"
+            iconType="info"
+          />
         </Flex>
-        <HStack>
-          <Box borderWidth="1px" width="40%">
-            INSERT AIRCON IMAGE
-          </Box>
+        <Flex justifyContent="flex-end" mt={3} pr={3}>
+          <HeartIconAdd />
+        </Flex>
+        <HStack spacing={10}>
+          <Image
+            src={product.image}
+            alt="Image of an air-conditioner"
+            width="600"
+            height="300"
+          ></Image>
           <VStack
             borderWidth="1px"
             width="100%"
@@ -146,8 +185,13 @@ export default function Page({
             alignItems="flex-start"
           >
             <HStack borderWidth="1px" alignItems="flex-start">
-              <Box>INSERT BRAND LOGO</Box>
-              <Text fontSize="lg">{capitalizeFirstLetter(product.brand)}</Text>
+              <Image
+                src={product.brandLogo}
+                alt="Logo of an air-conditioner brand"
+                width="50"
+                height="50"
+              ></Image>
+              <Text fontSize="lg">{product.brand}</Text>
             </HStack>
             <Text as="b" fontSize="lg">
               {product.name.toUpperCase()}
@@ -163,15 +207,24 @@ export default function Page({
               p={3}
               mt={5}
             >
-              <VStack alignItems="flex-start">
+              <VStack alignItems="flex-start" width="500px">
                 <Flex>
                   <Text as="b" fontSize="lg" color="#F0F1E7">
                     Air-con cooling capacity
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="BTU (British Thermal Unit) is a way to measure energy. This measures how much heat energy your aircon is removing per hour. The smaller the space, the smaller the BTU required."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text fontSize="lg" color="#F0F1E7">
-                  {'[JX TODO: Show BTU units here]'} <strong>BTU</strong>
+                  {Object.entries(btuFrequencies).map(
+                    ([btu, frequency], index) => (
+                      <Text key={index}>
+                        {frequency} x <strong>{btu}</strong> BTU
+                      </Text>
+                    ),
+                  )}{' '}
                 </Text>
               </VStack>
               <VStack
@@ -179,14 +232,31 @@ export default function Page({
                 borderWidth="80%"
                 borderColor="#F0F1E7"
                 alignItems="flex-start"
+                width="100%"
+                pt={2}
               >
-                <Text color="#F0F1E7" as="b" fontSize="md">
-                  This system-{'[JX TODO: INSERT SYSTEM UNIT]'} unit consists
-                  of:
+                <Text color="#F0F1E7" fontSize="md">
+                  This{' '}
+                  <strong>system-{product.airconDetail.btus.length}</strong>{' '}
+                  unit consists of:
                 </Text>
-                <Text color="#F0F1E7">
-                  JX TODO: get system-to-room mapping unit info
-                </Text>
+                {product.airconDetail.systems.map((system, index) => (
+                  <HStack width="100%" key={index}>
+                    <HStack>
+                      {system.units.map((unit) => (
+                        <Text color="#F0F1E7" key={unit.roomType}>
+                          {unit.amount}{' '}
+                          <strong>
+                            {capitalizeFirstLetter(unit.roomType)}
+                          </strong>
+                        </Text>
+                      ))}
+                    </HStack>
+                    {index < product.airconDetail.systems.length - 1 ? (
+                      <Text color="#F0F1E7">OR</Text>
+                    ) : null}
+                  </HStack>
+                ))}
               </VStack>
             </VStack>
           </VStack>
@@ -211,7 +281,7 @@ export default function Page({
             width="100%"
             height="auto"
             px={5}
-            mt={14}
+            mt={12}
             rowGap={0}
             bg="white"
             borderTopRightRadius="15px"
@@ -261,9 +331,12 @@ export default function Page({
             <VStack justifyContent="center">
               <Flex>
                 <Text as="b" fontSize="lg" color="#F0F1E7">
-                  Annual Energy Costs
+                  Annual energy cost
                 </Text>
-                <CustomTooltip content="To be added" color="#F0F1E7" />
+                <CustomTooltip
+                  content="This cost is calculated based on your air-con usage levels, the capacity of the air-con and the efficiency of the air-con unit. We used $0.32/kWh as the price of electricity (source: Energy Market Authority)."
+                  color="#F0F1E7"
+                />
               </Flex>
               <Text
                 width="auto"
@@ -296,9 +369,12 @@ export default function Page({
               <VStack borderRightWidth={1}>
                 <Flex mr={5}>
                   <Text as="b" fontSize="xl" color="#F0F1E7">
-                    Lifecycle Cost
+                    Lifecycle cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan. It is calculated with the formula: Life Cycle Cost = Price + Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
@@ -331,9 +407,12 @@ export default function Page({
               <VStack>
                 <Flex>
                   <Text as="b" fontSize="xl" color="#F0F1E7" p={0}>
-                    Lifetime Energy Cost
+                    Lifetime energy cost
                   </Text>
-                  <CustomTooltip content="To be added" color="#F0F1E7" />
+                  <CustomTooltip
+                    content="This cost is calculated based on your air-con usage levels and it indicates the total cost of this appliance over its lifespan, excluding the retail price. It is calculated with the formula: Energy Cost to run air-con for 7 years."
+                    color="#F0F1E7"
+                  />
                 </Flex>
                 <Text
                   width="auto"
@@ -351,5 +430,7 @@ export default function Page({
         </VStack>
       </GridItem>
     </Grid>
+      )}
+    </>
   )
 }
