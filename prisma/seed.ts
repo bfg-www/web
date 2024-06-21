@@ -12,7 +12,7 @@ const NEA_FILES = [
   'prisma/data/NEA_ELS_AirConditioner(3-Phase)_2024-06-16_152052.csv',
 ]
 
-const SALES_FILES = ['prisma/data/sales.csv']
+const SALES_FILES = ['prisma/data/sales_big.csv']
 
 const prisma = new PrismaClient()
 
@@ -87,7 +87,6 @@ async function main() {
           model: row['model']?.replace(/^['"]+|['"]+$/g, '').trim(),
           description: row['description']?.replace(/^['"]+|['"]+$/g, '').trim(),
           price: Math.round(parseFloat(row['price'])),
-
         }
         return sale
       })
@@ -98,22 +97,22 @@ async function main() {
   }
 
   // join nea with sale into aircon table
-  const aircons = (
-    await Promise.all(
-      neas.map(async (nea) => {
-        const sale = await prisma.sale.findFirst({
-          where: {
-            model: {
-              contains: nea.model,
-            },
-          },
-        })
-        if (sale == null) {
-          return null
-        }
-        const name = sale.model.split(' ').slice(0, -1).join(' ')
-        const btus = parseBtu(sale.description)
-        return {
+  neas.forEach(async (nea) => {
+    const sales = await prisma.sale.findMany({
+      where: {
+        model: {
+          contains: nea.model,
+        },
+      },
+    })
+    if (sales == null || sales.length === 0) {
+      return
+    }
+    sales.forEach(async (sale) => {
+      const name = sale.model.split(' ').slice(0, -1).join(' ')
+      const btus = parseBtu(sale.description)
+      await prisma.aircon.create({
+        data: {
           name,
           brand: nea.brand,
           model: nea.model,
@@ -129,13 +128,11 @@ async function main() {
               btus,
             },
           },
-        }
-      }),
-    )
-  ).filter((item) => item != null)
-  console.log(`Inserting ${aircons.length} aircons`)
-
-  aircons.forEach(async (item) => await prisma.aircon.create({ data: item }))
+        },
+      })
+    })
+  })
+  console.log(`Inserted ${await prisma.aircon.count()} aircons`)
 }
 
 function parseBtu(s: string) {
@@ -160,7 +157,7 @@ function parseBtu(s: string) {
       }
     }
   }
-  res.sort()
+  res.sort((a, b) => a - b)
   return res
 }
 

@@ -2,7 +2,7 @@
 import { Button, Grid, GridItem, HStack, Select, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
-import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import { getAirconsForProfile } from '../lib/aircon'
 import { useState } from 'react'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
@@ -91,11 +91,11 @@ export default function Page() {
     // Sort results based on sortBy
     const sortedResults = [...results].sort((a, b) => {
       if (sortBy === 'price') {
-        return a.price - b.price
+        return b.price - a.price
       } else if (sortBy === 'lifecycleCost') {
-        return a.lifecycleCost - b.lifecycleCost
+        return b.lifecycleCost - a.lifecycleCost
       } else if (sortBy === 'greenTicks') {
-        return a.greenTicks - b.greenTicks
+        return b.greenTicks - a.greenTicks
       }
       return 0
     })

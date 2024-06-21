@@ -31,7 +31,7 @@ model Aircon {
   id                Int @id @default(autoincrement())
   name              String
   brand             String
-  model             String @unique
+  model             String
   greenTicks        Int
   annualConsumption Int
   price             Int
