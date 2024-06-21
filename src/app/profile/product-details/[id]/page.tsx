@@ -71,14 +71,14 @@ export default function Page({
             color="#253610"
             leftIcon={<RiArrowGoBackLine />}
           >
-            Back to recommendations
+            Back to results
           </Button>
         </Link>
       </GridItem>
       <GridItem area={'personal'}>
         <HStack justifyContent="space-between" mt={10}>
           <EnergyProfileFormWidget isEditable={false} />
-          <Link href="/favourites">
+          <Link href="profile/favourites">
             <Button
               type="submit"
               size="md"

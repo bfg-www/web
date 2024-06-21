@@ -107,14 +107,16 @@ export default function Page() {
           <Text as="b" fontSize="3xl" color="#253610">
             MY FAVOURITES
           </Text>
-          <Button
-            variant="link"
-            color="#253610"
-            leftIcon={<RiArrowGoBackLine />}
-            size="sm"
-          >
-            Back to recommendations
-          </Button>
+          <Link href="/profile">
+            <Button
+              variant="link"
+              color="#253610"
+              leftIcon={<RiArrowGoBackLine />}
+              size="sm"
+            >
+              Back to results
+            </Button>
+          </Link>
         </HStack>
       </GridItem>
       <GridItem area={'personal'}>
@@ -148,7 +150,7 @@ function FavouritesCard({ product }: { product: Aircon }) {
           rightIcon={<IoOpenOutline size="12px" />}
           iconSpacing={1}
         >
-          <Link href={product.brandUrl} fontSize="10px">
+          <Link href={product.brandUrl} fontSize="10px" target="_blank">
             See retailer site for full specs
           </Link>
         </Button>
@@ -215,7 +217,7 @@ function FavouritesCard({ product }: { product: Aircon }) {
               ${product.annualEnergyCost}
             </Text>
           </VStack>
-          <VStack justifyContent="center" spacing={0}>
+          <VStack justifyContent="center" spacing={0} width="100%">
             <Text fontSize="sm" color="#253610" p={0}>
               Lifetime energy cost
             </Text>
@@ -225,6 +227,21 @@ function FavouritesCard({ product }: { product: Aircon }) {
           </VStack>
         </VStack>
       </VStack>
+      <Box alignSelf="flex-end">
+        <Link href={`profile/product-details/${product.id}`}>
+          <Button
+            backgroundColor="#F0F1E7"
+            color="#253610"
+            borderRadius="16px"
+            mr={2}
+            boxShadow="base"
+            size="sm"
+            iconSpacing={1}
+          >
+            Go to details
+          </Button>
+        </Link>
+      </Box>
     </VStack>
   )
 }
