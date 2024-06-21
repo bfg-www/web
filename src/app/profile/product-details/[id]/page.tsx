@@ -1,14 +1,16 @@
 'use client'
 
 import EnergyProfileFormWidget from "@/app/ui/profile/EnergyProfileFormWidget";
-import { Button, Grid, GridItem, HStack, Link } from "@chakra-ui/react";
+import { Button, Flex, Grid, GridItem, HStack, Link } from "@chakra-ui/react";
 import { FaRegHeart, } from "react-icons/fa";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import { IoOpenOutline } from "react-icons/io5";
 import { TbWorldWww } from "react-icons/tb";
+import HeartIcon from "@/app/ui/product-details/FavouriteIcon";
 
 
 // TOOD: Wire up site redirection to retailer site, product.airconDetail.url?
+// TODO: Wire up favourites action to favourites list
 
 export default function Page() {
     return (
@@ -45,7 +47,11 @@ export default function Page() {
           <Button variant="link" color="#253610" rightIcon={<IoOpenOutline/>} ><a href="https://www.harveynorman.com.sg/">See retailer site for full specs</a></Button>
         </HStack>
       </GridItem>
-      <GridItem bg="pink.300" area={'non-energy-info'}>
+      <GridItem bg="pink.300" area={'non-energy-info'} p={3}>
+        <Flex justifyContent="flex-end" mt={5} borderWidth="1px">
+          <HeartIcon/>
+        </Flex>
+        <HStack borderWidth="1px"></HStack>
       </GridItem>
       <GridItem bg="blue.300" area={'energy-info'}>
       </GridItem>
@@ -53,6 +59,3 @@ export default function Page() {
   )
 
 }
-
-
-{/* */}
