@@ -18,22 +18,20 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import Link from 'next/link'
-import { FormValues } from '../ui/profiling/EnergyProfileForm'
+import { ProfileFormValues } from '../models/clientModels'
+import { FaRegHeart } from 'react-icons/fa'
+import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import Image from 'next/image'
 import { useState } from 'react'
+import { Aircon, RoomType } from '../models/clientModels'
+import { IoIosRefresh } from 'react-icons/io'
+import { LuDollarSign } from 'react-icons/lu'
+import { PiMoneyWavyFill } from 'react-icons/pi'
+import { TbChecks, TbAirConditioning } from 'react-icons/tb'
 import {
   HOUSEHOLD_TYPE_OPTIONS,
   INSTALLATION_LOCATION_OPTIONS,
 } from '../ui/models/profile-options'
-import { IoIosRefresh } from 'react-icons/io'
-import { FaRegHeart } from 'react-icons/fa'
-import { TbAirConditioning, TbChecks, TbFaceIdError } from 'react-icons/tb'
-import { PiMoneyWavyFill } from 'react-icons/pi'
-import { LuDollarSign } from 'react-icons/lu'
-import { FaEarthAsia } from 'react-icons/fa6'
-import { LiaQuestionCircle } from 'react-icons/lia'
-import { GiCheckMark } from 'react-icons/gi'
-import climateVoucherLogo from '/public/climate-voucher-logo.png'
-import Image from 'next/image'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -43,55 +41,6 @@ const USER_ENERGY_PROFILE = {
   installationLocation: 'bedroom',
   usageHours: '8',
 }
-
-const RESULTS: Aircon[] = [
-  {
-    id: '1',
-    brand: 'Mitsubishi',
-    model: 'MSY-GE10VA',
-    name: 'starmex system 4 aircon',
-    greenTicks: 5,
-    annualConsumption: 1000,
-    price: 3000,
-    btu: 9000,
-    lifecycleCost: 5000,
-    lifespanEnergyCost: 2000,
-    annualEnergyCost: 324.1,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.5,
-  },
-  {
-    id: '2',
-    brand: 'Daikin',
-    model: 'FTXJ25P',
-    name: 'inverter system 4 aircon ismile',
-    greenTicks: 4,
-    annualConsumption: 1200,
-    price: 2000,
-    btu: 9500,
-    lifecycleCost: 6000,
-    lifespanEnergyCost: 2200,
-    annualEnergyCost: 350.2,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.2,
-  },
-  {
-    id: '3',
-    brand: 'Panasonic',
-    model: 'CS/CU-Z25VKR',
-    name: 'inverter system 4 aircon coolbreeze',
-    greenTicks: 3,
-    annualConsumption: 1500,
-    price: 1000,
-    btu: 8000,
-    lifecycleCost: 7000,
-    lifespanEnergyCost: 2600,
-    annualEnergyCost: 400.1,
-    annualEnergySavingsAmt: 0,
-    carbonEmissionsReduced: 0.1,
-  },
-]
-
 const INITIAL_FILTERS = {
   greenTicks: 0,
   isClimateVoucherEligibleOnly: false,
@@ -104,22 +53,6 @@ interface Filter {
   isClimateVoucherEligibleOnly: boolean
   maxPrice: string
   brand: string
-}
-
-interface Aircon {
-  id: string
-  brand: string
-  model: string
-  name: string
-  price: number
-  greenTicks: number
-  annualConsumption: number
-  btu: number
-  lifecycleCost: number
-  lifespanEnergyCost: number
-  annualEnergyCost: number
-  annualEnergySavingsAmt: number
-  carbonEmissionsReduced: number
 }
 
 export const ENERGY_RATING_OPTIONS = [
@@ -166,16 +99,22 @@ function generateTickIcons(count: number) {
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
-  const [results, setResults] = useState<Aircon[]>(RESULTS)
+  const [results, setResults] = useState<Aircon[]>([])
 
-  const handleFormWidgetSubmit = (data: FormValues) => {
+  const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')
     console.log('data:', data)
-    /* JX TODO: call getDummyAircon(data)
-       - Await then get form data -> UI transition to data fetching state
-       - Possible for BE to return data fetching state?
-       - If not possible, FE to manually handle it: e..g  setIsResultsFetching(false -> true)
-       */
+    setIsFiltersApplying(true)
+    try {
+      const roomTypeInput = data['installationLocation'] as string
+      // const newResults = await getAirconsForProfile(data)
+      const newResults = await getDummyAircons()
+      setResults(newResults)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsFiltersApplying(false)
+    }
     /* BY TODO: handle data fetching state
         -> skeleton loading, for profile widget & product listings, pass in isLoading prop
         -> data returned 
@@ -247,20 +186,6 @@ export default function Page() {
       </GridItem>
       <GridItem bg="white" borderRadius="10px" area={'filter'}>
         <FilterPanel results={results} onSubmit={handleApplyFilters} />
-      </GridItem>
-      <GridItem borderRadius="10px" area={'results'}>
-        {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}
-        {isResultsFetching && <SkeletonPlaceholder />}
-        {!isResultsFetching && results.length === 0 && <NotFound />}
-        {!isResultsFetching &&
-          results.length !== 0 &&
-          results.map((result, index) => (
-            <ProductCard
-              key={index}
-              product={result}
-              showTopChoiceTag={index === 0}
-            />
-          ))}
       </GridItem>
     </Grid>
   )
@@ -615,7 +540,7 @@ function FilterPanel({
 function EnergyProfileFormWidget({
   onSubmit,
 }: {
-  onSubmit: (data: FormValues) => void
+  onSubmit: (data: ProfileFormValues) => void
 }) {
   // TODO: Get data from localStorage or context
   const [householdType, setHouseholdType] = useState<string>(
