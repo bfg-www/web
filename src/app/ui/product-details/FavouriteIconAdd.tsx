@@ -1,8 +1,12 @@
+'use client'
+
+import { AirconWithDetail } from '@/app/models/clientModels'
 import { Box, useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { RiHeartAdd2Fill } from 'react-icons/ri'
+import { updateFavouritesInLocalStorage } from '../helpers'
 
-export const HeartIconAdd = () => {
+export const HeartIconAdd = ({ product }: { product: AirconWithDetail }) => {
   const toast = useToast()
   const [liked, setLiked] = useState(false)
 
@@ -10,6 +14,7 @@ export const HeartIconAdd = () => {
 
   const handleClick = () => {
     setLiked(!liked)
+    updateFavouritesInLocalStorage(product)
     toast({
       title: message,
       status: 'success',

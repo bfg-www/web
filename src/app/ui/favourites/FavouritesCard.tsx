@@ -4,10 +4,14 @@ import { IoOpenOutline } from 'react-icons/io5'
 import Image from 'next/image'
 import { generateTickIcons } from '../profile/ProductCard'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
-import { Aircon } from '@/app/models/clientModels'
 import CustomTooltip from '../profile/CustomTooltip'
+import { AirconWithDetail } from '@/app/models/clientModels'
 
-export default function FavouritesCard({ product }: { product: Aircon }) {
+export default function FavouritesCard({
+  product,
+}: {
+  product: AirconWithDetail
+}) {
   const isClimateVoucherEligible = product.greenTicks === 5
   return (
     <VStack
@@ -18,7 +22,7 @@ export default function FavouritesCard({ product }: { product: Aircon }) {
       boxShadow="base"
     >
       <HStack justifyContent="space-between" width="100%" px={5} py={2}>
-        <HeartIconRemove />
+        <HeartIconRemove product={product} />
         <Button
           variant="link"
           rightIcon={<IoOpenOutline size="12px" />}
