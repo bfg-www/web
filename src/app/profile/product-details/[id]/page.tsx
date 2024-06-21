@@ -15,12 +15,11 @@ import { FaRegHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
-import { AirconWithDetail } from '@/app/models/clientModels'
+import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
-import { capitalizeFirstLetter } from '@/app/ui/helpers'
 import Link from 'next/link'
 
 // JX TODO: I'm not sure how to use the BTUs list to render the Air-con cooling capacity section and the system section. I'll put a placeholder for you.
