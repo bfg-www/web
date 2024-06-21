@@ -160,6 +160,7 @@ function parseBtu(s: string) {
       }
     }
   }
+  res.sort()
   return res
 }
 

@@ -20,7 +20,7 @@ import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import { TbWorldWww } from 'react-icons/tb'
 import HeartIcon from '@/app/ui/product-details/FavouriteIcon'
-import { AirconWithDetail } from '@/app/models/clientModels'
+import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
@@ -45,10 +45,30 @@ const AIRCON_WITH_DETAIL: AirconWithDetail = {
   annualEnergySavings: 0,
   carbonEmissionsReduced: 0.5,
   airconDetail: {
-    id: 1,
-    airconId: 1,
     url: 'https://www.harveynorman.com.sg/',
     btus: [],
+    systems: [
+      {
+        units: [
+          {
+            roomType: RoomType.bedroom,
+            amount: 1,
+          },
+          {
+            roomType: RoomType.living_room,
+            amount: 1,
+          },
+        ]
+      },
+      {
+        units: [
+          {
+            roomType: RoomType.bedroom,
+            amount: 2,
+          },
+        ]
+      },
+    ]
   },
 }
 
