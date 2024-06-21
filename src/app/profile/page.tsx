@@ -11,6 +11,7 @@ import EnergyProfileFormWidget from '../ui/profile/EnergyProfileFormWidget'
 import FilterPanel, { Filter } from '../ui/profile/FilterPanel'
 import SkeletonPlaceholder from '../ui/profile/SkeletonPlaceholder'
 import ResultsNotFound from '../ui/profile/ResultsNotFound'
+import SortByDropdown from '../ui/profile/SortByDropdown'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -32,7 +33,9 @@ export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
   const [isSortApplying, setIsSortApplying] = useState<boolean>(false)
-  const [results, setResults] = useState<Aircon[]>([])
+  const [results, setResults] = useState<Aircon[]>(
+    JSON.parse(localStorage.getItem('airconResults') || '[]'),
+  )
   const [sortOrder, setSortOrder] = useState<string>('')
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
@@ -145,27 +148,7 @@ export default function Page() {
         <HStack width="100%" justifyContent="space-between" mb={3}>
           {!isResultsFetching && <Text mb={1}>{results.length} results</Text>}
           {!isResultsFetching && (
-            <Select
-              w="230px"
-              placeholder="Sort by"
-              value={sortOrder}
-              bg="#F0F1E7"
-              color="#4F772D"
-              borderRadius="20px"
-              focusBorderColor="#4F772D"
-              variant="flushed"
-              boxShadow="base"
-              sx={{ textAlign: 'center' }}
-              onChange={(e) => {
-                handleSort(e.target.value)
-              }}
-            >
-              {SORTING_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </Select>
+            <SortByDropdown sortBy={sortOrder} onChange={handleSort} />
           )}
         </HStack>
         {isResultsFetching ||
