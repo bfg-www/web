@@ -21,6 +21,7 @@ import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Link from 'next/link'
+import { capitalizeFirstLetter } from '@/app/ui/helpers'
 
 export const AIRCON_WITH_DETAIL: AirconWithDetail = {
   id: 1,
