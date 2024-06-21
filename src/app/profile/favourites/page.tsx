@@ -75,24 +75,6 @@ const dummyFavourites = [
   },
 ]
 
-const dummyFavourite = {
-  annualConsumption: 500,
-  annualEnergyCost: 1000,
-  annualEnergySavings: 1000,
-  brand: 'LG',
-  brandLogo: '/brands/lg.svg',
-  brandUrl: 'https://www.lg.com/sg/',
-  carbonEmissionsReduced: 1000,
-  greenTicks: 5,
-  id: 3,
-  image: '/aircon/stock.png',
-  lifecycleCost: 1000,
-  lifespanEnergyCost: 1000,
-  model: 'Inverter V',
-  name: 'LG Inverter V',
-  price: 500,
-}
-
 export default function Page() {
   return (
     <Grid

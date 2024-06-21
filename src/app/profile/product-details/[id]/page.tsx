@@ -23,7 +23,7 @@ import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
 import Link from 'next/link'
 import { getAirconDetail } from '@/app/lib/aircon'
-import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export const AIRCON_WITH_DETAIL: AirconWithDetail = {

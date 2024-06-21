@@ -2,7 +2,7 @@
 import { Button, Grid, GridItem, HStack, Select, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
-import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import { getAirconsForProfile } from '../lib/aircon'
 import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
@@ -40,8 +40,8 @@ export default function Page() {
     console.log('data:', data)
     setIsResultsFetching(true)
     try {
-      // const newResults = await getAirconsForProfile(data)
-      const newResults = await getDummyAircons()
+      const newResults = await getAirconsForProfile(data)
+      // const newResults = await getDummyAircons()
       console.log('newResults from BE:', newResults)
       setResults(newResults)
     } catch (error) {

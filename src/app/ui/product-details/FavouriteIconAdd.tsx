@@ -1,4 +1,4 @@
-import { Box, useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { RiHeartAdd2Fill } from 'react-icons/ri'
 
