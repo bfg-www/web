@@ -19,7 +19,6 @@ export default function EducationTidbit() {
     return Math.floor(Math.random() * items.length)
   }
   const selectedIndex = getRandomIndexFromCollection(EDUCATIONAL_TIPS)
-  console.log('selectedIndex:', selectedIndex)
 
   return (
     <VStack width="50%" alignItems="center">

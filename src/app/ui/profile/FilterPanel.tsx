@@ -47,18 +47,14 @@ export default function FilterPanel({
   onSubmit: (data: Filter) => void
   isUpdating: boolean
 }) {
-  console.log('FilterPanel renders')
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS)
 
   const handleParamChange = (
     param: keyof Filter,
     value: string | number | boolean,
   ) => {
-    console.log('value:', value)
     setFilters({ ...filters, [param]: value })
   }
-
-  console.log('filters state:', filters)
 
   const handleReset = () => {
     setFilters(INITIAL_FILTERS)

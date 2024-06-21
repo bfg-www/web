@@ -12,6 +12,7 @@ import FilterPanel, { Filter } from '../ui/profile/FilterPanel'
 import SkeletonPlaceholder from '../ui/profile/SkeletonPlaceholder'
 import ResultsNotFound from '../ui/profile/ResultsNotFound'
 import SortByDropdown from '../ui/profile/SortByDropdown'
+import { updateAirconResultsInLocalStorage } from '../ui/helpers'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
@@ -37,16 +38,15 @@ export default function Page() {
     JSON.parse(localStorage.getItem('airconResults') || '[]'),
   )
   const [sortOrder, setSortOrder] = useState<string>('')
+  const fullResults = JSON.parse(localStorage.getItem('airconResults') || '[]')
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
-    console.log('handleFormWidgetSubmit called')
-    console.log('data:', data)
     setIsResultsFetching(true)
     try {
       // const newResults = await getAirconsForProfile(data)
       const newResults = await getDummyAircons()
-      console.log('newResults from BE:', newResults)
       setResults(newResults)
+      updateAirconResultsInLocalStorage(newResults)
     } catch (error) {
       console.error(error)
     } finally {
@@ -56,12 +56,13 @@ export default function Page() {
   }
 
   const handleApplyFilters = (filters: Filter) => {
-    console.log('handleApplyFilters called')
-    console.log('filters:', filters)
     setIsFiltersApplying(true)
     // simulate filtering UX
     setTimeout(() => {
-      const filteredResults = results.filter((result) => {
+      const fullResults = JSON.parse(
+        localStorage.getItem('airconResults') || '[]',
+      )
+      const filteredResults = fullResults.filter((result: Aircon) => {
         const matchesGreenTicks =
           filters.greenTicks === 0 || result.greenTicks === filters.greenTicks
         const matchesMaxPrice =
@@ -79,14 +80,12 @@ export default function Page() {
           matchesClimateVoucherEligibility
         )
       })
-      console.log('filteredResults:', filteredResults)
       setResults(filteredResults)
       setIsFiltersApplying(false)
     }, 1500)
   }
 
   const handleSort = (sortBy: string) => {
-    console.log('handleSort called')
     setSortOrder(sortBy)
     setIsSortApplying(true)
     // Sort results based on sortBy
@@ -151,9 +150,9 @@ export default function Page() {
             <SortByDropdown sortBy={sortOrder} onChange={handleSort} />
           )}
         </HStack>
-        {isResultsFetching ||
-          isFiltersApplying ||
-          (isSortApplying && <SkeletonPlaceholder />)}
+        {(isResultsFetching || isFiltersApplying || isSortApplying) && (
+          <SkeletonPlaceholder />
+        )}
         {!isResultsFetching && results.length === 0 && <ResultsNotFound />}
         {!isResultsFetching &&
           results.length !== 0 &&

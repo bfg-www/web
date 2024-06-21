@@ -27,10 +27,6 @@ export default function Page() {
       // ************* TODO: PASS aircons TO PROFILE ************* //
       //const results = await getAirconsForProfile(data)
       const results = await getDummyAircons()
-      console.log('handleSubmit called')
-      console.log('data:', data)
-      console.log('set state transitions')
-
       setIsFormSubmitted(true)
       setIsMockLoading(true)
       setMockProgressStat(0)
