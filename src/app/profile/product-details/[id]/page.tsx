@@ -181,7 +181,7 @@ export default function Page({
               p={3}
               mt={5}
             >
-              <VStack alignItems="flex-start">
+              <VStack alignItems="flex-start" width="500px">
                 <Flex>
                   <Text as="b" fontSize="lg" color="#F0F1E7">
                     Air-con cooling capacity
@@ -195,7 +195,7 @@ export default function Page({
                   {Object.entries(btuFrequencies).map(
                     ([btu, frequency], index) => (
                       <Text key={index}>
-                        {frequency} x {btu} <strong>BTU</strong>
+                        {frequency} x <strong>{btu}</strong> BTU
                       </Text>
                     ),
                   )}{' '}
@@ -206,28 +206,30 @@ export default function Page({
                 borderWidth="80%"
                 borderColor="#F0F1E7"
                 alignItems="flex-start"
+                width="100%"
+                pt={2}
               >
                 <Text color="#F0F1E7" as="b" fontSize="md">
                   This system-{product.airconDetail.btus.length} unit consists
                   of:
                 </Text>
-                <Text color="#F0F1E7">
-                  {product.airconDetail.systems.map((system, index) => (
-                    <HStack key={index}>
-                      <VStack>
-                        {system.units.map((unit) => (
-                          <Text key={unit.roomType}>
-                            {unit.amount} {capitalizeFirstLetter(unit.roomType)}
-                          </Text>
-                        ))}
-                      </VStack>
-
-                      {index < product.airconDetail.systems.length - 1 ? (
-                        <Text>OR</Text>
-                      ) : null}
+                {product.airconDetail.systems.map((system, index) => (
+                  <HStack width="100%" key={index}>
+                    <HStack>
+                      {system.units.map((unit) => (
+                        <Text color="#F0F1E7" key={unit.roomType}>
+                          {unit.amount}{' '}
+                          <strong>
+                            {capitalizeFirstLetter(unit.roomType)}
+                          </strong>
+                        </Text>
+                      ))}
                     </HStack>
-                  ))}
-                </Text>
+                    {index < product.airconDetail.systems.length - 1 ? (
+                      <Text color="#F0F1E7">OR</Text>
+                    ) : null}
+                  </HStack>
+                ))}
               </VStack>
             </VStack>
           </VStack>
