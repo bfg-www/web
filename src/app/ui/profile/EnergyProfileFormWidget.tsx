@@ -118,8 +118,8 @@ export default function EnergyProfileFormWidget({
           </FormControl>
           <FormControl display="inline-block" w="auto">
             <HStack>
-              <NumberInput
-              disabled={!isEditable}
+              <NumberInput 
+                isDisabled={!isEditable}
                 min={1}
                 max={24}
                 value={usageHours}
