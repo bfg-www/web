@@ -121,7 +121,7 @@ export default function Page() {
       {product && (
         <Grid
           templateAreas={`"redirect-back" "personal" "redirect-out" "non-energy-info" "energy-info"`}
-          gridTemplateRows={'10px 100px 50px 1fr 2fr'}
+          gridTemplateRows={'10px 100px 50px 1fr 1fr'}
           minHeight="100vh"
           minWidth="100vh"
         >
@@ -173,7 +173,8 @@ export default function Page() {
             bg="white"
             area={'non-energy-info'}
             px={4}
-            py={2}
+            pt={2}
+            pb={6}
           >
             <Flex justifyContent="flex-end">
               <CustomTooltip
@@ -183,7 +184,7 @@ export default function Page() {
               />
             </Flex>
             <Flex justifyContent="flex-end" mt={3} pr={3}>
-              <HeartIconAdd />
+              <HeartIconAdd product={product} />
             </Flex>
             <HStack spacing={10}>
               <Image
@@ -289,7 +290,7 @@ export default function Page() {
                 width="100%"
                 height="auto"
                 px={5}
-                mt={12}
+                mt={6}
                 rowGap={0}
                 bg="white"
                 borderTopRightRadius="15px"
