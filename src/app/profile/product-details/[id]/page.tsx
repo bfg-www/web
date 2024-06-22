@@ -23,53 +23,53 @@ import Image from 'next/image'
 import climateVoucherLogo from '/public/climate-voucher-logo.png'
 import Link from 'next/link'
 import { capitalizeFirstLetter } from '@/app/ui/helpers'
-import { getAirconDetail } from '@/app/lib/aircon'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { getAirconDetail } from '@/app/lib/aircon'
 
-export const AIRCON_WITH_DETAIL: AirconWithDetail = {
-  id: 1,
-  name: 'Starmex system 4 aircon',
-  brand: 'Mitsubishi',
-  model: 'MSY-GE10VA',
-  greenTicks: 5,
-  annualConsumption: 1000,
-  price: 3000,
-  image: '/aircon/stock.png',
-  brandLogo: '/brands/lg.svg',
-  brandUrl: 'https://www.lg.com/sg/',
-  lifecycleCost: 5000,
-  lifespanEnergyCost: 2000,
-  annualEnergyCost: 324.1,
-  annualEnergySavings: 0,
-  carbonEmissionsReduced: 0.5,
-  airconDetail: {
-    url: 'https://www.harveynorman.com.sg/',
-    btus: [9000, 9000, 12000, 24000],
-    systems: [
-      {
-        units: [
-          {
-            roomType: RoomType.bedroom,
-            amount: 1,
-          },
-          {
-            roomType: RoomType.living_room,
-            amount: 1,
-          },
-        ],
-      },
-      {
-        units: [
-          {
-            roomType: RoomType.bedroom,
-            amount: 2,
-          },
-        ],
-      },
-    ],
-  },
-}
+// export const AIRCON_WITH_DETAIL: AirconWithDetail = {
+//   id: 1,
+//   name: 'Starmex system 4 aircon',
+//   brand: 'Mitsubishi',
+//   model: 'MSY-GE10VA',
+//   greenTicks: 5,
+//   annualConsumption: 1000,
+//   price: 3000,
+//   image: '/aircon/stock.png',
+//   brandLogo: '/brands/lg.svg',
+//   brandUrl: 'https://www.lg.com/sg/',
+//   lifecycleCost: 5000,
+//   lifespanEnergyCost: 2000,
+//   annualEnergyCost: 324.1,
+//   annualEnergySavings: 0,
+//   carbonEmissionsReduced: 0.5,
+//   airconDetail: {
+//     url: 'https://www.harveynorman.com.sg/',
+//     btus: [9000, 9000, 12000, 24000],
+//     systems: [
+//       {
+//         units: [
+//           {
+//             roomType: RoomType.bedroom,
+//             amount: 1,
+//           },
+//           {
+//             roomType: RoomType.living_room,
+//             amount: 1,
+//           },
+//         ],
+//       },
+//       {
+//         units: [
+//           {
+//             roomType: RoomType.bedroom,
+//             amount: 2,
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// }
 
 // TOOD: Wire up site redirection to retailer site, product.airconDetail.url?
 // TODO: Wire up favourites action to favourites list
@@ -78,34 +78,34 @@ export default function Page() {
   const params = useParams()
   const id = Number(params.id)
   const router = useRouter()
-  const [product, setProduct] = useState<AirconWithDetail>(AIRCON_WITH_DETAIL)
+  const [product, setProduct] = useState<AirconWithDetail>()
   const [isClimateVoucherEligible, setIsClimateVoucherEligible] =
     useState(false)
   const [btuFrequencies, setBtuFrequencies] = useState<Record<number, number>>(
     {},
   )
 
-  // useEffect(() => {
-  //   async function fetchProduct() {
-  //     if (id == null) {
-  //       router.push('/profile')
-  //     }
-  //     try {
-  //       // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
-  //       const res = await getAirconDetail(id, 1, RoomType.bedroom)
-  //       setProduct(res)
-  //       setIsClimateVoucherEligible(res.greenTicks === 5)
-  //       const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
-  //         acc[btu] = acc[btu] ? acc[btu] + 1 : 1
-  //         return acc
-  //       }, {} as Record<number, number>)
-  //       setBtuFrequencies(btuFrequencies)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   fetchProduct()
-  // }, [router, id])
+  useEffect(() => {
+    async function fetchProduct() {
+      if (id == null) {
+        router.push('/profile')
+      }
+      try {
+        // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
+        const res = await getAirconDetail(id, 1, RoomType.bedroom)
+        setProduct(res)
+        setIsClimateVoucherEligible(res.greenTicks === 5)
+        const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
+          acc[btu] = acc[btu] ? acc[btu] + 1 : 1
+          return acc
+        }, {} as Record<number, number>)
+        setBtuFrequencies(btuFrequencies)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchProduct()
+  }, [router, id])
 
   return (
     <>

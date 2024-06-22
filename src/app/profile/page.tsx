@@ -1,10 +1,10 @@
 'use client'
-import { Button, Grid, GridItem, HStack, Select, Text } from '@chakra-ui/react'
+import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
 import { getAirconsForProfile } from '../lib/aircon'
 import { useState } from 'react'
-import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
 import { Aircon } from '@/app/models/clientModels'
 import EnergyProfileFormWidget from '../ui/profile/EnergyProfileFormWidget'
@@ -38,13 +38,12 @@ export default function Page() {
     JSON.parse(localStorage.getItem('airconResults') || '[]'),
   )
   const [sortOrder, setSortOrder] = useState<string>('')
-  const fullResults = JSON.parse(localStorage.getItem('airconResults') || '[]')
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     setIsResultsFetching(true)
     try {
-      // const newResults = await getAirconsForProfile(data)
-      const newResults = await getDummyAircons()
+      const newResults = await getAirconsForProfile(data)
+      // const newResults = await getDummyAircons()
       setResults(newResults)
       updateAirconResultsInLocalStorage(newResults)
     } catch (error) {

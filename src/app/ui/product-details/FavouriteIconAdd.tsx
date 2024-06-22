@@ -1,7 +1,7 @@
 'use client'
 
 import { AirconWithDetail } from '@/app/models/clientModels'
-import { Box, useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { RiHeartAdd2Fill } from 'react-icons/ri'
 import { updateFavouritesInLocalStorage } from '../helpers'

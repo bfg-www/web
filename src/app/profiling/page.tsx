@@ -4,7 +4,7 @@ import { useState } from 'react'
 import EnergyProfileForm from '../ui/profiling/EnergyProfileForm'
 import { ProfileFormValues } from '../models/clientModels'
 import FullscreenSpinner from '../ui/profiling/FullscreenSpinner'
-import { getAirconsForProfile, getDummyAircons } from '../lib/aircon'
+import { getDummyAircons } from '../lib/aircon'
 import {
   updateAirconResultsInLocalStorage,
   updateProfileFormValuesInLocalStorage,
