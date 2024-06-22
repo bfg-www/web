@@ -4,7 +4,7 @@ import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
 import { getAirconsForProfile } from '../lib/aircon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import ProductCard from '../ui/profile/ProductCard'
 import { Aircon } from '@/app/models/clientModels'
@@ -18,30 +18,17 @@ import {
   updateProfileFormValuesInLocalStorage,
 } from '../ui/helpers'
 
-// TODO: Mock user data to be stored in localStorage later
-// user_energy_profile matches form values from profiling page
-// export const USER_ENERGY_PROFILE = {
-//   householdType: 'four_room',
-//   airconCount: '2',
-//   installationLocation: 'bedroom',
-//   usageHours: '8',
-// }
-
-export const SORTING_OPTIONS = [
-  { label: 'Price', value: 'price' },
-  { label: 'Lifecycle cost', value: 'lifecycleCost' },
-  { label: 'Energy tick ratings', value: 'greenTicks' },
-]
-
 // Page component should handle filter state + data fetching state
 export default function Page() {
   const [isResultsFetching, setIsResultsFetching] = useState<boolean>(false)
   const [isFiltersApplying, setIsFiltersApplying] = useState<boolean>(false)
   const [isSortApplying, setIsSortApplying] = useState<boolean>(false)
-  const [results, setResults] = useState<Aircon[]>(
-    JSON.parse(localStorage.getItem('airconResults') || '[]'),
-  )
+  const [results, setResults] = useState<Aircon[]>([])
   const [sortOrder, setSortOrder] = useState<string>('')
+
+  useEffect(() => {
+    setResults(JSON.parse(localStorage.getItem('airconResults') || '[]'))
+  }, [])
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
     console.log('handleFormWidgetSubmit called')

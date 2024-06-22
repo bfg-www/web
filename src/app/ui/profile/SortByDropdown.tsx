@@ -1,5 +1,10 @@
-import { SORTING_OPTIONS } from '@/app/profile/page'
 import { Select } from '@chakra-ui/react'
+
+const SORTING_OPTIONS = [
+  { label: 'Price', value: 'price' },
+  { label: 'Lifecycle cost', value: 'lifecycleCost' },
+  { label: 'Energy tick ratings', value: 'greenTicks' },
+]
 
 export default function SortByDropdown({
   sortBy,

@@ -13,7 +13,7 @@ import EnergyProfileFormWidget from '@/app/ui/profile/EnergyProfileFormWidget'
 
 import FavouritesCard from '@/app/ui/favourites/FavouritesCard'
 import { AirconWithDetail } from '@/app/models/clientModels'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { updateFavouritesInLocalStorage } from '@/app/ui/helpers'
 
 // TODO: replace with real data from local storage
@@ -73,9 +73,11 @@ import { updateFavouritesInLocalStorage } from '@/app/ui/helpers'
 // ]
 
 export default function Page() {
-  const [favourites, setFavourites] = useState<AirconWithDetail[]>(
-    JSON.parse(localStorage.getItem('favourites') || '[]'),
-  )
+  const [favourites, setFavourites] = useState<AirconWithDetail[]>([])
+  
+  useEffect(() => {
+    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+  }, [])
 
   const handleUnfavourite = (product: AirconWithDetail) => {
     updateFavouritesInLocalStorage(product)

@@ -54,12 +54,14 @@ export default function EnergyProfileFormWidget({
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          onSubmit({
-            householdType,
-            airconCount,
-            installationLocation,
-            usageHours,
-          })
+          if (onSubmit) {
+            onSubmit({
+              householdType,
+              airconCount,
+              installationLocation,
+              usageHours,
+            })
+          }
         }}
         id="energy-profile-form-widget"
       >

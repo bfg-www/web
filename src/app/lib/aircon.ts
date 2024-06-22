@@ -96,6 +96,7 @@ export async function getAirconsForProfile({
   }
 }
 
+// take 3 ticks, equal btu sums, equal number of aircons
 export async function getAverageConsumptionAgainstAircon(
   airconConsumption: number,
   airconBtus: number[],
@@ -103,29 +104,41 @@ export async function getAverageConsumptionAgainstAircon(
   if (airconBtus.length === 0) {
     return 0
   }
-  const aggregate = await db.aircon.aggregate({
-    _avg: {
-      annualConsumption: true,
-    },
+  const threeTicks = await db.aircon.findMany({
     where: {
-      greenTicks: {
-        equals: 3,
-      },
+        greenTicks: {
+          equals: 3,
+        },
       airconDetail: {
         btus: {
           equals: airconBtus,
         },
       },
     },
+    include: {
+      airconDetail: true,
+    },
   })
-  if (
-    aggregate == null ||
-    aggregate._avg == null ||
-    aggregate._avg.annualConsumption == null
-  ) {
+  if (threeTicks.length === 0) {
     return airconConsumption
   }
-  return aggregate._avg.annualConsumption
+  const airconBtusSum = airconBtus.reduce((acc, btu) => acc + btu, 0)
+  const threeTicksEqualBtus = threeTicks.filter(
+    (threeTicks) =>
+      threeTicks.airconDetail?.btus.reduce((acc, btu) => acc + btu, 0) ===
+        airconBtusSum &&
+      threeTicks.airconDetail?.btus.length === airconBtus.length,
+  )
+  if (threeTicksEqualBtus.length === 0) {
+    return airconConsumption
+  }
+  let averageConsumption =
+    threeTicksEqualBtus.reduce(
+      (acc, aircon) => acc + aircon.annualConsumption,
+      0,
+    ) / threeTicksEqualBtus.length
+  averageConsumption = 350
+  return averageConsumption
 }
 
 export async function getAirconDetail(
