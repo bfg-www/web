@@ -12,7 +12,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
@@ -148,7 +148,7 @@ export default function Page() {
                   color="#F0F1E7"
                   colorScheme="blackAlpha"
                   borderRadius="15px"
-                  rightIcon={<FaRegHeart />}
+                  rightIcon={<FaHeart />}
                   boxShadow="base"
                 >
                   Favourites
