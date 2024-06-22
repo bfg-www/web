@@ -83,7 +83,7 @@ const favourites = [
 
 export default function Landing() {
   //Write to localStorage
-  localStorage.setItem('profileFormValues', JSON.stringify(userEnergyProfile))
+  localStorage.setItem('userEnergyProfile', JSON.stringify(userEnergyProfile))
   localStorage.setItem('airconResults', JSON.stringify(airconResults))
   localStorage.setItem('favourites', JSON.stringify(favourites))
 

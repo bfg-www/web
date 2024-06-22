@@ -25,19 +25,13 @@ export function getAirconBrands(results: Aircon[]): string[] {
 }
 
 export function updateProfileFormValuesInLocalStorage(
-  newValues: Partial<ProfileFormValues>,
+  newProfile: ProfileFormValues,
 ) {
+  console.log('updateProfileFormValuesInLocalStorage is called')
+  console.log('newProfile:', newProfile)
   if (typeof window !== 'undefined') {
-    // Retrieve current values from localStorage
-    const currentValues = JSON.parse(
-      localStorage.getItem('profileFormValues') || '{}',
-    )
-
-    // Merge current values with new values
-    const updatedValues = { ...currentValues, ...newValues }
-
-    // Save updated values back to localStorage
-    localStorage.setItem('profileFormValues', JSON.stringify(updatedValues))
+    // Save updated results back to localStorage
+    localStorage.setItem('userEnergyProfile', JSON.stringify(newProfile))
   }
 }
 

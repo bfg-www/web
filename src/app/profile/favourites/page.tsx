@@ -109,7 +109,7 @@ export default function Page() {
       </GridItem>
       <GridItem area={'personal'}>
         <HStack>
-          <EnergyProfileFormWidget isEditable={false} />
+          <EnergyProfileFormWidget isEditable={false} onSubmit={() => {}} />
         </HStack>
       </GridItem>
       <GridItem area={'favourites-list'} mt={10}>

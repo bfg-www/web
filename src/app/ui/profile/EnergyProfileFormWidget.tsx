@@ -1,6 +1,5 @@
-import { USER_ENERGY_PROFILE } from '@/app/profile/page'
 import { ProfileFormValues } from '@/app/models/clientModels'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Button,
   FormControl,
@@ -23,23 +22,24 @@ export default function EnergyProfileFormWidget({
   isFetching,
   isEditable,
 }: {
-  onSubmit?: (data: ProfileFormValues) => void
+  onSubmit: (data: ProfileFormValues) => void
   isFetching?: boolean
   isEditable: boolean
 }) {
-  // TODO: Get data from localStorage or context
-  const [householdType, setHouseholdType] = useState<string>(
-    USER_ENERGY_PROFILE.householdType,
-  )
-  const [airconCount, setAirconCount] = useState<string>(
-    USER_ENERGY_PROFILE.airconCount,
-  )
-  const [installationLocation, setInstallationLocation] = useState<string>(
-    USER_ENERGY_PROFILE.installationLocation,
-  )
-  const [usageHours, setUsageHours] = useState<string>(
-    USER_ENERGY_PROFILE.usageHours,
-  )
+  const [householdType, setHouseholdType] = useState<string>('')
+  const [airconCount, setAirconCount] = useState<string>('')
+  const [installationLocation, setInstallationLocation] = useState<string>('')
+  const [usageHours, setUsageHours] = useState<string>('')
+
+  useEffect(() => {
+    const userEnergyProfile = JSON.parse(
+      localStorage.getItem('userEnergyProfile') || '{}',
+    )
+    setHouseholdType(userEnergyProfile.householdType || '')
+    setAirconCount(userEnergyProfile.airconCount || '')
+    setInstallationLocation(userEnergyProfile.installationLocation || '')
+    setUsageHours(userEnergyProfile.usageHours || '')
+  }, []) // Empty dependency array ensures this effect runs once after the initial render
 
   return (
     <VStack

@@ -1,4 +1,5 @@
 'use client'
+
 import { Button, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ProfileFormValues } from '../models/clientModels'
@@ -12,16 +13,19 @@ import FilterPanel, { Filter } from '../ui/profile/FilterPanel'
 import SkeletonPlaceholder from '../ui/profile/SkeletonPlaceholder'
 import ResultsNotFound from '../ui/profile/ResultsNotFound'
 import SortByDropdown from '../ui/profile/SortByDropdown'
-import { updateAirconResultsInLocalStorage } from '../ui/helpers'
+import {
+  updateAirconResultsInLocalStorage,
+  updateProfileFormValuesInLocalStorage,
+} from '../ui/helpers'
 
 // TODO: Mock user data to be stored in localStorage later
 // user_energy_profile matches form values from profiling page
-export const USER_ENERGY_PROFILE = {
-  householdType: 'four_room',
-  airconCount: '2',
-  installationLocation: 'bedroom',
-  usageHours: '8',
-}
+// export const USER_ENERGY_PROFILE = {
+//   householdType: 'four_room',
+//   airconCount: '2',
+//   installationLocation: 'bedroom',
+//   usageHours: '8',
+// }
 
 export const SORTING_OPTIONS = [
   { label: 'Price', value: 'price' },
@@ -40,12 +44,14 @@ export default function Page() {
   const [sortOrder, setSortOrder] = useState<string>('')
 
   const handleFormWidgetSubmit = async (data: ProfileFormValues) => {
+    console.log('handleFormWidgetSubmit called')
     setIsResultsFetching(true)
     try {
       const newResults = await getAirconsForProfile(data)
-      // const newResults = await getDummyAircons()
       setResults(newResults)
       updateAirconResultsInLocalStorage(newResults)
+      updateProfileFormValuesInLocalStorage(data)
+      console.log('is the try catch completed?')
     } catch (error) {
       console.error(error)
     } finally {
