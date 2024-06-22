@@ -51,29 +51,31 @@ export default function Page() {
     setIsFiltersApplying(true)
     // simulate filtering UX
     setTimeout(() => {
-      const fullResults = JSON.parse(
-        localStorage.getItem('airconResults') || '[]',
-      )
-      const filteredResults = fullResults.filter((result: Aircon) => {
-        const matchesGreenTicks =
-          filters.greenTicks === 0 || result.greenTicks === filters.greenTicks
-        const matchesMaxPrice =
-          Number(filters.maxPrice) === 0 ||
-          result.price <= Number(filters.maxPrice)
-        const matchesBrand =
-          filters.brand === '' ||
-          result.brand.toLowerCase() === filters.brand.toLowerCase()
-        const matchesClimateVoucherEligibility =
-          !filters.isClimateVoucherEligibleOnly || result.greenTicks === 5
-        return (
-          matchesGreenTicks &&
-          matchesMaxPrice &&
-          matchesBrand &&
-          matchesClimateVoucherEligibility
+      if (typeof window !== 'undefined') {
+        const fullResults = JSON.parse(
+          localStorage.getItem('airconResults') || '[]',
         )
-      })
-      setResults(filteredResults)
-      setIsFiltersApplying(false)
+        const filteredResults = fullResults.filter((result: Aircon) => {
+          const matchesGreenTicks =
+            filters.greenTicks === 0 || result.greenTicks === filters.greenTicks
+          const matchesMaxPrice =
+            Number(filters.maxPrice) === 0 ||
+            result.price <= Number(filters.maxPrice)
+          const matchesBrand =
+            filters.brand === '' ||
+            result.brand.toLowerCase() === filters.brand.toLowerCase()
+          const matchesClimateVoucherEligibility =
+            !filters.isClimateVoucherEligibleOnly || result.greenTicks === 5
+          return (
+            matchesGreenTicks &&
+            matchesMaxPrice &&
+            matchesBrand &&
+            matchesClimateVoucherEligibility
+          )
+        })
+        setResults(filteredResults)
+        setIsFiltersApplying(false)
+      }
     }, 1500)
   }
 

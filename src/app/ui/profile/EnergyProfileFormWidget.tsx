@@ -32,13 +32,15 @@ export default function EnergyProfileFormWidget({
   const [usageHours, setUsageHours] = useState<string>('')
 
   useEffect(() => {
-    const userEnergyProfile = JSON.parse(
-      localStorage.getItem('userEnergyProfile') || '{}',
-    )
-    setHouseholdType(userEnergyProfile.householdType || '')
-    setAirconCount(userEnergyProfile.airconCount || '')
-    setInstallationLocation(userEnergyProfile.installationLocation || '')
-    setUsageHours(userEnergyProfile.usageHours || '')
+    if (typeof window !== 'undefined') {
+      const userEnergyProfile = JSON.parse(
+        localStorage.getItem('userEnergyProfile') || '{}',
+      )
+      setHouseholdType(userEnergyProfile.householdType || '')
+      setAirconCount(userEnergyProfile.airconCount || '')
+      setInstallationLocation(userEnergyProfile.installationLocation || '')
+      setUsageHours(userEnergyProfile.usageHours || '')
+    }
   }, []) // Empty dependency array ensures this effect runs once after the initial render
 
   return (

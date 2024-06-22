@@ -74,14 +74,18 @@ import { updateFavouritesInLocalStorage } from '@/app/ui/helpers'
 
 export default function Page() {
   const [favourites, setFavourites] = useState<AirconWithDetail[]>([])
-  
+
   useEffect(() => {
-    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+    if (typeof window !== 'undefined') {
+      setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+    }
   }, [])
 
   const handleUnfavourite = (product: AirconWithDetail) => {
     updateFavouritesInLocalStorage(product)
-    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+    if (typeof window !== 'undefined') {
+      setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
+    }
   }
 
   return (
