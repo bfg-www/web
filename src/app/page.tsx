@@ -6,7 +6,6 @@ import EcoCentsLogo from '../../public/EcoCentsLogo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
 import Link from 'next/link'
 import { RoomType } from './models/clientModels'
-import { useEffect } from 'react'
 
 // Initialise local storage
 const userEnergyProfile = {
@@ -18,21 +17,55 @@ const userEnergyProfile = {
 
 const airconResults = [
   {
-    annualConsumption: 500,
-    annualEnergyCost: 1000,
-    annualEnergySavings: 1000,
+    id: 1,
+    name: 'LG Inverter V',
     brand: 'LG',
+    model: 'Inverter V',
+    greenTicks: 5,
+    annualConsumption: 500,
+    price: 500,
+    image: '/aircon/stock.png',
     brandLogo: '/brands/lg.svg',
     brandUrl: 'https://www.lg.com/sg/',
-    carbonEmissionsReduced: 1000,
-    greenTicks: 5,
-    id: 1,
-    image: '/aircon/stock.png',
     lifecycleCost: 1000,
     lifespanEnergyCost: 1000,
-    model: 'Inverter V',
-    name: 'LG Inverter V',
-    price: 500,
+    annualEnergyCost: 1000,
+    annualEnergySavings: 1000,
+    carbonEmissionsReduced: 9,
+  },
+  {
+    id: 2,
+    name: 'Mitsubishi Starmex',
+    brand: 'Mitsubishi',
+    model: 'Starmex',
+    greenTicks: 4,
+    annualConsumption: 600,
+    price: 600,
+    image: '/aircon/stock.png',
+    brandLogo: '/brands/mitsubishi.svg',
+    brandUrl: 'https://sg.mitsubishielectric.com/',
+    lifecycleCost: 900,
+    lifespanEnergyCost: 900,
+    annualEnergyCost: 900,
+    annualEnergySavings: 900,
+    carbonEmissionsReduced: 8,
+  },
+  {
+    id: 3,
+    name: 'Daikin Inverter',
+    brand: 'Daikin',
+    model: 'Inverter',
+    greenTicks: 3,
+    annualConsumption: 700,
+    price: 700,
+    image: '/aircon/stock.png',
+    brandLogo: '/brands/daikin.png',
+    brandUrl: 'https://www.daikin.com.sg/',
+    lifecycleCost: 800,
+    lifespanEnergyCost: 800,
+    annualEnergyCost: 800,
+    annualEnergySavings: 800,
+    carbonEmissionsReduced: 2,
   },
 ]
 
@@ -52,7 +85,7 @@ const favourites = [
     lifespanEnergyCost: 2000,
     annualEnergyCost: 324.1,
     annualEnergySavings: 0,
-    carbonEmissionsReduced: 0.5,
+    carbonEmissionsReduced: 8,
     airconDetail: {
       url: 'https://www.harveynorman.com.sg/',
       btus: [9000, 9000, 12000, 24000],
@@ -84,11 +117,9 @@ const favourites = [
 
 export default function Landing() {
   //Write to localStorage
-  useEffect(() => {
-    localStorage.setItem('profileFormValues', JSON.stringify(userEnergyProfile))
-    localStorage.setItem('airconResults', JSON.stringify(airconResults))
-    localStorage.setItem('favourites', JSON.stringify(favourites))
-  }, [])
+  localStorage.setItem('userEnergyProfile', JSON.stringify(userEnergyProfile))
+  localStorage.setItem('airconResults', JSON.stringify(airconResults))
+  localStorage.setItem('favourites', JSON.stringify(favourites))
 
   return (
     <Grid
