@@ -6,6 +6,7 @@ import EcoCentsLogo from '../../public/EcoCentsLogo'
 import ecocentsHeroImage from '/public/ecocents-hero-image-openAi.png'
 import Link from 'next/link'
 import { RoomType } from './models/clientModels'
+import { useEffect } from 'react'
 
 // Initialise local storage
 const userEnergyProfile = {
@@ -117,9 +118,11 @@ const favourites = [
 
 export default function Landing() {
   //Write to localStorage
-  localStorage.setItem('userEnergyProfile', JSON.stringify(userEnergyProfile))
-  localStorage.setItem('airconResults', JSON.stringify(airconResults))
-  localStorage.setItem('favourites', JSON.stringify(favourites))
+  useEffect(() => {
+    localStorage.setItem('userEnergyProfile', JSON.stringify(userEnergyProfile))
+    localStorage.setItem('airconResults', JSON.stringify(airconResults))
+    localStorage.setItem('favourites', JSON.stringify(favourites))
+  }, [])
 
   return (
     <Grid
