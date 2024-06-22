@@ -80,9 +80,9 @@ export default function FavouritesCard({
           sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}
         >
           <Text fontSize="xs" color="#F0F1E7" as="kbd" ml={2} mr={1}>
-            Reduce your carbon emissions by up to{' '}
-            <strong>{product.carbonEmissionsReduced}%</strong> with this option
-            compared to less efficient models
+            This unit emits{' '}
+            <strong>{product.carbonEmissionsReduced}% less CO2 </strong>{' '}
+            compared to the average 3-tick air-con unit in the market
           </Text>
           <Box alignSelf="flex-start">
             <CustomTooltip content="To be added"></CustomTooltip>
