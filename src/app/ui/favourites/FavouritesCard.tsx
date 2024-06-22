@@ -85,7 +85,7 @@ export default function FavouritesCard({
             compared to the average 3-tick air-con unit in the market
           </Text>
           <Box alignSelf="flex-start">
-            <CustomTooltip content="To be added"></CustomTooltip>
+            <CustomTooltip content="Unit lifecycle emissions are calculated per lifetime of the unit (7 years) and based on factors such as air-con capacity, usage hours and the average amount of CO2 emitted to produce one unit of electricity in Singapore (source: Energy Market Authority)."></CustomTooltip>
           </Box>
         </HStack>
         <VStack spacing={3} mt={3}>
