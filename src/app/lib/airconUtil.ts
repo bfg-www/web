@@ -102,19 +102,19 @@ export function getCalculations(
   annualEnergySavings: number
   carbonEmissionsReduced: number
 } {
-  const annualEnergyCost = calcAnnualEnergyCost(annualConsumption, usageHours)
-  const lifespanEnergyCost = calcLifespanEnergyCost(annualEnergyCost)
-  const lifecycleCost = calcLifecycleCost(lifespanEnergyCost, price)
-  const annualEnergySavings = calcAnnualEnergySavings(
+  const annualEnergyCost = round(calcAnnualEnergyCost(annualConsumption, usageHours))
+  const lifespanEnergyCost = round(calcLifespanEnergyCost(annualEnergyCost))
+  const lifecycleCost = round(calcLifecycleCost(lifespanEnergyCost, price))
+  const annualEnergySavings = round(calcAnnualEnergySavings(
     averageConsumption,
     annualConsumption,
     usageHours,
-  )
-  const carbonEmissionsReduced = calcCarbonEmissionsReduced(
+  ))
+  const carbonEmissionsReduced = round(calcCarbonEmissionsReduced(
     averageConsumption,
     annualConsumption,
     usageHours,
-  )
+  ))
   return {
     lifecycleCost,
     lifespanEnergyCost,
@@ -172,4 +172,8 @@ export function calcCarbonEmissionsReduced(
       averageConsumption) *
     100
   )
+}
+
+function round(value: number) {
+  return Math.round(value * 100) / 100
 }
