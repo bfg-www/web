@@ -28,9 +28,6 @@ export default function Page() {
       setIsMockLoading(true)
       setMockProgressStat(0)
 
-      const results = await getAirconsForProfile(data)
-      // const results = await getDummyAircons()
-
       const interval = setInterval(() => {
         setMockProgressStat((prev) => {
           if (prev >= 99) {
@@ -40,6 +37,9 @@ export default function Page() {
           return prev + 1
         })
       }, 60) // 60ms * 100 = 6000ms (6 sec)
+
+      const results = await getAirconsForProfile(data)
+      // const results = await getDummyAircons()
 
       // Store the profile & results data in localStorage
       updateProfileFormValuesInLocalStorage(data)
