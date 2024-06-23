@@ -14,7 +14,8 @@
     "setup": "run-s --print-label db:setup migrate:dev db:seed",
     "migrate:dev": "prisma migrate dev",
     "migrate": "prisma migrate deploy",
-    "migrate:prod": "dotenv -e .env.production -- prisma migrate deploy"
+    "migrate:prod": "dotenv -e .env.production -- prisma migrate deploy",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

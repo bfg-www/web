@@ -16,7 +16,11 @@ import { FaHeart } from 'react-icons/fa'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { IoOpenOutline } from 'react-icons/io5'
 import HeartIconAdd from '@/app/ui/product-details/FavouriteIconAdd'
-import { AirconWithDetail, RoomType } from '@/app/models/clientModels'
+import {
+  AirconWithDetail,
+  ProfileFormValues,
+  RoomType,
+} from '@/app/models/clientModels'
 import CustomTooltip from '@/app/ui/profile/CustomTooltip'
 import { generateTickIcons } from '@/app/ui/profile/ProductCard'
 import Image from 'next/image'
@@ -91,8 +95,22 @@ export default function Page() {
         router.push('/profile')
       }
       try {
-        // TODO: FETCH USAGE HOURS AND ROOM TYPE FROM PROFILE
-        const res = await getAirconDetail(id, 1, RoomType.bedroom)
+        let profile: ProfileFormValues = {
+          householdType: '1-Room',
+          airconCount: '1',
+          installationLocation: 'Bedroom',
+          usageHours: '8',
+        }
+        if (typeof window !== 'undefined') {
+          profile = JSON.parse(
+            localStorage.getItem('userEnergyProfile') || '{}',
+          )
+        }
+        const res = await getAirconDetail(
+          id,
+          Number(profile.usageHours),
+          RoomType[profile.installationLocation as keyof typeof RoomType],
+        )
         setProduct(res)
         setIsClimateVoucherEligible(res.greenTicks === 5)
         const btuFrequencies = res.airconDetail.btus.reduce((acc, btu) => {
