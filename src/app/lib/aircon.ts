@@ -101,44 +101,49 @@ export async function getAverageConsumptionAgainstAircon(
   airconConsumption: number,
   airconBtus: number[],
 ): Promise<number> {
-  if (airconBtus.length === 0) {
-    return 0
-  }
-  const threeTicks = await db.aircon.findMany({
-    where: {
+  try {
+    if (airconBtus.length === 0) {
+      return 0;
+    }
+    const threeTicks = await db.aircon.findMany({
+      where: {
         greenTicks: {
           equals: 3,
         },
-      airconDetail: {
-        btus: {
-          equals: airconBtus,
+        airconDetail: {
+          btus: {
+            equals: airconBtus,
+          },
         },
       },
-    },
-    include: {
-      airconDetail: true,
-    },
-  })
-  if (threeTicks.length === 0) {
-    return airconConsumption
+      include: {
+        airconDetail: true,
+      },
+    });
+    if (threeTicks.length === 0) {
+      return airconConsumption;
+    }
+    const airconBtusSum = airconBtus.reduce((acc, btu) => acc + btu, 0);
+    const threeTicksEqualBtus = threeTicks.filter(
+      (threeTicks) =>
+        threeTicks.airconDetail?.btus.reduce((acc, btu) => acc + btu, 0) ===
+          airconBtusSum &&
+        threeTicks.airconDetail?.btus.length === airconBtus.length
+    );
+    if (threeTicksEqualBtus.length === 0) {
+      return airconConsumption;
+    }
+    let averageConsumption =
+      threeTicksEqualBtus.reduce(
+        (acc, aircon) => acc + aircon.annualConsumption,
+        0
+      ) / threeTicksEqualBtus.length;
+    averageConsumption = 350;
+    return averageConsumption;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error calculating average consumption against aircon.');
   }
-  const airconBtusSum = airconBtus.reduce((acc, btu) => acc + btu, 0)
-  const threeTicksEqualBtus = threeTicks.filter(
-    (threeTicks) =>
-      threeTicks.airconDetail?.btus.reduce((acc, btu) => acc + btu, 0) ===
-        airconBtusSum &&
-      threeTicks.airconDetail?.btus.length === airconBtus.length,
-  )
-  if (threeTicksEqualBtus.length === 0) {
-    return airconConsumption
-  }
-  let averageConsumption =
-    threeTicksEqualBtus.reduce(
-      (acc, aircon) => acc + aircon.annualConsumption,
-      0,
-    ) / threeTicksEqualBtus.length
-  averageConsumption = 350
-  return averageConsumption
 }
 
 export async function getAirconDetail(
