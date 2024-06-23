@@ -24,12 +24,12 @@ export default function Page() {
 
   const handleFormSubmit = async (data: ProfileFormValues) => {
     try {
-      const results = await getAirconsForProfile(data)
-      console.log(results)
-      // const results = await getDummyAircons()
       setIsFormSubmitted(true)
       setIsMockLoading(true)
       setMockProgressStat(0)
+
+      const results = await getAirconsForProfile(data)
+      // const results = await getDummyAircons()
 
       const interval = setInterval(() => {
         setMockProgressStat((prev) => {
