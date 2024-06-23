@@ -4,7 +4,7 @@ import { useState } from 'react'
 import EnergyProfileForm from '../ui/profiling/EnergyProfileForm'
 import { ProfileFormValues } from '../models/clientModels'
 import FullscreenSpinner from '../ui/profiling/FullscreenSpinner'
-import { getDummyAircons } from '../lib/aircon'
+import { getAirconsForProfile } from '../lib/aircon'
 import {
   updateAirconResultsInLocalStorage,
   updateProfileFormValuesInLocalStorage,
@@ -24,9 +24,9 @@ export default function Page() {
 
   const handleFormSubmit = async (data: ProfileFormValues) => {
     try {
-      // ************* TODO: PASS aircons TO PROFILE ************* //
-      //const results = await getAirconsForProfile(data)
-      const results = await getDummyAircons()
+      const results = await getAirconsForProfile(data)
+      console.log(results)
+      // const results = await getDummyAircons()
       setIsFormSubmitted(true)
       setIsMockLoading(true)
       setMockProgressStat(0)
