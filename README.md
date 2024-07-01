@@ -1,7 +1,9 @@
-![BFG WWW Pitch deck](https://github.com/bfg-www/web/assets/60027105/e54c09b2-4c7e-4131-b3bd-30afbaea685e)
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/ecocents-web)
+
+[![BFG WWW Pitch deck](https://github.com/bfg-www/web/assets/60027105/e54c09b2-4c7e-4131-b3bd-30afbaea685e)](https://ecocents-web.vercel.app/)
 
 # About the Project
-To assist homeowners in selecting the most cost-effective air-conditioners while being environmentally friendly, Ecocents recommends air conditioners based on key purchase considerations shared by our target user group: striking an optimal balance between cost effectiveness and wanting to do their part for sustainable living. The website simplifies the decision-making process for users by honing down to key factors, such as household size, usage frequency, installation location, and budget. It also educates users about "energy efficiency" - what would otherwise be a rather abstract concept - in a meaningful, personal way during the selection process
+To assist homeowners in selecting the most cost-effective air-conditioners while being environmentally friendly, Ecocents recommends air conditioners based on key purchase considerations shared by our target user group: striking an optimal balance between cost effectiveness and wanting to do their part for sustainable living. The website simplifies the decision-making process for users by honing down to key factors, such as household size, usage frequency, installation location, and budget. It also educates users about "energy efficiency" - what would otherwise be a rather abstract concept - in a meaningful, personal way during the selection process.
 
 ## Background
 To understand the challenges homeowners face in choosing energy-efficient appliances, we conducted a survey and in-depth interviews with friends, family, and colleagues. The primary painpoints identified were a difficulty in making sense of complex technical information as well as making accurate evaluations based on personal household needs. As air-conditioners make up the largest share of household energy consumption (NEA Household Energy Consumption Study, 2017), our MVP will focus on air-conditioners as a start.
